@@ -4,710 +4,813 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>词汇星球 - 每日英语学习</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --primary-light: #a5b4fc;
-            --secondary: #f59e0b;
-            --success: #10b981;
-            --danger: #ef4444;
-            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --card-bg: rgba(255, 255, 255, 0.95);
-            --text-primary: #1e293b;
-            --text-secondary: #64748b;
-            --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
-            --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
-            --radius: 16px;
-            --radius-sm: 10px;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Noto Sans SC', 'Nunito', sans-serif;
-            background: var(--bg-gradient);
-            min-height: 100vh;
-            color: var(--text-primary);
-            overflow-x: hidden;
-        }
-        .bg-decoration { position: fixed; top: 0; left: 0; right: 0; bottom: 0; overflow: hidden; pointer-events: none; z-index: 0; }
-        .bg-circle { position: absolute; border-radius: 50%; background: rgba(255, 255, 255, 0.1); animation: float 20s ease-in-out infinite; }
-        .bg-circle:nth-child(1) { width: 300px; height: 300px; top: -100px; right: -50px; }
-        .bg-circle:nth-child(2) { width: 200px; height: 200px; bottom: 10%; left: -50px; animation-delay: -5s; }
-        .bg-circle:nth-child(3) { width: 150px; height: 150px; top: 40%; right: 10%; animation-delay: -10s; }
-        @keyframes float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-20px) rotate(5deg); } }
-
-        /* 登录页面 */
-        .login-container {
-            position: relative; z-index: 1; max-width: 400px; margin: 0 auto; padding: 20px;
-            min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
-        }
-        .login-card {
-            background: var(--card-bg); border-radius: var(--radius); padding: 40px 30px;
-            box-shadow: var(--shadow-medium); text-align: center;
-        }
-        .login-logo { font-size: 4rem; margin-bottom: 15px; }
-        .login-title { font-size: 1.8rem; font-weight: 700; margin-bottom: 8px; }
-        .login-subtitle { color: var(--text-secondary); margin-bottom: 30px; font-size: 0.95rem; }
-        .login-input {
-            width: 100%; padding: 14px 18px; border: 2px solid #e2e8f0; border-radius: var(--radius-sm);
-            font-size: 1rem; margin-bottom: 15px; transition: border-color 0.3s;
-        }
-        .login-input:focus { outline: none; border-color: var(--primary); }
-        .login-btn {
-            width: 100%; padding: 14px; background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white; border: none; border-radius: var(--radius-sm); font-size: 1rem;
-            font-weight: 600; cursor: pointer; transition: all 0.3s; margin-bottom: 15px;
-        }
-        .login-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4); }
-        .login-divider { display: flex; align-items: center; margin: 20px 0; color: var(--text-secondary); font-size: 0.85rem; }
-        .login-divider::before, .login-divider::after { content: ''; flex: 1; height: 1px; background: #e2e8f0; }
-        .login-divider span { padding: 0 15px; }
-        .user-list { max-height: 200px; overflow-y: auto; margin-bottom: 15px; }
-        .user-item {
-            display: flex; align-items: center; justify-content: space-between; padding: 12px 15px;
-            background: #f8fafc; border-radius: var(--radius-sm); margin-bottom: 8px;
-            cursor: pointer; transition: all 0.3s;
-        }
-        .user-item:hover { background: #eef2ff; transform: translateX(5px); }
-        .user-info { display: flex; align-items: center; gap: 12px; }
-        .user-avatar {
-            width: 40px; height: 40px; background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            color: white; font-weight: 700; font-size: 1.1rem;
-        }
-        .user-name { font-weight: 600; }
-        .user-progress { font-size: 0.8rem; color: var(--text-secondary); }
-        .user-delete { width: 30px; height: 30px; background: transparent; border: none; color: var(--danger); font-size: 1.2rem; cursor: pointer; opacity: 0.5; transition: opacity 0.3s; }
-        .user-delete:hover { opacity: 1; }
-        .no-users { color: var(--text-secondary); font-size: 0.9rem; padding: 20px; }
-
-        /* 主容器 */
-        .app-container { position: relative; z-index: 1; max-width: 480px; margin: 0 auto; padding: 20px; min-height: 100vh; display: none; }
-        .app-container.active { display: block; }
-        .header { display: flex; justify-content: space-between; align-items: center; padding: 10px 0 20px; }
-        .logo { display: flex; align-items: center; gap: 10px; }
-        .logo-icon { width: 44px; height: 44px; background: white; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; box-shadow: var(--shadow-soft); }
-        .logo-text { color: white; font-weight: 700; font-size: 1.3rem; }
-        .header-right { display: flex; align-items: center; gap: 10px; }
-        .user-badge { display: flex; align-items: center; gap: 8px; background: rgba(255, 255, 255, 0.2); padding: 6px 12px 6px 6px; border-radius: 25px; color: white; font-size: 0.9rem; cursor: pointer; transition: all 0.3s; backdrop-filter: blur(10px); }
-        .user-badge:hover { background: rgba(255, 255, 255, 0.3); }
-        .user-badge .mini-avatar { width: 28px; height: 28px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary); font-weight: 700; font-size: 0.85rem; }
-        .settings-btn { width: 44px; height: 44px; background: rgba(255, 255, 255, 0.2); border: none; border-radius: 12px; color: white; font-size: 20px; cursor: pointer; transition: all 0.3s; backdrop-filter: blur(10px); }
-        .settings-btn:hover { background: rgba(255, 255, 255, 0.3); transform: rotate(45deg); }
-
-        /* 统计卡片 */
-        .stats-card { background: var(--card-bg); border-radius: var(--radius); padding: 20px; margin-bottom: 20px; box-shadow: var(--shadow-medium); }
-        .stats-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-        .stats-title { font-size: 0.9rem; color: var(--text-secondary); }
-        .streak-badge { background: linear-gradient(135deg, #f59e0b, #f97316); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 4px; }
-        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-        .stat-item { text-align: center; }
-        .stat-value { font-size: 1.8rem; font-weight: 800; color: var(--primary); font-family: 'Nunito', sans-serif; }
-        .stat-label { font-size: 0.8rem; color: var(--text-secondary); margin-top: 2px; }
-        .progress-section { margin-top: 15px; padding-top: 15px; border-top: 1px solid #e2e8f0; }
-        .progress-header { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.85rem; }
-        .progress-bar { height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden; }
-        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--primary-light)); border-radius: 4px; transition: width 0.5s ease; }
-
-        /* 导航标签 */
-        .nav-tabs { display: flex; gap: 8px; margin-bottom: 20px; overflow-x: auto; padding-bottom: 5px; -webkit-overflow-scrolling: touch; }
-        .nav-tabs::-webkit-scrollbar { display: none; }
-        .nav-tab { flex-shrink: 0; padding: 10px 18px; background: rgba(255, 255, 255, 0.2); border: none; border-radius: 25px; color: white; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all 0.3s; backdrop-filter: blur(10px); }
-        .nav-tab.active { background: white; color: var(--primary); box-shadow: var(--shadow-soft); }
-        .nav-tab:hover:not(.active) { background: rgba(255, 255, 255, 0.35); }
-        .content-section { display: none; }
-        .content-section.active { display: block; animation: fadeIn 0.3s ease; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* 学习卡片 */
-        .word-card { background: var(--card-bg); border-radius: var(--radius); padding: 30px 25px; text-align: center; box-shadow: var(--shadow-medium); margin-bottom: 20px; position: relative; overflow: hidden; }
-        .word-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--primary), var(--secondary)); }
-        .word-progress { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 20px; }
-        .word-english { font-family: 'Nunito', sans-serif; font-size: 2.5rem; font-weight: 800; color: var(--text-primary); margin-bottom: 8px; }
-        .word-phonetic { font-size: 1.1rem; color: var(--primary); margin-bottom: 15px; font-family: 'Nunito', sans-serif; }
-        .word-chinese { font-size: 1.4rem; color: var(--text-primary); margin-bottom: 20px; font-weight: 600; }
-        .word-category { display: inline-block; padding: 4px 12px; background: #f1f5f9; border-radius: 15px; font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 20px; }
-        .example-sentence { background: #f8fafc; border-radius: var(--radius-sm); padding: 15px; margin-top: 15px; text-align: left; }
-        .example-label { font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
-        .example-english { font-family: 'Nunito', sans-serif; font-size: 1rem; color: var(--text-primary); margin-bottom: 5px; line-height: 1.5; }
-        .example-english .highlight { color: var(--primary); font-weight: 700; }
-        .example-chinese { font-size: 0.9rem; color: var(--text-secondary); }
-        .speak-btn { width: 44px; height: 44px; background: var(--primary-light); border: none; border-radius: 50%; color: var(--primary-dark); font-size: 1.2rem; cursor: pointer; transition: all 0.3s; margin-bottom: 15px; }
-        .speak-btn:hover { background: var(--primary); color: white; transform: scale(1.1); }
-
-        /* 按钮 */
-        .button-group { display: flex; gap: 12px; }
-        .btn { flex: 1; padding: 14px 20px; border: none; border-radius: var(--radius-sm); font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px; }
-        .btn-primary { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4); }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5); }
-        .btn-secondary { background: #f1f5f9; color: var(--text-primary); }
-        .btn-secondary:hover { background: #e2e8f0; }
-
-        /* 情景模块 */
-        .scenario-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-        .scenario-card { background: var(--card-bg); border-radius: var(--radius); padding: 20px 15px; text-align: center; cursor: pointer; transition: all 0.3s; box-shadow: var(--shadow-soft); position: relative; overflow: hidden; }
-        .scenario-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-medium); }
-        .scenario-icon { font-size: 2.5rem; margin-bottom: 10px; }
-        .scenario-name { font-weight: 600; font-size: 1rem; margin-bottom: 5px; }
-        .scenario-count { font-size: 0.8rem; color: var(--text-secondary); }
-        .scenario-progress { position: absolute; bottom: 0; left: 0; height: 3px; background: var(--primary); transition: width 0.3s; }
-
-        /* 练习 */
-        .quiz-card { background: var(--card-bg); border-radius: var(--radius); padding: 25px; box-shadow: var(--shadow-medium); margin-bottom: 20px; }
-        .quiz-type { font-size: 0.8rem; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; font-weight: 600; }
-        .quiz-question { font-size: 1.2rem; margin-bottom: 20px; line-height: 1.6; }
-        .quiz-question .blank { display: inline-block; min-width: 80px; border-bottom: 2px dashed var(--primary); margin: 0 5px; }
-        .quiz-options { display: flex; flex-direction: column; gap: 10px; }
-        .quiz-option { padding: 14px 18px; background: #f8fafc; border: 2px solid transparent; border-radius: var(--radius-sm); cursor: pointer; transition: all 0.3s; font-size: 1rem; text-align: left; }
-        .quiz-option:hover { background: #f1f5f9; border-color: var(--primary-light); }
-        .quiz-option.selected { border-color: var(--primary); background: #eef2ff; }
-        .quiz-option.correct { border-color: var(--success); background: #ecfdf5; }
-        .quiz-option.wrong { border-color: var(--danger); background: #fef2f2; }
-
-        /* 阅读 */
-        .reading-card { background: var(--card-bg); border-radius: var(--radius); padding: 25px; box-shadow: var(--shadow-medium); margin-bottom: 20px; }
-        .reading-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 5px; }
-        .reading-level { display: inline-block; padding: 3px 10px; background: var(--primary-light); color: var(--primary-dark); border-radius: 12px; font-size: 0.75rem; font-weight: 600; margin-bottom: 15px; }
-        .reading-content { font-size: 1rem; line-height: 1.8; color: var(--text-primary); }
-        .reading-content .vocab-word { color: var(--primary); font-weight: 600; cursor: pointer; border-bottom: 1px dotted var(--primary); }
-
-        /* 设置面板 */
-        .settings-panel { position: fixed; top: 0; right: -100%; width: 100%; max-width: 400px; height: 100%; background: white; z-index: 1000; transition: right 0.3s ease; overflow-y: auto; }
-        .settings-panel.open { right: 0; }
-        .settings-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.5); z-index: 999; opacity: 0; visibility: hidden; transition: all 0.3s; }
-        .settings-overlay.open { opacity: 1; visibility: visible; }
-        .settings-header { padding: 20px; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; }
-        .settings-title { font-size: 1.2rem; font-weight: 700; }
-        .close-btn { width: 36px; height: 36px; background: #f1f5f9; border: none; border-radius: 50%; font-size: 1.2rem; cursor: pointer; transition: all 0.3s; }
-        .close-btn:hover { background: #e2e8f0; }
-        .settings-content { padding: 20px; }
-        .setting-group { margin-bottom: 25px; }
-        .setting-label { font-weight: 600; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
-        .setting-description { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 10px; }
-        .setting-input { width: 100%; padding: 12px 15px; border: 2px solid #e2e8f0; border-radius: var(--radius-sm); font-size: 1rem; transition: border-color 0.3s; }
-        .setting-input:focus { outline: none; border-color: var(--primary); }
-        .setting-slider { width: 100%; height: 6px; -webkit-appearance: none; background: #e2e8f0; border-radius: 3px; outline: none; }
-        .setting-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px; background: var(--primary); border-radius: 50%; cursor: pointer; }
-        .slider-value { text-align: center; margin-top: 8px; font-weight: 600; color: var(--primary); }
-        .logout-section { margin-top: 30px; padding-top: 20px; border-top: 1px solid #e2e8f0; }
-        .logout-btn { width: 100%; padding: 12px; background: #fef2f2; color: var(--danger); border: none; border-radius: var(--radius-sm); font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s; }
-        .logout-btn:hover { background: #fee2e2; }
-
-        /* 词汇提示 */
-        .vocab-tooltip { position: fixed; background: white; padding: 15px; border-radius: var(--radius-sm); box-shadow: var(--shadow-medium); z-index: 100; max-width: 280px; display: none; }
-        .vocab-tooltip.show { display: block; animation: tooltipIn 0.2s ease; }
-        @keyframes tooltipIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
-        .tooltip-word { font-family: 'Nunito', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--primary); }
-        .tooltip-phonetic { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 5px; }
-        .tooltip-meaning { font-size: 0.95rem; }
-
-        /* 完成弹窗 */
-        .completion-modal { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.7); display: flex; align-items: center; justify-content: center; z-index: 1001; opacity: 0; visibility: hidden; transition: all 0.3s; }
-        .completion-modal.show { opacity: 1; visibility: visible; }
-        .completion-content { background: white; border-radius: var(--radius); padding: 40px 30px; text-align: center; max-width: 340px; transform: scale(0.8); transition: transform 0.3s; }
-        .completion-modal.show .completion-content { transform: scale(1); }
-        .completion-icon { font-size: 4rem; margin-bottom: 20px; }
-        .completion-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 10px; }
-        .completion-message { color: var(--text-secondary); margin-bottom: 25px; }
-        .completion-stats { display: flex; justify-content: center; gap: 30px; margin-bottom: 25px; }
-        .completion-stat { text-align: center; }
-        .completion-stat-value { font-size: 2rem; font-weight: 800; color: var(--primary); }
-        .completion-stat-label { font-size: 0.8rem; color: var(--text-secondary); }
-
-        @media (max-width: 380px) { .app-container { padding: 15px; } .word-english { font-size: 2rem; } .scenario-grid { gap: 10px; } }
+        :root{--primary:#6366f1;--primary-dark:#4f46e5;--primary-light:#a5b4fc;--success:#10b981;--danger:#ef4444;--bg-gradient:linear-gradient(135deg,#667eea 0%,#764ba2 100%);--card-bg:rgba(255,255,255,0.95);--text-primary:#1e293b;--text-secondary:#64748b;--shadow:0 8px 30px rgba(0,0,0,0.12);--radius:16px}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC','Nunito',sans-serif;background:var(--bg-gradient);min-height:100vh;color:var(--text-primary)}
+        .container{max-width:480px;margin:0 auto;padding:20px;min-height:100vh}
+        .login-container{display:flex;flex-direction:column;justify-content:center;min-height:100vh}
+        .card{background:var(--card-bg);border-radius:var(--radius);padding:25px;box-shadow:var(--shadow);margin-bottom:20px}
+        .login-card{padding:40px 30px;text-align:center}
+        .login-logo{font-size:4rem;margin-bottom:15px}
+        .login-title{font-size:1.8rem;font-weight:700;margin-bottom:8px}
+        .login-subtitle{color:var(--text-secondary);margin-bottom:30px}
+        .input{width:100%;padding:14px;border:2px solid #e2e8f0;border-radius:10px;font-size:1rem;margin-bottom:15px}
+        .input:focus{outline:none;border-color:var(--primary)}
+        .btn{width:100%;padding:14px;border:none;border-radius:10px;font-size:1rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
+        .btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:white}
+        .btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(99,102,241,0.4)}
+        .btn-secondary{background:#f1f5f9;color:var(--text-primary)}
+        .btn-group{display:flex;gap:12px;margin-top:15px}
+        .btn-group .btn{flex:1}
+        .divider{display:flex;align-items:center;margin:20px 0;color:var(--text-secondary)}
+        .divider::before,.divider::after{content:'';flex:1;height:1px;background:#e2e8f0}
+        .divider span{padding:0 15px}
+        .user-list{max-height:200px;overflow-y:auto}
+        .user-item{display:flex;align-items:center;justify-content:space-between;padding:12px 15px;background:#f8fafc;border-radius:10px;margin-bottom:8px;cursor:pointer}
+        .user-item:hover{background:#eef2ff;transform:translateX(5px)}
+        .user-info{display:flex;align-items:center;gap:12px}
+        .avatar{width:40px;height:40px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+        .avatar-sm{width:28px;height:28px;font-size:0.85rem}
+        .user-name{font-weight:600}
+        .user-progress{font-size:0.8rem;color:var(--text-secondary)}
+        .user-delete{background:none;border:none;color:var(--danger);font-size:1.2rem;cursor:pointer;opacity:0.5}
+        .user-delete:hover{opacity:1}
+        .no-users{color:var(--text-secondary);padding:20px;text-align:center}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:10px 0 20px}
+        .logo{display:flex;align-items:center;gap:10px}
+        .logo-icon{width:44px;height:44px;background:white;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:var(--shadow)}
+        .logo-text{color:white;font-weight:700;font-size:1.3rem}
+        .header-right{display:flex;align-items:center;gap:10px}
+        .user-badge{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.2);padding:6px 12px 6px 6px;border-radius:25px;color:white;cursor:pointer}
+        .settings-btn{width:44px;height:44px;background:rgba(255,255,255,0.2);border:none;border-radius:12px;color:white;font-size:20px;cursor:pointer}
+        .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-bottom:15px}
+        .stat-item{text-align:center}
+        .stat-value{font-size:1.8rem;font-weight:800;color:var(--primary)}
+        .stat-label{font-size:0.8rem;color:var(--text-secondary)}
+        .progress-section{padding-top:15px;border-top:1px solid #e2e8f0}
+        .progress-header{display:flex;justify-content:space-between;margin-bottom:8px;font-size:0.85rem}
+        .progress-bar{height:8px;background:#e2e8f0;border-radius:4px;overflow:hidden}
+        .progress-fill{height:100%;background:linear-gradient(90deg,var(--primary),var(--primary-light));border-radius:4px;transition:width 0.5s}
+        .streak-badge{background:linear-gradient(135deg,#f59e0b,#f97316);color:white;padding:4px 12px;border-radius:20px;font-size:0.85rem;font-weight:600;display:inline-flex;align-items:center;gap:4px}
+        .nav-tabs{display:flex;gap:8px;margin-bottom:20px;overflow-x:auto;padding-bottom:5px}
+        .nav-tab{flex-shrink:0;padding:10px 18px;background:rgba(255,255,255,0.2);border:none;border-radius:25px;color:white;font-weight:600;cursor:pointer;transition:all 0.2s}
+        .nav-tab.active{background:white;color:var(--primary)}
+        .section{display:none}
+        .section.active{display:block;animation:fadeIn 0.3s}
+        @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+        .preview-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}
+        .preview-title{font-size:1.1rem;font-weight:700}
+        .preview-list{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:15px}
+        .preview-word{padding:6px 12px;background:#f1f5f9;border-radius:20px;font-size:0.9rem}
+        .preview-word.learned{background:var(--success);color:white}
+        .preview-word.current{background:var(--primary);color:white}
+        .word-card{text-align:center;position:relative;padding:30px 25px}
+        .word-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--primary),#f59e0b)}
+        .word-progress{font-size:0.85rem;color:var(--text-secondary);margin-bottom:20px}
+        .speak-btn{width:50px;height:50px;background:var(--primary-light);border:none;border-radius:50%;color:var(--primary-dark);font-size:1.4rem;cursor:pointer;margin-bottom:15px}
+        .word-english{font-size:2.5rem;font-weight:800;margin-bottom:8px}
+        .word-phonetic{font-size:1.1rem;color:var(--primary);margin-bottom:15px}
+        .word-chinese{font-size:1.4rem;font-weight:600;margin-bottom:15px}
+        .word-category{display:inline-block;padding:4px 12px;background:#f1f5f9;border-radius:15px;font-size:0.8rem;color:var(--text-secondary);margin-bottom:20px}
+        .example{background:#f8fafc;border-radius:10px;padding:15px;margin-bottom:10px;text-align:left}
+        .example-label{font-size:0.75rem;color:var(--text-secondary);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px}
+        .example-en{font-size:1rem;margin-bottom:5px;line-height:1.5}
+        .example-en .hl{color:var(--primary);font-weight:700}
+        .example-cn{font-size:0.9rem;color:var(--text-secondary)}
+        .day-selector{margin-bottom:20px}
+        .day-selector-title{font-weight:600;margin-bottom:15px}
+        .day-btns{display:flex;gap:10px;flex-wrap:wrap}
+        .day-btn{padding:10px 16px;background:#f1f5f9;border:2px solid transparent;border-radius:10px;cursor:pointer;font-weight:500}
+        .day-btn.active{background:var(--primary);color:white}
+        .day-btn:disabled{opacity:0.4;cursor:not-allowed}
+        .quiz-header{display:flex;justify-content:space-between;margin-bottom:15px}
+        .quiz-type{font-size:0.8rem;color:var(--primary);text-transform:uppercase;letter-spacing:1px;font-weight:600}
+        .quiz-question{font-size:1.2rem;margin-bottom:20px;line-height:1.6}
+        .quiz-question .blank{display:inline-block;min-width:80px;border-bottom:2px dashed var(--primary);margin:0 5px}
+        .quiz-hint{color:var(--text-secondary);margin-bottom:15px;font-size:0.9rem}
+        .quiz-options{display:flex;flex-direction:column;gap:10px}
+        .quiz-option{padding:14px 18px;background:#f8fafc;border:2px solid transparent;border-radius:10px;cursor:pointer;font-size:1rem;text-align:left;transition:all 0.2s}
+        .quiz-option:hover{background:#f1f5f9;border-color:var(--primary-light)}
+        .quiz-option.correct{border-color:var(--success);background:#ecfdf5}
+        .quiz-option.wrong{border-color:var(--danger);background:#fef2f2}
+        .quiz-option.disabled{pointer-events:none}
+        .result-card{text-align:center;padding:30px}
+        .result-icon{font-size:4rem;margin-bottom:15px}
+        .result-title{font-size:1.5rem;font-weight:700;margin-bottom:10px}
+        .result-score{font-size:3rem;font-weight:800;color:var(--primary);margin-bottom:10px}
+        .result-detail{color:var(--text-secondary);margin-bottom:20px}
+        .settings-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:999;opacity:0;visibility:hidden;transition:all 0.3s}
+        .settings-overlay.open{opacity:1;visibility:visible}
+        .settings-panel{position:fixed;top:0;right:-100%;width:100%;max-width:400px;height:100%;background:white;z-index:1000;transition:right 0.3s;overflow-y:auto}
+        .settings-panel.open{right:0}
+        .settings-header{padding:20px;border-bottom:1px solid #e2e8f0;display:flex;justify-content:space-between;align-items:center}
+        .settings-title{font-size:1.2rem;font-weight:700}
+        .close-btn{width:36px;height:36px;background:#f1f5f9;border:none;border-radius:50%;font-size:1.2rem;cursor:pointer}
+        .settings-content{padding:20px}
+        .setting-group{margin-bottom:25px}
+        .setting-label{font-weight:600;margin-bottom:10px}
+        .slider{width:100%;height:6px;-webkit-appearance:none;background:#e2e8f0;border-radius:3px;outline:none}
+        .slider::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;background:var(--primary);border-radius:50%;cursor:pointer}
+        .slider-value{text-align:center;margin-top:8px;font-weight:600;color:var(--primary)}
+        .logout-section{margin-top:30px;padding-top:20px;border-top:1px solid #e2e8f0}
+        .logout-btn{width:100%;padding:12px;background:#fef2f2;color:var(--danger);border:none;border-radius:10px;font-weight:600;cursor:pointer}
+        .modal{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:center;z-index:1001;opacity:0;visibility:hidden;transition:all 0.3s;padding:20px}
+        .modal.show{opacity:1;visibility:visible}
+        .modal-content{background:white;border-radius:var(--radius);padding:40px 30px;text-align:center;max-width:340px;transform:scale(0.8);transition:transform 0.3s}
+        .modal.show .modal-content{transform:scale(1)}
+        .modal-icon{font-size:4rem;margin-bottom:20px}
+        .modal-title{font-size:1.5rem;font-weight:700;margin-bottom:10px}
+        .modal-msg{color:var(--text-secondary);margin-bottom:25px}
+        .loading{text-align:center;padding:40px;color:var(--text-secondary)}
+        .loading-spinner{width:40px;height:40px;border:4px solid #e2e8f0;border-top-color:var(--primary);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 15px}
+        @keyframes spin{to{transform:rotate(360deg)}}
+        .hidden{display:none!important}
+        .app-container{display:none}
+        .app-container.active{display:block}
     </style>
 </head>
 <body>
-    <div class="bg-decoration"><div class="bg-circle"></div><div class="bg-circle"></div><div class="bg-circle"></div></div>
-
     <!-- 登录页面 -->
-    <div class="login-container" id="loginContainer">
-        <div class="login-card">
+    <div class="container login-container" id="loginPage">
+        <div class="card login-card">
             <div class="login-logo">📚</div>
             <div class="login-title">词汇星球</div>
-            <div class="login-subtitle">每天15分钟，轻松掌握3000词</div>
-            <input type="text" class="login-input" id="usernameInput" placeholder="输入你的名字" maxlength="10">
-            <button class="login-btn" onclick="createOrLoginUser()">开始学习</button>
-            <div class="login-divider"><span>或选择已有账户</span></div>
-            <div class="user-list" id="userList"><div class="no-users">还没有用户，创建一个吧！</div></div>
+            <div class="login-subtitle">掌握1000个最常用英语单词</div>
+            <input type="text" class="input" id="usernameInput" placeholder="输入你的名字" maxlength="10">
+            <button class="btn btn-primary" onclick="createUser()">开始学习</button>
+            <div class="divider"><span>或选择已有账户</span></div>
+            <div class="user-list" id="userList"></div>
         </div>
     </div>
 
     <!-- 主应用 -->
-    <div class="app-container" id="appContainer">
+    <div class="container app-container" id="appPage">
         <header class="header">
-            <div class="logo"><div class="logo-icon">📚</div><span class="logo-text">词汇星球</span></div>
+            <div class="logo">
+                <div class="logo-icon">📚</div>
+                <span class="logo-text">词汇星球</span>
+            </div>
             <div class="header-right">
-                <div class="user-badge" onclick="toggleSettings()"><div class="mini-avatar" id="headerAvatar">T</div><span id="headerUsername">Tom</span></div>
+                <div class="user-badge" onclick="toggleSettings()">
+                    <div class="avatar avatar-sm" id="headerAvatar">T</div>
+                    <span id="headerName">Tom</span>
+                </div>
                 <button class="settings-btn" onclick="toggleSettings()">⚙️</button>
             </div>
         </header>
 
-        <div class="stats-card">
-            <div class="stats-header"><span class="stats-title">学习进度</span><div class="streak-badge"><span>🔥</span><span id="streakDays">0</span>天连续</div></div>
+        <!-- 统计卡片 -->
+        <div class="card">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px">
+                <span style="color:var(--text-secondary)">学习进度</span>
+                <div class="streak-badge">🔥 <span id="streakDays">0</span>天</div>
+            </div>
             <div class="stats-grid">
-                <div class="stat-item"><div class="stat-value" id="learnedCount">0</div><div class="stat-label">已学单词</div></div>
-                <div class="stat-item"><div class="stat-value" id="masteredCount">0</div><div class="stat-label">已掌握</div></div>
-                <div class="stat-item"><div class="stat-value" id="todayCount">0</div><div class="stat-label">今日学习</div></div>
+                <div class="stat-item">
+                    <div class="stat-value" id="learnedCount">0</div>
+                    <div class="stat-label">已学单词</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="masteredCount">0</div>
+                    <div class="stat-label">已掌握</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="todayCount">0</div>
+                    <div class="stat-label">今日学习</div>
+                </div>
             </div>
             <div class="progress-section">
-                <div class="progress-header"><span>总体进度</span><span><span id="progressPercent">0</span>%</span></div>
-                <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width: 0%"></div></div>
+                <div class="progress-header">
+                    <span>总体进度</span>
+                    <span><span id="progressPct">0</span>%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressBar" style="width:0%"></div>
+                </div>
             </div>
         </div>
 
+        <!-- 导航标签 -->
         <div class="nav-tabs">
             <button class="nav-tab active" data-tab="learn" onclick="switchTab('learn')">📖 今日学习</button>
-            <button class="nav-tab" data-tab="scenario" onclick="switchTab('scenario')">🎭 情景练习</button>
-            <button class="nav-tab" data-tab="quiz" onclick="switchTab('quiz')">✍️ 巩固练习</button>
-            <button class="nav-tab" data-tab="reading" onclick="switchTab('reading')">📰 趣味阅读</button>
+            <button class="nav-tab" data-tab="practice" onclick="switchTab('practice')">✍️ 练习</button>
+            <button class="nav-tab" data-tab="test" onclick="switchTab('test')">📝 测验</button>
         </div>
 
-        <div class="content-section active" id="section-learn">
-            <div class="word-card" id="wordCard">
-                <div class="word-progress">第 <span id="currentWordIndex">1</span> / <span id="totalWords">15</span> 个单词</div>
+        <!-- 学习区域 -->
+        <div class="section active" id="section-learn">
+            <div class="card" id="previewCard">
+                <div class="preview-header">
+                    <span class="preview-title">📋 今日词汇</span>
+                    <span id="previewCount">0/15</span>
+                </div>
+                <div class="preview-list" id="previewList"></div>
+                <button class="btn btn-primary" id="startBtn" onclick="startLearning()">开始学习</button>
+            </div>
+            <div class="card word-card hidden" id="wordCard">
+                <div class="word-progress">第 <span id="wordIdx">1</span> / <span id="wordTotal">15</span> 个</div>
                 <button class="speak-btn" onclick="speakWord()">🔊</button>
-                <div class="word-english" id="wordEnglish">hello</div>
-                <div class="word-phonetic" id="wordPhonetic">/həˈloʊ/</div>
-                <div class="word-chinese" id="wordChinese">你好；喂</div>
-                <div class="word-category" id="wordCategory">日常问候</div>
-                <div class="example-sentence">
-                    <div class="example-label">例句</div>
-                    <div class="example-english" id="exampleEnglish"><span class="highlight">Hello</span>, how are you today?</div>
-                    <div class="example-chinese" id="exampleChinese">你好，你今天怎么样？</div>
-                </div>
+                <div class="word-english" id="wordEn">hello</div>
+                <div class="word-phonetic" id="wordPh">/həˈloʊ/</div>
+                <div class="word-chinese" id="wordCn">你好</div>
+                <div class="word-category" id="wordCat">问候</div>
+                <div id="examplesBox"></div>
             </div>
-            <div class="button-group">
-                <button class="btn btn-secondary" onclick="markWord('hard')">😰 不认识</button>
-                <button class="btn btn-primary" onclick="markWord('know')">😊 认识了</button>
+            <div class="btn-group hidden" id="learnBtns">
+                <button class="btn btn-secondary" onclick="markWord(false)">😰 不熟</button>
+                <button class="btn btn-primary" onclick="markWord(true)">😊 下一个</button>
             </div>
         </div>
 
-        <div class="content-section" id="section-scenario">
-            <div class="scenario-grid">
-                <div class="scenario-card" onclick="startScenario('greetings')"><div class="scenario-icon">👋</div><div class="scenario-name">问候与介绍</div><div class="scenario-count">15个词汇</div><div class="scenario-progress" style="width: 0%"></div></div>
-                <div class="scenario-card" onclick="startScenario('weather')"><div class="scenario-icon">🌤️</div><div class="scenario-name">天气话题</div><div class="scenario-count">15个词汇</div><div class="scenario-progress" style="width: 0%"></div></div>
-                <div class="scenario-card" onclick="startScenario('restaurant')"><div class="scenario-icon">🍽️</div><div class="scenario-name">餐厅点餐</div><div class="scenario-count">15个词汇</div><div class="scenario-progress" style="width: 0%"></div></div>
-                <div class="scenario-card" onclick="startScenario('directions')"><div class="scenario-icon">🗺️</div><div class="scenario-name">问路指路</div><div class="scenario-count">15个词汇</div><div class="scenario-progress" style="width: 0%"></div></div>
-                <div class="scenario-card" onclick="startScenario('shopping')"><div class="scenario-icon">🛒</div><div class="scenario-name">购物消费</div><div class="scenario-count">15个词汇</div><div class="scenario-progress" style="width: 0%"></div></div>
+        <!-- 练习区域 -->
+        <div class="section" id="section-practice">
+            <div class="card day-selector">
+                <div class="day-selector-title">选择练习范围</div>
+                <div class="day-btns" id="practiceDayBtns"></div>
             </div>
+            <div id="practiceArea"></div>
         </div>
 
-        <div class="content-section" id="section-quiz">
-            <div class="quiz-card">
-                <div class="quiz-type">填空练习</div>
-                <div class="quiz-question"><span id="quizSentence">I want to <span class="blank"></span> a cup of coffee.</span></div>
-                <div class="quiz-options" id="quizOptions"></div>
+        <!-- 测验区域 -->
+        <div class="section" id="section-test">
+            <div class="card day-selector">
+                <div class="day-selector-title">选择测验范围</div>
+                <div class="day-btns" id="testDayBtns"></div>
             </div>
-            <div class="button-group">
-                <button class="btn btn-secondary" onclick="skipQuiz()">跳过</button>
-                <button class="btn btn-primary" onclick="checkAnswer()">确认答案</button>
-            </div>
-        </div>
-
-        <div class="content-section" id="section-reading">
-            <div class="reading-card">
-                <div class="reading-title">The Lost Key 丢失的钥匙</div>
-                <span class="reading-level">初级 · 50词</span>
-                <div class="reading-content">
-                    <p>Tom <span class="vocab-word" data-word="lost" data-phonetic="/lɔːst/" data-meaning="丢失">lost</span> his key. He looked in his <span class="vocab-word" data-word="pocket" data-phonetic="/ˈpɒkɪt/" data-meaning="口袋">pocket</span>. No key. He looked on the <span class="vocab-word" data-word="table" data-phonetic="/ˈteɪbl/" data-meaning="桌子">table</span>. No key. Then his dog came. The key was in the dog's <span class="vocab-word" data-word="mouth" data-phonetic="/maʊθ/" data-meaning="嘴">mouth</span>!</p>
-                    <p style="margin-top: 15px; color: var(--text-secondary); font-size: 0.9rem;">汤姆丢了他的钥匙。他找了找口袋，没有。他看了看桌子，也没有。然后他的狗来了。钥匙在狗嘴里！</p>
-                </div>
-            </div>
+            <div id="testArea"></div>
         </div>
     </div>
 
     <!-- 设置面板 -->
     <div class="settings-overlay" id="settingsOverlay" onclick="toggleSettings()"></div>
     <div class="settings-panel" id="settingsPanel">
-        <div class="settings-header"><span class="settings-title">⚙️ 学习设置</span><button class="close-btn" onclick="toggleSettings()">✕</button></div>
+        <div class="settings-header">
+            <span class="settings-title">⚙️ 设置</span>
+            <button class="close-btn" onclick="toggleSettings()">✕</button>
+        </div>
         <div class="settings-content">
-            <div class="setting-group"><label class="setting-label">👤 当前用户</label><p class="setting-description">你正在以 <strong id="settingsUsername">用户</strong> 的身份学习</p></div>
             <div class="setting-group">
-                <label class="setting-label">📝 每日学习单词数</label>
-                <input type="range" class="setting-slider" id="dailyWordsSlider" min="5" max="30" value="15" oninput="updateSliderValue(this.value)">
-                <div class="slider-value"><span id="dailyWordsValue">15</span> 个单词/天</div>
+                <div class="setting-label">👤 当前用户</div>
+                <div id="settingsUserName" style="color:var(--primary);font-weight:600"></div>
             </div>
             <div class="setting-group">
-                <label class="setting-label">🔊 发音设置</label>
-                <select class="setting-input" id="accent"><option value="us" selected>美式发音</option><option value="uk">英式发音</option></select>
+                <div class="setting-label">📝 每日单词数</div>
+                <input type="range" class="slider" id="dailySlider" min="5" max="30" value="15" oninput="updateSliderValue()">
+                <div class="slider-value"><span id="dailyValue">15</span> 个/天</div>
             </div>
-            <button class="btn btn-primary" style="width: 100%; margin-top: 20px;" onclick="saveSettings()">💾 保存设置</button>
-            <div class="logout-section"><button class="logout-btn" onclick="logout()">🚪 切换用户</button></div>
+            <div class="setting-group">
+                <div class="setting-label">🔊 发音口音</div>
+                <select class="input" id="accentSelect">
+                    <option value="us">美式发音</option>
+                    <option value="uk">英式发音</option>
+                </select>
+            </div>
+            <button class="btn btn-primary" onclick="saveSettings()">💾 保存设置</button>
+            <div class="logout-section">
+                <button class="logout-btn" onclick="logout()">🚪 切换用户</button>
+            </div>
         </div>
     </div>
 
-    <div class="vocab-tooltip" id="vocabTooltip"><div class="tooltip-word" id="tooltipWord"></div><div class="tooltip-phonetic" id="tooltipPhonetic"></div><div class="tooltip-meaning" id="tooltipMeaning"></div></div>
-
-    <div class="completion-modal" id="completionModal">
-        <div class="completion-content">
-            <div class="completion-icon">🎉</div>
-            <div class="completion-title">太棒了！</div>
-            <div class="completion-message">你完成了今天的学习任务</div>
-            <div class="completion-stats">
-                <div class="completion-stat"><div class="completion-stat-value" id="completionNew">15</div><div class="completion-stat-label">新学单词</div></div>
-                <div class="completion-stat"><div class="completion-stat-value" id="completionReview">8</div><div class="completion-stat-label">复习单词</div></div>
-            </div>
-            <button class="btn btn-primary" style="width: 100%;" onclick="closeCompletion()">继续学习</button>
+    <!-- 弹窗 -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <div class="modal-icon" id="modalIcon">🎉</div>
+            <div class="modal-title" id="modalTitle">完成！</div>
+            <div class="modal-msg" id="modalMsg"></div>
+            <button class="btn btn-primary" onclick="closeModal()">确定</button>
         </div>
     </div>
 
-    <script>
-        // 词库
-        const vocabulary = {
-            greetings: [
-                { word: "hello", phonetic: "/həˈloʊ/", chinese: "你好；喂", category: "日常问候", example: "Hello, how are you today?", exampleCn: "你好，你今天怎么样？" },
-                { word: "goodbye", phonetic: "/ɡʊdˈbaɪ/", chinese: "再见", category: "日常问候", example: "Goodbye! See you tomorrow.", exampleCn: "再见！明天见。" },
-                { word: "thank", phonetic: "/θæŋk/", chinese: "谢谢", category: "日常问候", example: "Thank you for your help.", exampleCn: "谢谢你的帮助。" },
-                { word: "please", phonetic: "/pliːz/", chinese: "请", category: "日常问候", example: "Please sit down.", exampleCn: "请坐。" },
-                { word: "sorry", phonetic: "/ˈsɒri/", chinese: "对不起", category: "日常问候", example: "I'm sorry for being late.", exampleCn: "对不起我迟到了。" },
-                { word: "welcome", phonetic: "/ˈwelkəm/", chinese: "欢迎", category: "日常问候", example: "Welcome to my home!", exampleCn: "欢迎来到我家！" },
-                { word: "morning", phonetic: "/ˈmɔːnɪŋ/", chinese: "早上", category: "时间", example: "Good morning!", exampleCn: "早上好！" },
-                { word: "afternoon", phonetic: "/ˌɑːftərˈnuːn/", chinese: "下午", category: "时间", example: "See you this afternoon.", exampleCn: "下午见。" },
-                { word: "evening", phonetic: "/ˈiːvnɪŋ/", chinese: "晚上", category: "时间", example: "Good evening!", exampleCn: "晚上好！" },
-                { word: "night", phonetic: "/naɪt/", chinese: "夜晚", category: "时间", example: "Good night!", exampleCn: "晚安！" },
-                { word: "today", phonetic: "/təˈdeɪ/", chinese: "今天", category: "时间", example: "What day is today?", exampleCn: "今天是星期几？" },
-                { word: "tomorrow", phonetic: "/təˈmɒroʊ/", chinese: "明天", category: "时间", example: "See you tomorrow.", exampleCn: "明天见。" },
-                { word: "yesterday", phonetic: "/ˈjestərdeɪ/", chinese: "昨天", category: "时间", example: "I saw him yesterday.", exampleCn: "我昨天见到他了。" },
-                { word: "name", phonetic: "/neɪm/", chinese: "名字", category: "介绍", example: "My name is Tom.", exampleCn: "我叫汤姆。" },
-                { word: "friend", phonetic: "/frend/", chinese: "朋友", category: "人物", example: "She is my friend.", exampleCn: "她是我的朋友。" }
-            ],
-            weather: [
-                { word: "weather", phonetic: "/ˈweðər/", chinese: "天气", category: "天气", example: "How's the weather?", exampleCn: "天气怎么样？" },
-                { word: "sunny", phonetic: "/ˈsʌni/", chinese: "晴朗的", category: "天气", example: "It's sunny today.", exampleCn: "今天是晴天。" },
-                { word: "cloudy", phonetic: "/ˈklaʊdi/", chinese: "多云的", category: "天气", example: "It's cloudy.", exampleCn: "多云。" },
-                { word: "rainy", phonetic: "/ˈreɪni/", chinese: "下雨的", category: "天气", example: "It's rainy.", exampleCn: "在下雨。" },
-                { word: "cold", phonetic: "/koʊld/", chinese: "冷的", category: "天气", example: "It's very cold.", exampleCn: "很冷。" },
-                { word: "hot", phonetic: "/hɒt/", chinese: "热的", category: "天气", example: "It's hot today.", exampleCn: "今天很热。" },
-                { word: "warm", phonetic: "/wɔːrm/", chinese: "温暖的", category: "天气", example: "Spring is warm.", exampleCn: "春天很温暖。" },
-                { word: "cool", phonetic: "/kuːl/", chinese: "凉爽的", category: "天气", example: "The air is cool.", exampleCn: "空气很凉爽。" },
-                { word: "wind", phonetic: "/wɪnd/", chinese: "风", category: "天气", example: "The wind is strong.", exampleCn: "风很大。" },
-                { word: "snow", phonetic: "/snoʊ/", chinese: "雪", category: "天气", example: "I love snow.", exampleCn: "我喜欢雪。" },
-                { word: "rain", phonetic: "/reɪn/", chinese: "雨", category: "天气", example: "I like rain.", exampleCn: "我喜欢雨。" },
-                { word: "umbrella", phonetic: "/ʌmˈbrelə/", chinese: "雨伞", category: "物品", example: "Take your umbrella.", exampleCn: "带上你的伞。" },
-                { word: "temperature", phonetic: "/ˈtemprətʃər/", chinese: "温度", category: "天气", example: "The temperature is 25.", exampleCn: "温度是25度。" },
-                { word: "season", phonetic: "/ˈsiːzn/", chinese: "季节", category: "时间", example: "What's your favorite season?", exampleCn: "你最喜欢哪个季节？" },
-                { word: "spring", phonetic: "/sprɪŋ/", chinese: "春天", category: "时间", example: "I love spring.", exampleCn: "我喜欢春天。" }
-            ],
-            restaurant: [
-                { word: "restaurant", phonetic: "/ˈrestrɒnt/", chinese: "餐厅", category: "场所", example: "Let's go to a restaurant.", exampleCn: "我们去餐厅吧。" },
-                { word: "menu", phonetic: "/ˈmenjuː/", chinese: "菜单", category: "餐厅", example: "Can I see the menu?", exampleCn: "我能看看菜单吗？" },
-                { word: "order", phonetic: "/ˈɔːrdər/", chinese: "点菜", category: "动作", example: "I'd like to order.", exampleCn: "我想点餐。" },
-                { word: "waiter", phonetic: "/ˈweɪtər/", chinese: "服务员", category: "人物", example: "Excuse me, waiter!", exampleCn: "服务员！" },
-                { word: "bill", phonetic: "/bɪl/", chinese: "账单", category: "餐厅", example: "Can I have the bill?", exampleCn: "买单。" },
-                { word: "delicious", phonetic: "/dɪˈlɪʃəs/", chinese: "美味的", category: "形容词", example: "This is delicious!", exampleCn: "真美味！" },
-                { word: "hungry", phonetic: "/ˈhʌŋɡri/", chinese: "饥饿的", category: "感觉", example: "I'm hungry.", exampleCn: "我饿了。" },
-                { word: "thirsty", phonetic: "/ˈθɜːrsti/", chinese: "口渴的", category: "感觉", example: "I'm thirsty.", exampleCn: "我渴了。" },
-                { word: "breakfast", phonetic: "/ˈbrekfəst/", chinese: "早餐", category: "餐食", example: "What's for breakfast?", exampleCn: "早餐吃什么？" },
-                { word: "lunch", phonetic: "/lʌntʃ/", chinese: "午餐", category: "餐食", example: "Let's have lunch.", exampleCn: "吃午餐吧。" },
-                { word: "dinner", phonetic: "/ˈdɪnər/", chinese: "晚餐", category: "餐食", example: "What's for dinner?", exampleCn: "晚餐吃什么？" },
-                { word: "drink", phonetic: "/drɪŋk/", chinese: "饮料；喝", category: "餐饮", example: "What would you like to drink?", exampleCn: "你想喝什么？" },
-                { word: "coffee", phonetic: "/ˈkɒfi/", chinese: "咖啡", category: "饮料", example: "I need coffee.", exampleCn: "我需要咖啡。" },
-                { word: "tea", phonetic: "/tiː/", chinese: "茶", category: "饮料", example: "Would you like tea?", exampleCn: "想喝茶吗？" },
-                { word: "water", phonetic: "/ˈwɔːtər/", chinese: "水", category: "饮料", example: "A glass of water, please.", exampleCn: "请给我一杯水。" }
-            ],
-            directions: [
-                { word: "where", phonetic: "/wer/", chinese: "哪里", category: "疑问词", example: "Where is the bank?", exampleCn: "银行在哪里？" },
-                { word: "left", phonetic: "/left/", chinese: "左边", category: "方向", example: "Turn left.", exampleCn: "左转。" },
-                { word: "right", phonetic: "/raɪt/", chinese: "右边", category: "方向", example: "Turn right.", exampleCn: "右转。" },
-                { word: "straight", phonetic: "/streɪt/", chinese: "直走", category: "方向", example: "Go straight.", exampleCn: "直走。" },
-                { word: "near", phonetic: "/nɪr/", chinese: "近的", category: "位置", example: "It's near here.", exampleCn: "就在附近。" },
-                { word: "far", phonetic: "/fɑːr/", chinese: "远的", category: "位置", example: "Is it far?", exampleCn: "远吗？" },
-                { word: "street", phonetic: "/striːt/", chinese: "街道", category: "场所", example: "Walk down this street.", exampleCn: "沿这条街走。" },
-                { word: "corner", phonetic: "/ˈkɔːrnər/", chinese: "拐角", category: "位置", example: "It's on the corner.", exampleCn: "在拐角处。" },
-                { word: "across", phonetic: "/əˈkrɒs/", chinese: "对面", category: "位置", example: "It's across the street.", exampleCn: "在街对面。" },
-                { word: "next", phonetic: "/nekst/", chinese: "旁边", category: "位置", example: "It's next to the bank.", exampleCn: "在银行旁边。" },
-                { word: "between", phonetic: "/bɪˈtwiːn/", chinese: "在...之间", category: "位置", example: "It's between A and B.", exampleCn: "在A和B之间。" },
-                { word: "map", phonetic: "/mæp/", chinese: "地图", category: "物品", example: "Do you have a map?", exampleCn: "有地图吗？" },
-                { word: "station", phonetic: "/ˈsteɪʃn/", chinese: "车站", category: "场所", example: "Where is the station?", exampleCn: "车站在哪？" },
-                { word: "stop", phonetic: "/stɒp/", chinese: "站", category: "交通", example: "Get off at the next stop.", exampleCn: "下一站下车。" },
-                { word: "walk", phonetic: "/wɔːk/", chinese: "走路", category: "动作", example: "It's a 5-minute walk.", exampleCn: "步行5分钟。" }
-            ],
-            shopping: [
-                { word: "shop", phonetic: "/ʃɒp/", chinese: "商店", category: "场所", example: "I love to shop.", exampleCn: "我喜欢购物。" },
-                { word: "buy", phonetic: "/baɪ/", chinese: "买", category: "动作", example: "I want to buy this.", exampleCn: "我想买这个。" },
-                { word: "sell", phonetic: "/sel/", chinese: "卖", category: "动作", example: "They sell fruit.", exampleCn: "他们卖水果。" },
-                { word: "price", phonetic: "/praɪs/", chinese: "价格", category: "购物", example: "What's the price?", exampleCn: "多少钱？" },
-                { word: "cheap", phonetic: "/tʃiːp/", chinese: "便宜的", category: "形容词", example: "This is cheap.", exampleCn: "这个便宜。" },
-                { word: "expensive", phonetic: "/ɪkˈspensɪv/", chinese: "昂贵的", category: "形容词", example: "It's too expensive.", exampleCn: "太贵了。" },
-                { word: "money", phonetic: "/ˈmʌni/", chinese: "钱", category: "购物", example: "I have no money.", exampleCn: "我没钱了。" },
-                { word: "pay", phonetic: "/peɪ/", chinese: "付款", category: "动作", example: "Can I pay by card?", exampleCn: "可以刷卡吗？" },
-                { word: "cash", phonetic: "/kæʃ/", chinese: "现金", category: "购物", example: "I only have cash.", exampleCn: "我只有现金。" },
-                { word: "card", phonetic: "/kɑːrd/", chinese: "银行卡", category: "购物", example: "Do you accept cards?", exampleCn: "接受刷卡吗？" },
-                { word: "size", phonetic: "/saɪz/", chinese: "尺寸", category: "购物", example: "What size?", exampleCn: "什么尺寸？" },
-                { word: "color", phonetic: "/ˈkʌlər/", chinese: "颜色", category: "购物", example: "What color?", exampleCn: "什么颜色？" },
-                { word: "try", phonetic: "/traɪ/", chinese: "试穿", category: "动作", example: "Can I try this?", exampleCn: "我能试试吗？" },
-                { word: "bag", phonetic: "/bæɡ/", chinese: "袋子", category: "物品", example: "Do you need a bag?", exampleCn: "需要袋子吗？" },
-                { word: "change", phonetic: "/tʃeɪndʒ/", chinese: "零钱", category: "购物", example: "Here's your change.", exampleCn: "这是你的零钱。" }
-            ]
+<script>
+// ===== 全局变量 =====
+let vocab = [];
+let allUsers = {};
+let currentUser = null;
+let state = {
+    todayWords: [],
+    wordIdx: 0,
+    isLearning: false,
+    practiceDays: 1,
+    testDays: 1,
+    practiceWords: [],
+    practiceIdx: 0,
+    testWords: [],
+    testIdx: 0,
+    testResults: []
+};
+
+// ===== 初始化 =====
+async function init() {
+    await loadVocabulary();
+    loadUsers();
+    const saved = localStorage.getItem('vp_current');
+    if (saved && allUsers[saved]) {
+        login(saved);
+    }
+}
+
+async function loadVocabulary() {
+    try {
+        const res = await fetch('data/words.json');
+        vocab = await res.json();
+        console.log(`词库加载成功: ${vocab.length} 个单词`);
+    } catch (e) {
+        console.error('词库加载失败', e);
+        vocab = [];
+    }
+}
+
+// ===== 用户管理 =====
+function loadUsers() {
+    const data = localStorage.getItem('vp_users');
+    if (data) allUsers = JSON.parse(data);
+    renderUserList();
+}
+
+function saveUsers() {
+    localStorage.setItem('vp_users', JSON.stringify(allUsers));
+}
+
+function renderUserList() {
+    const list = document.getElementById('userList');
+    const names = Object.keys(allUsers);
+    if (!names.length) {
+        list.innerHTML = '<div class="no-users">还没有用户，创建一个吧！</div>';
+        return;
+    }
+    list.innerHTML = names.map(n => {
+        const u = allUsers[n];
+        return `<div class="user-item" onclick="login('${n}')">
+            <div class="user-info">
+                <div class="avatar">${n[0].toUpperCase()}</div>
+                <div>
+                    <div class="user-name">${n}</div>
+                    <div class="user-progress">已学${u.learned.length} · 已掌握${u.mastered.length}</div>
+                </div>
+            </div>
+            <button class="user-delete" onclick="event.stopPropagation();deleteUser('${n}')">×</button>
+        </div>`;
+    }).join('');
+}
+
+function createUser() {
+    const name = document.getElementById('usernameInput').value.trim();
+    if (!name) return alert('请输入名字');
+    if (!allUsers[name]) {
+        allUsers[name] = {
+            name,
+            learned: [],
+            mastered: [],
+            streak: 0,
+            lastDate: null,
+            history: [],
+            settings: { daily: 15, accent: 'us' }
         };
+    }
+    saveUsers();
+    login(name);
+}
 
-        const quizData = [
-            { sentence: "I want to ___ a cup of coffee.", answer: "drink", options: ["drink", "eat", "buy", "make"] },
-            { sentence: "The weather is very ___ today.", answer: "cold", options: ["cold", "hot", "sunny", "happy"] },
-            { sentence: "Can I have the ___, please?", answer: "bill", options: ["menu", "bill", "table", "water"] },
-            { sentence: "Turn ___ at the corner.", answer: "left", options: ["left", "right", "up", "down"] },
-            { sentence: "This bag is too ___.", answer: "expensive", options: ["cheap", "expensive", "big", "small"] }
-        ];
+function deleteUser(name) {
+    if (confirm(`确定删除 "${name}"？`)) {
+        delete allUsers[name];
+        saveUsers();
+        renderUserList();
+    }
+}
 
-        let currentUser = null;
-        let allUsers = {};
-        let appState = { currentTab: 'learn', currentWordIndex: 0, todayWords: [], selectedAnswer: null, currentQuizIndex: 0 };
+function login(name) {
+    currentUser = name;
+    localStorage.setItem('vp_current', name);
+    checkStreak();
+    document.getElementById('loginPage').style.display = 'none';
+    document.getElementById('appPage').classList.add('active');
+    document.getElementById('headerAvatar').textContent = name[0].toUpperCase();
+    document.getElementById('headerName').textContent = name;
+    document.getElementById('settingsUserName').textContent = name;
+    prepareToday();
+    updateStats();
+    renderDayButtons();
+}
 
-        function loadAllUsers() {
-            const saved = localStorage.getItem('vocabPlanet_users');
-            if (saved) allUsers = JSON.parse(saved);
-            renderUserList();
+function logout() {
+    currentUser = null;
+    localStorage.removeItem('vp_current');
+    document.getElementById('appPage').classList.remove('active');
+    document.getElementById('loginPage').style.display = 'flex';
+    document.getElementById('usernameInput').value = '';
+    toggleSettings();
+    renderUserList();
+}
+
+function checkStreak() {
+    const u = allUsers[currentUser];
+    const today = new Date().toDateString();
+    if (u.lastDate) {
+        const last = new Date(u.lastDate).toDateString();
+        if (last !== today) {
+            const yesterday = new Date();
+            yesterday.setDate(yesterday.getDate() - 1);
+            u.streak = (last === yesterday.toDateString()) ? u.streak + 1 : 1;
         }
+    } else {
+        u.streak = 1;
+    }
+    u.lastDate = new Date().toISOString();
+    saveUsers();
+}
 
-        function saveAllUsers() { localStorage.setItem('vocabPlanet_users', JSON.stringify(allUsers)); }
+// ===== 今日学习 =====
+function prepareToday() {
+    const u = allUsers[currentUser];
+    const today = new Date().toDateString();
+    let record = u.history.find(h => new Date(h.date).toDateString() === today);
+    
+    if (!record) {
+        // 按频率顺序获取未学单词
+        const unlearned = vocab.filter(w => !u.learned.includes(w.word));
+        const todayWords = unlearned.slice(0, u.settings.daily).map(w => w.word);
+        record = { date: new Date().toISOString(), words: todayWords, done: [] };
+        u.history.push(record);
+        saveUsers();
+    }
+    
+    state.todayWords = record.words.map(w => vocab.find(v => v.word === w)).filter(Boolean);
+    state.wordIdx = record.done.length;
+    state.isLearning = false;
+    renderPreview();
+}
 
-        function renderUserList() {
-            const userList = document.getElementById('userList');
-            const userNames = Object.keys(allUsers);
-            if (userNames.length === 0) { userList.innerHTML = '<div class="no-users">还没有用户，创建一个吧！</div>'; return; }
-            userList.innerHTML = userNames.map(name => {
-                const user = allUsers[name];
-                const learnedCount = user.learnedWords ? user.learnedWords.length : 0;
-                return `<div class="user-item" onclick="loginUser('${name}')">
-                    <div class="user-info"><div class="user-avatar">${name.charAt(0).toUpperCase()}</div>
-                    <div><div class="user-name">${name}</div><div class="user-progress">已学 ${learnedCount} 个单词</div></div></div>
-                    <button class="user-delete" onclick="event.stopPropagation(); deleteUser('${name}')">×</button></div>`;
-            }).join('');
+function renderPreview() {
+    const u = allUsers[currentUser];
+    const today = new Date().toDateString();
+    const record = u.history.find(h => new Date(h.date).toDateString() === today);
+    const done = record ? record.done : [];
+    
+    document.getElementById('previewList').innerHTML = state.todayWords.map((w, i) => {
+        const isDone = done.includes(w.word);
+        const isCurrent = i === state.wordIdx && state.isLearning;
+        return `<span class="preview-word ${isDone ? 'learned' : ''} ${isCurrent ? 'current' : ''}">${w.word}</span>`;
+    }).join('');
+    
+    document.getElementById('previewCount').textContent = `${done.length}/${state.todayWords.length}`;
+    
+    const btn = document.getElementById('startBtn');
+    const allDone = done.length >= state.todayWords.length;
+    btn.textContent = allDone ? '✅ 今日已完成' : (state.wordIdx > 0 ? '继续学习' : '开始学习');
+    btn.disabled = allDone || state.todayWords.length === 0;
+    btn.style.opacity = (allDone || state.todayWords.length === 0) ? '0.6' : '1';
+}
+
+function startLearning() {
+    if (state.todayWords.length === 0) return;
+    state.isLearning = true;
+    document.getElementById('previewCard').classList.add('hidden');
+    document.getElementById('wordCard').classList.remove('hidden');
+    document.getElementById('learnBtns').classList.remove('hidden');
+    document.getElementById('wordTotal').textContent = state.todayWords.length;
+    showWord();
+}
+
+function showWord() {
+    if (state.wordIdx >= state.todayWords.length) {
+        finishLearning();
+        return;
+    }
+    const w = state.todayWords[state.wordIdx];
+    document.getElementById('wordIdx').textContent = state.wordIdx + 1;
+    document.getElementById('wordEn').textContent = w.word;
+    document.getElementById('wordPh').textContent = w.phonetic;
+    document.getElementById('wordCn').textContent = w.chinese;
+    document.getElementById('wordCat').textContent = w.category;
+    
+    const exBox = document.getElementById('examplesBox');
+    exBox.innerHTML = w.examples.map((ex, i) => `
+        <div class="example">
+            <div class="example-label">例句${i + 1}</div>
+            <div class="example-en">${ex.en.replace(new RegExp(`(${w.word})`, 'gi'), '<span class="hl">$1</span>')}</div>
+            <div class="example-cn">${ex.cn}</div>
+        </div>
+    `).join('');
+    
+    renderPreview();
+}
+
+function markWord(known) {
+    const u = allUsers[currentUser];
+    const w = state.todayWords[state.wordIdx];
+    const today = new Date().toDateString();
+    
+    if (!u.learned.includes(w.word)) {
+        u.learned.push(w.word);
+    }
+    
+    const record = u.history.find(h => new Date(h.date).toDateString() === today);
+    if (record && !record.done.includes(w.word)) {
+        record.done.push(w.word);
+    }
+    
+    state.wordIdx++;
+    saveUsers();
+    updateStats();
+    showWord();
+}
+
+function finishLearning() {
+    state.isLearning = false;
+    document.getElementById('wordCard').classList.add('hidden');
+    document.getElementById('learnBtns').classList.add('hidden');
+    document.getElementById('previewCard').classList.remove('hidden');
+    renderPreview();
+    showModal('🎉', '学习完成！', '去练习巩固一下吧！');
+}
+
+function speakWord() {
+    if (state.wordIdx >= state.todayWords.length) return;
+    const w = state.todayWords[state.wordIdx];
+    const u = allUsers[currentUser];
+    if ('speechSynthesis' in window) {
+        const utterance = new SpeechSynthesisUtterance(w.word);
+        utterance.lang = u.settings.accent === 'uk' ? 'en-GB' : 'en-US';
+        utterance.rate = 0.8;
+        speechSynthesis.speak(utterance);
+    }
+}
+
+// ===== 统计更新 =====
+function updateStats() {
+    const u = allUsers[currentUser];
+    const today = new Date().toDateString();
+    const record = u.history.find(h => new Date(h.date).toDateString() === today);
+    
+    document.getElementById('streakDays').textContent = u.streak;
+    document.getElementById('learnedCount').textContent = u.learned.length;
+    document.getElementById('masteredCount').textContent = u.mastered.length;
+    document.getElementById('todayCount').textContent = record ? record.done.length : 0;
+    
+    const pct = vocab.length > 0 ? ((u.learned.length / vocab.length) * 100).toFixed(1) : 0;
+    document.getElementById('progressPct').textContent = pct;
+    document.getElementById('progressBar').style.width = pct + '%';
+}
+
+// ===== 练习和测验 =====
+function switchTab(tab) {
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById('section-' + tab).classList.add('active');
+    
+    if (tab === 'practice') initPractice();
+    if (tab === 'test') initTest();
+}
+
+function renderDayButtons() {
+    const u = allUsers[currentUser];
+    const availDays = Math.min(5, u.history.length);
+    
+    ['practice', 'test'].forEach(type => {
+        const container = document.getElementById(type + 'DayBtns');
+        let html = '';
+        for (let i = 1; i <= 5; i++) {
+            const active = (type === 'practice' ? state.practiceDays : state.testDays) === i;
+            const disabled = i > availDays;
+            html += `<button class="day-btn ${active ? 'active' : ''}" ${disabled ? 'disabled' : ''} onclick="selectDays('${type}', ${i})">${i}天</button>`;
         }
+        container.innerHTML = html;
+    });
+}
 
-        function createOrLoginUser() {
-            const name = document.getElementById('usernameInput').value.trim();
-            if (!name) { alert('请输入你的名字！'); return; }
-            if (!allUsers[name]) {
-                allUsers[name] = { name, createdAt: new Date().toISOString(), currentWordIndex: 0, todayWords: [], learnedWords: [], masteredWords: [], streakDays: 0, lastStudyDate: null, settings: { dailyWords: 15, accent: 'us' }, currentQuizIndex: 0 };
-                saveAllUsers();
-            }
-            loginUser(name);
+function selectDays(type, days) {
+    if (type === 'practice') {
+        state.practiceDays = days;
+        initPractice();
+    } else {
+        state.testDays = days;
+        initTest();
+    }
+    renderDayButtons();
+}
+
+function getWordsForDays(days) {
+    const u = allUsers[currentUser];
+    const recent = u.history.slice(-days);
+    const wordSet = new Set();
+    recent.forEach(h => h.done.forEach(w => wordSet.add(w)));
+    return Array.from(wordSet).map(w => vocab.find(v => v.word === w)).filter(Boolean);
+}
+
+function shuffle(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+}
+
+function generateOptions(correct, count = 4) {
+    const others = vocab.filter(w => w.word !== correct).map(w => w.word);
+    const shuffled = shuffle(others).slice(0, count - 1);
+    return shuffle([correct, ...shuffled]);
+}
+
+// 练习
+function initPractice() {
+    const words = getWordsForDays(state.practiceDays);
+    const area = document.getElementById('practiceArea');
+    
+    if (!words.length) {
+        area.innerHTML = '<div class="card"><div class="loading">还没有学习记录，先去学习吧！</div></div>';
+        return;
+    }
+    
+    state.practiceWords = shuffle(words);
+    state.practiceIdx = 0;
+    showPracticeQuestion();
+}
+
+function showPracticeQuestion() {
+    const area = document.getElementById('practiceArea');
+    
+    if (state.practiceIdx >= state.practiceWords.length) {
+        state.practiceIdx = 0;
+        state.practiceWords = shuffle(state.practiceWords);
+    }
+    
+    const w = state.practiceWords[state.practiceIdx];
+    const ex = w.examples[Math.floor(Math.random() * w.examples.length)];
+    const sentence = ex.en.replace(new RegExp(`\\b${w.word}\\b`, 'gi'), '___');
+    const options = generateOptions(w.word);
+    
+    area.innerHTML = `
+        <div class="card">
+            <div class="quiz-header">
+                <span class="quiz-type">填空练习</span>
+                <span>${state.practiceIdx + 1} / ${state.practiceWords.length}</span>
+            </div>
+            <div class="quiz-question">${sentence.replace('___', '<span class="blank"></span>')}</div>
+            <div class="quiz-hint">提示：${w.chinese}</div>
+            <div class="quiz-options">
+                ${options.map(o => `<button class="quiz-option" onclick="checkPractice(this, '${o}', '${w.word}')">${o}</button>`).join('')}
+            </div>
+        </div>
+    `;
+}
+
+function checkPractice(btn, selected, correct) {
+    const options = document.querySelectorAll('#practiceArea .quiz-option');
+    options.forEach(o => {
+        o.classList.add('disabled');
+        if (o.textContent === correct) o.classList.add('correct');
+        else if (o === btn && selected !== correct) o.classList.add('wrong');
+    });
+    
+    setTimeout(() => {
+        state.practiceIdx++;
+        showPracticeQuestion();
+    }, 1000);
+}
+
+// 测验
+function initTest() {
+    const words = getWordsForDays(state.testDays);
+    const area = document.getElementById('testArea');
+    
+    if (!words.length) {
+        area.innerHTML = '<div class="card"><div class="loading">还没有学习记录，先去学习吧！</div></div>';
+        return;
+    }
+    
+    area.innerHTML = `
+        <div class="card" style="text-align:center">
+            <p style="font-size:1.1rem;margin-bottom:15px">测验包含 <strong>${words.length}</strong> 个单词</p>
+            <p style="color:var(--text-secondary);margin-bottom:20px">答对的单词将标记为"已掌握"</p>
+            <button class="btn btn-primary" onclick="startTest()">开始测验</button>
+        </div>
+    `;
+}
+
+function startTest() {
+    const words = getWordsForDays(state.testDays);
+    state.testWords = shuffle(words);
+    state.testIdx = 0;
+    state.testResults = [];
+    showTestQuestion();
+}
+
+function showTestQuestion() {
+    const area = document.getElementById('testArea');
+    
+    if (state.testIdx >= state.testWords.length) {
+        showTestResults();
+        return;
+    }
+    
+    const w = state.testWords[state.testIdx];
+    const ex = w.examples[Math.floor(Math.random() * w.examples.length)];
+    const sentence = ex.en.replace(new RegExp(`\\b${w.word}\\b`, 'gi'), '___');
+    const options = generateOptions(w.word);
+    
+    area.innerHTML = `
+        <div class="card">
+            <div class="quiz-header">
+                <span class="quiz-type">📝 测验</span>
+                <span>${state.testIdx + 1} / ${state.testWords.length}</span>
+            </div>
+            <div class="quiz-question">${sentence.replace('___', '<span class="blank"></span>')}</div>
+            <div class="quiz-hint">提示：${w.chinese}</div>
+            <div class="quiz-options">
+                ${options.map(o => `<button class="quiz-option" onclick="checkTest(this, '${o}', '${w.word}')">${o}</button>`).join('')}
+            </div>
+        </div>
+    `;
+}
+
+function checkTest(btn, selected, correct) {
+    const isCorrect = selected === correct;
+    state.testResults.push({ word: correct, correct: isCorrect });
+    
+    if (isCorrect) {
+        const u = allUsers[currentUser];
+        if (!u.mastered.includes(correct)) {
+            u.mastered.push(correct);
+            saveUsers();
         }
+    }
+    
+    const options = document.querySelectorAll('#testArea .quiz-option');
+    options.forEach(o => {
+        o.classList.add('disabled');
+        if (o.textContent === correct) o.classList.add('correct');
+        else if (o === btn && !isCorrect) o.classList.add('wrong');
+    });
+    
+    setTimeout(() => {
+        state.testIdx++;
+        updateStats();
+        showTestQuestion();
+    }, 1000);
+}
 
-        function loginUser(name) {
-            currentUser = name;
-            localStorage.setItem('vocabPlanet_currentUser', name);
-            updateStreak();
-            document.getElementById('loginContainer').style.display = 'none';
-            document.getElementById('appContainer').classList.add('active');
-            updateHeaderUser();
-            loadUserState();
-            prepareTodayWords();
-            updateUI();
-            setupVocabTooltips();
-            loadQuiz();
-        }
+function showTestResults() {
+    const area = document.getElementById('testArea');
+    const correctCount = state.testResults.filter(r => r.correct).length;
+    const total = state.testResults.length;
+    const pct = Math.round((correctCount / total) * 100);
+    
+    area.innerHTML = `
+        <div class="card result-card">
+            <div class="result-icon">${pct >= 60 ? '🎉' : '😢'}</div>
+            <div class="result-title">${pct >= 60 ? '测验通过！' : '继续加油！'}</div>
+            <div class="result-score">${pct}%</div>
+            <div class="result-detail">${correctCount} / ${total} 正确</div>
+            <button class="btn btn-primary" onclick="initTest()">再测一次</button>
+        </div>
+    `;
+}
 
-        function updateStreak() {
-            const user = allUsers[currentUser];
-            const today = new Date().toDateString();
-            if (user.lastStudyDate) {
-                const lastDate = new Date(user.lastStudyDate).toDateString();
-                const yesterday = new Date(); yesterday.setDate(yesterday.getDate() - 1);
-                if (lastDate !== today) {
-                    user.streakDays = lastDate === yesterday.toDateString() ? user.streakDays + 1 : 1;
-                }
-            } else { user.streakDays = 1; }
-            user.lastStudyDate = new Date().toISOString();
-            saveAllUsers();
-        }
+// ===== 设置 =====
+function toggleSettings() {
+    document.getElementById('settingsOverlay').classList.toggle('open');
+    document.getElementById('settingsPanel').classList.toggle('open');
+    
+    if (currentUser) {
+        const u = allUsers[currentUser];
+        document.getElementById('dailySlider').value = u.settings.daily;
+        document.getElementById('dailyValue').textContent = u.settings.daily;
+        document.getElementById('accentSelect').value = u.settings.accent;
+    }
+}
 
-        function updateHeaderUser() {
-            document.getElementById('headerAvatar').textContent = currentUser.charAt(0).toUpperCase();
-            document.getElementById('headerUsername').textContent = currentUser;
-            document.getElementById('settingsUsername').textContent = currentUser;
-        }
+function updateSliderValue() {
+    document.getElementById('dailyValue').textContent = document.getElementById('dailySlider').value;
+}
 
-        function deleteUser(name) {
-            if (confirm(`确定要删除用户 "${name}" 吗？`)) { delete allUsers[name]; saveAllUsers(); renderUserList(); }
-        }
+function saveSettings() {
+    const u = allUsers[currentUser];
+    u.settings.daily = parseInt(document.getElementById('dailySlider').value);
+    u.settings.accent = document.getElementById('accentSelect').value;
+    saveUsers();
+    toggleSettings();
+    showModal('✅', '设置已保存', '');
+}
 
-        function logout() {
-            currentUser = null;
-            localStorage.removeItem('vocabPlanet_currentUser');
-            document.getElementById('appContainer').classList.remove('active');
-            document.getElementById('loginContainer').style.display = 'flex';
-            document.getElementById('usernameInput').value = '';
-            toggleSettings();
-            renderUserList();
-        }
+// ===== 弹窗 =====
+function showModal(icon, title, msg) {
+    document.getElementById('modalIcon').textContent = icon;
+    document.getElementById('modalTitle').textContent = title;
+    document.getElementById('modalMsg').textContent = msg;
+    document.getElementById('modal').classList.add('show');
+}
 
-        function loadUserState() {
-            const user = allUsers[currentUser];
-            appState.currentWordIndex = user.currentWordIndex || 0;
-            appState.todayWords = user.todayWords || [];
-            appState.currentQuizIndex = user.currentQuizIndex || 0;
-            document.getElementById('dailyWordsSlider').value = user.settings.dailyWords;
-            document.getElementById('dailyWordsValue').textContent = user.settings.dailyWords;
-            document.getElementById('accent').value = user.settings.accent;
-        }
+function closeModal() {
+    document.getElementById('modal').classList.remove('show');
+}
 
-        function prepareTodayWords() {
-            const user = allUsers[currentUser];
-            const today = new Date().toDateString();
-            const lastDate = user.lastStudyDate ? new Date(user.lastStudyDate).toDateString() : null;
-            if (lastDate !== today || appState.todayWords.length === 0) {
-                const allWords = Object.values(vocabulary).flat();
-                const unlearnedWords = allWords.filter(w => !user.learnedWords.includes(w.word));
-                appState.todayWords = unlearnedWords.slice(0, user.settings.dailyWords);
-                appState.currentWordIndex = 0;
-                user.todayWords = appState.todayWords;
-                user.currentWordIndex = 0;
-                saveAllUsers();
-            }
-            document.getElementById('totalWords').textContent = appState.todayWords.length;
-        }
-
-        function updateUI() {
-            const user = allUsers[currentUser];
-            document.getElementById('streakDays').textContent = user.streakDays || 0;
-            document.getElementById('learnedCount').textContent = user.learnedWords.length;
-            document.getElementById('masteredCount').textContent = user.masteredWords.length;
-            document.getElementById('todayCount').textContent = appState.currentWordIndex;
-            const progress = ((user.learnedWords.length / 3000) * 100).toFixed(1);
-            document.getElementById('progressPercent').textContent = progress;
-            document.getElementById('progressFill').style.width = progress + '%';
-            updateWordCard();
-        }
-
-        function updateWordCard() {
-            if (appState.currentWordIndex >= appState.todayWords.length) { showCompletion(); return; }
-            const word = appState.todayWords[appState.currentWordIndex];
-            document.getElementById('currentWordIndex').textContent = appState.currentWordIndex + 1;
-            document.getElementById('wordEnglish').textContent = word.word;
-            document.getElementById('wordPhonetic').textContent = word.phonetic;
-            document.getElementById('wordChinese').textContent = word.chinese;
-            document.getElementById('wordCategory').textContent = word.category;
-            document.getElementById('exampleEnglish').innerHTML = word.example.replace(new RegExp(`(${word.word})`, 'gi'), '<span class="highlight">$1</span>');
-            document.getElementById('exampleChinese').textContent = word.exampleCn;
-        }
-
-        function switchTab(tab) {
-            appState.currentTab = tab;
-            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-            document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
-            document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
-            document.getElementById(`section-${tab}`).classList.add('active');
-        }
-
-        function markWord(status) {
-            const user = allUsers[currentUser];
-            const word = appState.todayWords[appState.currentWordIndex];
-            if (status === 'know' && !user.learnedWords.includes(word.word)) user.learnedWords.push(word.word);
-            appState.currentWordIndex++;
-            user.currentWordIndex = appState.currentWordIndex;
-            saveAllUsers();
-            updateUI();
-        }
-
-        function speakWord() {
-            const word = appState.todayWords[appState.currentWordIndex];
-            const user = allUsers[currentUser];
-            if (word && 'speechSynthesis' in window) {
-                const u = new SpeechSynthesisUtterance(word.word);
-                u.lang = user.settings.accent === 'us' ? 'en-US' : 'en-GB';
-                u.rate = 0.8;
-                speechSynthesis.speak(u);
-            }
-        }
-
-        function startScenario(scenario) {
-            if (vocabulary[scenario]) {
-                appState.todayWords = vocabulary[scenario];
-                appState.currentWordIndex = 0;
-                document.getElementById('totalWords').textContent = appState.todayWords.length;
-                switchTab('learn');
-                updateWordCard();
-            }
-        }
-
-        function loadQuiz() {
-            const quiz = quizData[appState.currentQuizIndex % quizData.length];
-            document.getElementById('quizSentence').innerHTML = quiz.sentence.replace('___', '<span class="blank"></span>');
-            document.getElementById('quizOptions').innerHTML = quiz.options.map(opt => `<button class="quiz-option" onclick="selectOption(this, '${opt}')">${opt}</button>`).join('');
-            appState.selectedAnswer = null;
-        }
-
-        function selectOption(el, answer) {
-            document.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
-            el.classList.add('selected');
-            appState.selectedAnswer = answer;
-        }
-
-        function checkAnswer() {
-            if (!appState.selectedAnswer) { alert('请先选择一个答案！'); return; }
-            const quiz = quizData[appState.currentQuizIndex % quizData.length];
-            document.querySelectorAll('.quiz-option').forEach(o => {
-                if (o.textContent === quiz.answer) o.classList.add('correct');
-                else if (o.classList.contains('selected')) o.classList.add('wrong');
-            });
-            setTimeout(() => { appState.currentQuizIndex++; allUsers[currentUser].currentQuizIndex = appState.currentQuizIndex; saveAllUsers(); loadQuiz(); }, 1500);
-        }
-
-        function skipQuiz() { appState.currentQuizIndex++; allUsers[currentUser].currentQuizIndex = appState.currentQuizIndex; saveAllUsers(); loadQuiz(); }
-
-        function setupVocabTooltips() {
-            document.querySelectorAll('.vocab-word').forEach(w => {
-                w.addEventListener('click', function() {
-                    const tooltip = document.getElementById('vocabTooltip');
-                    tooltip.querySelector('#tooltipWord').textContent = this.dataset.word;
-                    tooltip.querySelector('#tooltipPhonetic').textContent = this.dataset.phonetic;
-                    tooltip.querySelector('#tooltipMeaning').textContent = this.dataset.meaning;
-                    const rect = this.getBoundingClientRect();
-                    tooltip.style.left = rect.left + 'px';
-                    tooltip.style.top = (rect.bottom + 10) + 'px';
-                    tooltip.classList.add('show');
-                    if ('speechSynthesis' in window) { const u = new SpeechSynthesisUtterance(this.dataset.word); u.lang = 'en-US'; u.rate = 0.8; speechSynthesis.speak(u); }
-                });
-            });
-            document.addEventListener('click', e => { if (!e.target.classList.contains('vocab-word')) document.getElementById('vocabTooltip').classList.remove('show'); });
-        }
-
-        function toggleSettings() {
-            document.getElementById('settingsPanel').classList.toggle('open');
-            document.getElementById('settingsOverlay').classList.toggle('open');
-        }
-
-        function updateSliderValue(value) { document.getElementById('dailyWordsValue').textContent = value; }
-
-        function saveSettings() {
-            const user = allUsers[currentUser];
-            user.settings.dailyWords = parseInt(document.getElementById('dailyWordsSlider').value);
-            user.settings.accent = document.getElementById('accent').value;
-            saveAllUsers();
-            toggleSettings();
-            appState.todayWords = [];
-            appState.currentWordIndex = 0;
-            prepareTodayWords();
-            updateUI();
-            alert('设置已保存！');
-        }
-
-        function showCompletion() {
-            document.getElementById('completionNew').textContent = appState.todayWords.length;
-            document.getElementById('completionModal').classList.add('show');
-        }
-
-        function closeCompletion() {
-            document.getElementById('completionModal').classList.remove('show');
-            appState.todayWords = [];
-            appState.currentWordIndex = 0;
-            prepareTodayWords();
-            updateUI();
-        }
-
-        function init() {
-            loadAllUsers();
-            const savedUser = localStorage.getItem('vocabPlanet_currentUser');
-            if (savedUser && allUsers[savedUser]) loginUser(savedUser);
-        }
-
-        init();
-    </script>
+// 启动应用
+init();
+</script>
 </body>
 </html>
