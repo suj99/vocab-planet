@@ -6,7 +6,7 @@
     <title>词汇星球 - 每日英语学习</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root{--primary:#6366f1;--primary-dark:#4f46e5;--primary-light:#a5b4fc;--success:#10b981;--danger:#ef4444;--bg-gradient:linear-gradient(135deg,#667eea 0%,#764ba2 100%);--card-bg:rgba(255,255,255,0.95);--text-primary:#1e293b;--text-secondary:#64748b;--shadow:0 8px 30px rgba(0,0,0,0.12);--radius:16px}
+        :root{--primary:#6366f1;--primary-dark:#4f46e5;--primary-light:#a5b4fc;--success:#10b981;--danger:#ef4444;--warning:#f59e0b;--bg-gradient:linear-gradient(135deg,#667eea 0%,#764ba2 100%);--card-bg:rgba(255,255,255,0.95);--text-primary:#1e293b;--text-secondary:#64748b;--shadow:0 8px 30px rgba(0,0,0,0.12);--radius:16px}
         *{margin:0;padding:0;box-sizing:border-box}
         body{font-family:'Noto Sans SC','Nunito',sans-serif;background:var(--bg-gradient);min-height:100vh;color:var(--text-primary)}
         .container{max-width:480px;margin:0 auto;padding:20px;min-height:100vh}
@@ -18,17 +18,20 @@
         .login-subtitle{color:var(--text-secondary);margin-bottom:30px}
         .input{width:100%;padding:14px;border:2px solid #e2e8f0;border-radius:10px;font-size:1rem;margin-bottom:15px}
         .input:focus{outline:none;border-color:var(--primary)}
-        .btn{width:100%;padding:14px;border:none;border-radius:10px;font-size:1rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
+        .btn{width:100%;padding:14px;border:none;border-radius:10px;font-size:1rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all 0.2s}
         .btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:white}
         .btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(99,102,241,0.4)}
         .btn-secondary{background:#f1f5f9;color:var(--text-primary)}
+        .btn-success{background:linear-gradient(135deg,var(--success),#059669);color:white}
+        .btn-warning{background:linear-gradient(135deg,var(--warning),#d97706);color:white}
         .btn-group{display:flex;gap:12px;margin-top:15px}
         .btn-group .btn{flex:1}
+        .btn:disabled{opacity:0.5;cursor:not-allowed;transform:none!important}
         .divider{display:flex;align-items:center;margin:20px 0;color:var(--text-secondary)}
         .divider::before,.divider::after{content:'';flex:1;height:1px;background:#e2e8f0}
         .divider span{padding:0 15px}
         .user-list{max-height:200px;overflow-y:auto}
-        .user-item{display:flex;align-items:center;justify-content:space-between;padding:12px 15px;background:#f8fafc;border-radius:10px;margin-bottom:8px;cursor:pointer}
+        .user-item{display:flex;align-items:center;justify-content:space-between;padding:12px 15px;background:#f8fafc;border-radius:10px;margin-bottom:8px;cursor:pointer;transition:all 0.2s}
         .user-item:hover{background:#eef2ff;transform:translateX(5px)}
         .user-info{display:flex;align-items:center;gap:12px}
         .avatar{width:40px;height:40px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
@@ -60,6 +63,30 @@
         .section{display:none}
         .section.active{display:block;animation:fadeIn 0.3s}
         @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+        .lesson-selector{margin-bottom:20px}
+        .lesson-selector-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}
+        .lesson-selector-title{font-size:1.1rem;font-weight:700}
+        .lesson-nav{display:flex;gap:8px}
+        .lesson-nav-btn{width:36px;height:36px;background:#f1f5f9;border:none;border-radius:50%;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
+        .lesson-nav-btn:hover{background:#e2e8f0}
+        .lesson-nav-btn:disabled{opacity:0.3;cursor:not-allowed}
+        .lesson-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+        .lesson-item{aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#f8fafc;border:2px solid transparent;border-radius:12px;cursor:pointer;transition:all 0.2s;position:relative}
+        .lesson-item:hover{background:#f1f5f9;transform:translateY(-2px)}
+        .lesson-item.current{border-color:var(--primary);background:#eef2ff}
+        .lesson-item.completed{background:#ecfdf5;border-color:var(--success)}
+        .lesson-item.selected{box-shadow:0 0 0 3px var(--primary)}
+        .lesson-num{font-size:1.2rem;font-weight:700;color:var(--text-primary)}
+        .lesson-item.completed .lesson-num{color:var(--success)}
+        .lesson-item.current .lesson-num{color:var(--primary)}
+        .lesson-status{font-size:0.65rem;color:var(--text-secondary);margin-top:2px}
+        .lesson-item.completed .lesson-status{color:var(--success)}
+        .lesson-check{position:absolute;top:4px;right:4px;font-size:0.8rem}
+        .lesson-info{text-align:center;padding:15px;background:#f8fafc;border-radius:10px;margin-top:15px}
+        .lesson-info-title{font-weight:600;margin-bottom:5px}
+        .lesson-info-detail{font-size:0.85rem;color:var(--text-secondary)}
+        .lesson-words-preview{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;justify-content:center}
+        .lesson-word-tag{padding:4px 10px;background:white;border-radius:15px;font-size:0.8rem;border:1px solid #e2e8f0}
         .preview-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}
         .preview-title{font-size:1.1rem;font-weight:700}
         .preview-list{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:15px}
@@ -123,16 +150,14 @@
         .modal-icon{font-size:4rem;margin-bottom:20px}
         .modal-title{font-size:1.5rem;font-weight:700;margin-bottom:10px}
         .modal-msg{color:var(--text-secondary);margin-bottom:25px}
-        .loading{text-align:center;padding:40px;color:var(--text-secondary)}
-        .loading-spinner{width:40px;height:40px;border:4px solid #e2e8f0;border-top-color:var(--primary);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 15px}
-        @keyframes spin{to{transform:rotate(360deg)}}
         .hidden{display:none!important}
         .app-container{display:none}
         .app-container.active{display:block}
+        .back-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 15px;background:#f1f5f9;border:none;border-radius:20px;font-size:0.9rem;cursor:pointer;margin-bottom:15px}
+        .back-btn:hover{background:#e2e8f0}
     </style>
 </head>
 <body>
-    <!-- 登录页面 -->
     <div class="container login-container" id="loginPage">
         <div class="card login-card">
             <div class="login-logo">📚</div>
@@ -145,7 +170,6 @@
         </div>
     </div>
 
-    <!-- 主应用 -->
     <div class="container app-container" id="appPage">
         <header class="header">
             <div class="logo">
@@ -161,7 +185,6 @@
             </div>
         </header>
 
-        <!-- 统计卡片 -->
         <div class="card">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px">
                 <span style="color:var(--text-secondary)">学习进度</span>
@@ -177,8 +200,8 @@
                     <div class="stat-label">已掌握</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-value" id="todayCount">0</div>
-                    <div class="stat-label">今日学习</div>
+                    <div class="stat-value" id="currentLesson">1</div>
+                    <div class="stat-label">当前课程</div>
                 </div>
             </div>
             <div class="progress-section">
@@ -192,18 +215,29 @@
             </div>
         </div>
 
-        <!-- 导航标签 -->
         <div class="nav-tabs">
-            <button class="nav-tab active" data-tab="learn" onclick="switchTab('learn')">📖 今日学习</button>
+            <button class="nav-tab active" data-tab="learn" onclick="switchTab('learn')">📖 学习</button>
             <button class="nav-tab" data-tab="practice" onclick="switchTab('practice')">✍️ 练习</button>
             <button class="nav-tab" data-tab="test" onclick="switchTab('test')">📝 测验</button>
         </div>
 
-        <!-- 学习区域 -->
         <div class="section active" id="section-learn">
-            <div class="card" id="previewCard">
+            <div class="card lesson-selector" id="lessonSelector">
+                <div class="lesson-selector-header">
+                    <span class="lesson-selector-title">📚 选择课程</span>
+                    <div class="lesson-nav">
+                        <button class="lesson-nav-btn" id="lessonPrev" onclick="changeLessonPage(-1)">◀</button>
+                        <button class="lesson-nav-btn" id="lessonNext" onclick="changeLessonPage(1)">▶</button>
+                    </div>
+                </div>
+                <div class="lesson-grid" id="lessonGrid"></div>
+                <div class="lesson-info" id="lessonInfo"></div>
+            </div>
+            
+            <div class="card hidden" id="previewCard">
+                <button class="back-btn" onclick="backToLessonSelect()">← 返回课程</button>
                 <div class="preview-header">
-                    <span class="preview-title">📋 今日词汇</span>
+                    <span class="preview-title">📋 第 <span id="lessonTitle">1</span> 课</span>
                     <span id="previewCount">0/15</span>
                 </div>
                 <div class="preview-list" id="previewList"></div>
@@ -224,26 +258,23 @@
             </div>
         </div>
 
-        <!-- 练习区域 -->
         <div class="section" id="section-practice">
             <div class="card day-selector">
-                <div class="day-selector-title">选择练习范围</div>
+                <div class="day-selector-title">选择练习范围（最近N课）</div>
                 <div class="day-btns" id="practiceDayBtns"></div>
             </div>
             <div id="practiceArea"></div>
         </div>
 
-        <!-- 测验区域 -->
         <div class="section" id="section-test">
             <div class="card day-selector">
-                <div class="day-selector-title">选择测验范围</div>
+                <div class="day-selector-title">选择测验范围（最近N课）</div>
                 <div class="day-btns" id="testDayBtns"></div>
             </div>
             <div id="testArea"></div>
         </div>
     </div>
 
-    <!-- 设置面板 -->
     <div class="settings-overlay" id="settingsOverlay" onclick="toggleSettings()"></div>
     <div class="settings-panel" id="settingsPanel">
         <div class="settings-header">
@@ -256,9 +287,9 @@
                 <div id="settingsUserName" style="color:var(--primary);font-weight:600"></div>
             </div>
             <div class="setting-group">
-                <div class="setting-label">📝 每日单词数</div>
+                <div class="setting-label">📝 每课单词数</div>
                 <input type="range" class="slider" id="dailySlider" min="5" max="30" value="15" oninput="updateSliderValue()">
-                <div class="slider-value"><span id="dailyValue">15</span> 个/天</div>
+                <div class="slider-value"><span id="dailyValue">15</span> 个/课</div>
             </div>
             <div class="setting-group">
                 <div class="setting-label">🔊 发音口音</div>
@@ -274,7 +305,6 @@
         </div>
     </div>
 
-    <!-- 弹窗 -->
     <div class="modal" id="modal">
         <div class="modal-content">
             <div class="modal-icon" id="modalIcon">🎉</div>
@@ -285,16 +315,17 @@
     </div>
 
 <script>
-// ===== 全局变量 =====
 let vocab = [];
 let allUsers = {};
 let currentUser = null;
 let state = {
-    todayWords: [],
+    lessonPage: 0,
+    selectedLesson: 1,
+    lessonWords: [],
     wordIdx: 0,
     isLearning: false,
-    practiceDays: 1,
-    testDays: 1,
+    practiceLessons: 1,
+    testLessons: 1,
     practiceWords: [],
     practiceIdx: 0,
     testWords: [],
@@ -302,14 +333,11 @@ let state = {
     testResults: []
 };
 
-// ===== 初始化 =====
 async function init() {
     await loadVocabulary();
     loadUsers();
     const saved = localStorage.getItem('vp_current');
-    if (saved && allUsers[saved]) {
-        login(saved);
-    }
+    if (saved && allUsers[saved]) login(saved);
 }
 
 async function loadVocabulary() {
@@ -323,7 +351,6 @@ async function loadVocabulary() {
     }
 }
 
-// ===== 用户管理 =====
 function loadUsers() {
     const data = localStorage.getItem('vp_users');
     if (data) allUsers = JSON.parse(data);
@@ -343,12 +370,13 @@ function renderUserList() {
     }
     list.innerHTML = names.map(n => {
         const u = allUsers[n];
+        const currentLesson = Math.floor(u.learned.length / u.settings.daily) + 1;
         return `<div class="user-item" onclick="login('${n}')">
             <div class="user-info">
                 <div class="avatar">${n[0].toUpperCase()}</div>
                 <div>
                     <div class="user-name">${n}</div>
-                    <div class="user-progress">已学${u.learned.length} · 已掌握${u.mastered.length}</div>
+                    <div class="user-progress">第${currentLesson}课 · 已掌握${u.mastered.length}词</div>
                 </div>
             </div>
             <button class="user-delete" onclick="event.stopPropagation();deleteUser('${n}')">×</button>
@@ -364,9 +392,9 @@ function createUser() {
             name,
             learned: [],
             mastered: [],
+            lessonProgress: {},
             streak: 0,
             lastDate: null,
-            history: [],
             settings: { daily: 15, accent: 'us' }
         };
     }
@@ -391,7 +419,11 @@ function login(name) {
     document.getElementById('headerAvatar').textContent = name[0].toUpperCase();
     document.getElementById('headerName').textContent = name;
     document.getElementById('settingsUserName').textContent = name;
-    prepareToday();
+    
+    state.selectedLesson = getCurrentLesson();
+    state.lessonPage = Math.floor((state.selectedLesson - 1) / 10);
+    
+    renderLessonSelector();
     updateStats();
     renderDayButtons();
 }
@@ -423,95 +455,222 @@ function checkStreak() {
     saveUsers();
 }
 
-// ===== 今日学习 =====
-function prepareToday() {
+function getTotalLessons() {
     const u = allUsers[currentUser];
-    const today = new Date().toDateString();
-    let record = u.history.find(h => new Date(h.date).toDateString() === today);
+    return Math.ceil(vocab.length / u.settings.daily);
+}
+
+function getCurrentLesson() {
+    const u = allUsers[currentUser];
+    const total = getTotalLessons();
+    for (let i = 1; i <= total; i++) {
+        const words = getLessonWords(i);
+        const done = u.lessonProgress[i] || [];
+        if (done.length < words.length) return i;
+    }
+    return total;
+}
+
+function getLessonWords(lessonNum) {
+    const u = allUsers[currentUser];
+    const perLesson = u.settings.daily;
+    const start = (lessonNum - 1) * perLesson;
+    return vocab.slice(start, start + perLesson);
+}
+
+function isLessonCompleted(lessonNum) {
+    const u = allUsers[currentUser];
+    const words = getLessonWords(lessonNum);
+    const done = u.lessonProgress[lessonNum] || [];
+    return done.length >= words.length;
+}
+
+function renderLessonSelector() {
+    const total = getTotalLessons();
+    const perPage = 10;
+    const maxPage = Math.ceil(total / perPage) - 1;
     
-    if (!record) {
-        // 按频率顺序获取未学单词
-        const unlearned = vocab.filter(w => !u.learned.includes(w.word));
-        const todayWords = unlearned.slice(0, u.settings.daily).map(w => w.word);
-        record = { date: new Date().toISOString(), words: todayWords, done: [] };
-        u.history.push(record);
-        saveUsers();
+    document.getElementById('lessonPrev').disabled = state.lessonPage <= 0;
+    document.getElementById('lessonNext').disabled = state.lessonPage >= maxPage;
+    
+    const start = state.lessonPage * perPage + 1;
+    const end = Math.min(start + perPage - 1, total);
+    const u = allUsers[currentUser];
+    const currentL = getCurrentLesson();
+    
+    let html = '';
+    for (let i = start; i <= end; i++) {
+        const completed = isLessonCompleted(i);
+        const isCurrent = i === currentL;
+        const progress = u.lessonProgress[i] || [];
+        const words = getLessonWords(i);
+        const isSelected = i === state.selectedLesson;
+        
+        let statusClass = completed ? 'completed' : (isCurrent ? 'current' : '');
+        if (isSelected) statusClass += ' selected';
+        
+        let statusText = completed ? '已完成' : (isCurrent ? (progress.length > 0 ? `${progress.length}/${words.length}` : '当前') : (progress.length > 0 ? `${progress.length}/${words.length}` : ''));
+        
+        html += `<div class="lesson-item ${statusClass}" onclick="selectLesson(${i})">
+            ${completed ? '<span class="lesson-check">✓</span>' : ''}
+            <span class="lesson-num">${i}</span>
+            <span class="lesson-status">${statusText}</span>
+        </div>`;
     }
     
-    state.todayWords = record.words.map(w => vocab.find(v => v.word === w)).filter(Boolean);
-    state.wordIdx = record.done.length;
+    document.getElementById('lessonGrid').innerHTML = html;
+    updateLessonInfo(state.selectedLesson);
+}
+
+function changeLessonPage(delta) {
+    const total = getTotalLessons();
+    const maxPage = Math.ceil(total / 10) - 1;
+    state.lessonPage = Math.max(0, Math.min(maxPage, state.lessonPage + delta));
+    renderLessonSelector();
+}
+
+function selectLesson(lessonNum) {
+    state.selectedLesson = lessonNum;
+    renderLessonSelector();
+}
+
+function updateLessonInfo(lessonNum) {
+    const words = getLessonWords(lessonNum);
+    const u = allUsers[currentUser];
+    const done = u.lessonProgress[lessonNum] || [];
+    const completed = done.length >= words.length;
+    
+    let btnHtml = '';
+    if (completed) {
+        btnHtml = `<button class="btn btn-success" onclick="startLesson(${lessonNum})" style="margin-top:15px">🔄 复习本课</button>`;
+    } else if (done.length > 0) {
+        btnHtml = `<button class="btn btn-warning" onclick="startLesson(${lessonNum})" style="margin-top:15px">▶ 继续学习</button>`;
+    } else {
+        btnHtml = `<button class="btn btn-primary" onclick="startLesson(${lessonNum})" style="margin-top:15px">📖 开始学习</button>`;
+    }
+    
+    const previewWords = words.slice(0, 8).map(w => {
+        const isLearned = done.includes(w.word);
+        return `<span class="lesson-word-tag" style="${isLearned ? 'background:var(--success);color:white;border-color:var(--success)' : ''}">${w.word}</span>`;
+    }).join('') + (words.length > 8 ? `<span class="lesson-word-tag">+${words.length - 8}</span>` : '');
+    
+    document.getElementById('lessonInfo').innerHTML = `
+        <div class="lesson-info-title">第 ${lessonNum} 课</div>
+        <div class="lesson-info-detail">共 ${words.length} 个单词 · 已学 ${done.length} 个${completed ? ' · ✅ 已完成' : ''}</div>
+        <div class="lesson-words-preview">${previewWords}</div>
+        ${btnHtml}
+    `;
+}
+
+function startLesson(lessonNum) {
+    state.selectedLesson = lessonNum;
+    state.lessonWords = getLessonWords(lessonNum);
+    
+    const u = allUsers[currentUser];
+    const done = u.lessonProgress[lessonNum] || [];
+    
+    state.wordIdx = 0;
+    for (let i = 0; i < state.lessonWords.length; i++) {
+        if (!done.includes(state.lessonWords[i].word)) {
+            state.wordIdx = i;
+            break;
+        }
+    }
+    
+    if (done.length >= state.lessonWords.length) state.wordIdx = 0;
+    
     state.isLearning = false;
+    
+    document.getElementById('lessonSelector').classList.add('hidden');
+    document.getElementById('previewCard').classList.remove('hidden');
+    document.getElementById('lessonTitle').textContent = lessonNum;
+    
     renderPreview();
+}
+
+function backToLessonSelect() {
+    document.getElementById('lessonSelector').classList.remove('hidden');
+    document.getElementById('previewCard').classList.add('hidden');
+    document.getElementById('wordCard').classList.add('hidden');
+    document.getElementById('learnBtns').classList.add('hidden');
+    state.isLearning = false;
+    renderLessonSelector();
 }
 
 function renderPreview() {
     const u = allUsers[currentUser];
-    const today = new Date().toDateString();
-    const record = u.history.find(h => new Date(h.date).toDateString() === today);
-    const done = record ? record.done : [];
+    const lessonNum = state.selectedLesson;
+    const done = u.lessonProgress[lessonNum] || [];
     
-    document.getElementById('previewList').innerHTML = state.todayWords.map((w, i) => {
+    document.getElementById('previewList').innerHTML = state.lessonWords.map((w, i) => {
         const isDone = done.includes(w.word);
         const isCurrent = i === state.wordIdx && state.isLearning;
         return `<span class="preview-word ${isDone ? 'learned' : ''} ${isCurrent ? 'current' : ''}">${w.word}</span>`;
     }).join('');
     
-    document.getElementById('previewCount').textContent = `${done.length}/${state.todayWords.length}`;
+    document.getElementById('previewCount').textContent = `${done.length}/${state.lessonWords.length}`;
     
     const btn = document.getElementById('startBtn');
-    const allDone = done.length >= state.todayWords.length;
-    btn.textContent = allDone ? '✅ 今日已完成' : (state.wordIdx > 0 ? '继续学习' : '开始学习');
-    btn.disabled = allDone || state.todayWords.length === 0;
-    btn.style.opacity = (allDone || state.todayWords.length === 0) ? '0.6' : '1';
+    const allDone = done.length >= state.lessonWords.length;
+    
+    if (allDone) {
+        btn.textContent = '🔄 再学一遍';
+        btn.className = 'btn btn-success';
+    } else if (state.wordIdx > 0 || done.length > 0) {
+        btn.textContent = '▶ 继续学习';
+        btn.className = 'btn btn-warning';
+    } else {
+        btn.textContent = '📖 开始学习';
+        btn.className = 'btn btn-primary';
+    }
 }
 
 function startLearning() {
-    if (state.todayWords.length === 0) return;
+    if (state.lessonWords.length === 0) return;
+    
+    const u = allUsers[currentUser];
+    const lessonNum = state.selectedLesson;
+    const done = u.lessonProgress[lessonNum] || [];
+    
+    if (done.length >= state.lessonWords.length) state.wordIdx = 0;
+    
     state.isLearning = true;
     document.getElementById('previewCard').classList.add('hidden');
     document.getElementById('wordCard').classList.remove('hidden');
     document.getElementById('learnBtns').classList.remove('hidden');
-    document.getElementById('wordTotal').textContent = state.todayWords.length;
+    document.getElementById('wordTotal').textContent = state.lessonWords.length;
     showWord();
 }
 
 function showWord() {
-    if (state.wordIdx >= state.todayWords.length) {
+    if (state.wordIdx >= state.lessonWords.length) {
         finishLearning();
         return;
     }
-    const w = state.todayWords[state.wordIdx];
+    const w = state.lessonWords[state.wordIdx];
     document.getElementById('wordIdx').textContent = state.wordIdx + 1;
     document.getElementById('wordEn').textContent = w.word;
     document.getElementById('wordPh').textContent = w.phonetic;
     document.getElementById('wordCn').textContent = w.chinese;
     document.getElementById('wordCat').textContent = w.category;
     
-    const exBox = document.getElementById('examplesBox');
-    exBox.innerHTML = w.examples.map((ex, i) => `
+    document.getElementById('examplesBox').innerHTML = w.examples.map((ex, i) => `
         <div class="example">
             <div class="example-label">例句${i + 1}</div>
             <div class="example-en">${ex.en.replace(new RegExp(`(${w.word})`, 'gi'), '<span class="hl">$1</span>')}</div>
             <div class="example-cn">${ex.cn}</div>
         </div>
     `).join('');
-    
-    renderPreview();
 }
 
 function markWord(known) {
     const u = allUsers[currentUser];
-    const w = state.todayWords[state.wordIdx];
-    const today = new Date().toDateString();
+    const w = state.lessonWords[state.wordIdx];
+    const lessonNum = state.selectedLesson;
     
-    if (!u.learned.includes(w.word)) {
-        u.learned.push(w.word);
-    }
-    
-    const record = u.history.find(h => new Date(h.date).toDateString() === today);
-    if (record && !record.done.includes(w.word)) {
-        record.done.push(w.word);
-    }
+    if (!u.lessonProgress[lessonNum]) u.lessonProgress[lessonNum] = [];
+    if (!u.learned.includes(w.word)) u.learned.push(w.word);
+    if (!u.lessonProgress[lessonNum].includes(w.word)) u.lessonProgress[lessonNum].push(w.word);
     
     state.wordIdx++;
     saveUsers();
@@ -525,12 +684,19 @@ function finishLearning() {
     document.getElementById('learnBtns').classList.add('hidden');
     document.getElementById('previewCard').classList.remove('hidden');
     renderPreview();
-    showModal('🎉', '学习完成！', '去练习巩固一下吧！');
+    
+    const u = allUsers[currentUser];
+    const lessonNum = state.selectedLesson;
+    const done = u.lessonProgress[lessonNum] || [];
+    
+    if (done.length >= state.lessonWords.length) {
+        showModal('🎉', `第 ${lessonNum} 课完成！`, '太棒了！去练习巩固一下吧！');
+    }
 }
 
 function speakWord() {
-    if (state.wordIdx >= state.todayWords.length) return;
-    const w = state.todayWords[state.wordIdx];
+    if (state.wordIdx >= state.lessonWords.length) return;
+    const w = state.lessonWords[state.wordIdx];
     const u = allUsers[currentUser];
     if ('speechSynthesis' in window) {
         const utterance = new SpeechSynthesisUtterance(w.word);
@@ -540,64 +706,75 @@ function speakWord() {
     }
 }
 
-// ===== 统计更新 =====
 function updateStats() {
     const u = allUsers[currentUser];
-    const today = new Date().toDateString();
-    const record = u.history.find(h => new Date(h.date).toDateString() === today);
+    const currentLesson = getCurrentLesson();
     
     document.getElementById('streakDays').textContent = u.streak;
     document.getElementById('learnedCount').textContent = u.learned.length;
     document.getElementById('masteredCount').textContent = u.mastered.length;
-    document.getElementById('todayCount').textContent = record ? record.done.length : 0;
+    document.getElementById('currentLesson').textContent = currentLesson;
     
     const pct = vocab.length > 0 ? ((u.learned.length / vocab.length) * 100).toFixed(1) : 0;
     document.getElementById('progressPct').textContent = pct;
     document.getElementById('progressBar').style.width = pct + '%';
 }
 
-// ===== 练习和测验 =====
 function switchTab(tab) {
     document.querySelectorAll('.nav-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
     document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
     document.getElementById('section-' + tab).classList.add('active');
     
+    if (tab === 'learn') backToLessonSelect();
     if (tab === 'practice') initPractice();
     if (tab === 'test') initTest();
 }
 
 function renderDayButtons() {
     const u = allUsers[currentUser];
-    const availDays = Math.min(5, u.history.length);
+    const completedLessons = Object.keys(u.lessonProgress).filter(k => {
+        const words = getLessonWords(parseInt(k));
+        return (u.lessonProgress[k] || []).length > 0;
+    }).length;
+    
+    const availLessons = Math.max(1, completedLessons);
     
     ['practice', 'test'].forEach(type => {
         const container = document.getElementById(type + 'DayBtns');
         let html = '';
         for (let i = 1; i <= 5; i++) {
-            const active = (type === 'practice' ? state.practiceDays : state.testDays) === i;
-            const disabled = i > availDays;
-            html += `<button class="day-btn ${active ? 'active' : ''}" ${disabled ? 'disabled' : ''} onclick="selectDays('${type}', ${i})">${i}天</button>`;
+            const active = (type === 'practice' ? state.practiceLessons : state.testLessons) === i;
+            const disabled = i > availLessons;
+            html += `<button class="day-btn ${active ? 'active' : ''}" ${disabled ? 'disabled' : ''} onclick="selectLessons('${type}', ${i})">${i}课</button>`;
         }
         container.innerHTML = html;
     });
 }
 
-function selectDays(type, days) {
+function selectLessons(type, lessons) {
     if (type === 'practice') {
-        state.practiceDays = days;
+        state.practiceLessons = lessons;
         initPractice();
     } else {
-        state.testDays = days;
+        state.testLessons = lessons;
         initTest();
     }
     renderDayButtons();
 }
 
-function getWordsForDays(days) {
+function getWordsForLessons(numLessons) {
     const u = allUsers[currentUser];
-    const recent = u.history.slice(-days);
     const wordSet = new Set();
-    recent.forEach(h => h.done.forEach(w => wordSet.add(w)));
+    const learnedLessons = Object.keys(u.lessonProgress).map(Number).sort((a, b) => b - a);
+    
+    let count = 0;
+    for (const lessonNum of learnedLessons) {
+        if (count >= numLessons) break;
+        const done = u.lessonProgress[lessonNum] || [];
+        done.forEach(w => wordSet.add(w));
+        if (done.length > 0) count++;
+    }
+    
     return Array.from(wordSet).map(w => vocab.find(v => v.word === w)).filter(Boolean);
 }
 
@@ -612,17 +789,15 @@ function shuffle(arr) {
 
 function generateOptions(correct, count = 4) {
     const others = vocab.filter(w => w.word !== correct).map(w => w.word);
-    const shuffled = shuffle(others).slice(0, count - 1);
-    return shuffle([correct, ...shuffled]);
+    return shuffle([correct, ...shuffle(others).slice(0, count - 1)]);
 }
 
-// 练习
 function initPractice() {
-    const words = getWordsForDays(state.practiceDays);
+    const words = getWordsForLessons(state.practiceLessons);
     const area = document.getElementById('practiceArea');
     
     if (!words.length) {
-        area.innerHTML = '<div class="card"><div class="loading">还没有学习记录，先去学习吧！</div></div>';
+        area.innerHTML = '<div class="card"><div style="text-align:center;color:var(--text-secondary);padding:20px">还没有学习记录，先去学习吧！</div></div>';
         return;
     }
     
@@ -660,8 +835,7 @@ function showPracticeQuestion() {
 }
 
 function checkPractice(btn, selected, correct) {
-    const options = document.querySelectorAll('#practiceArea .quiz-option');
-    options.forEach(o => {
+    document.querySelectorAll('#practiceArea .quiz-option').forEach(o => {
         o.classList.add('disabled');
         if (o.textContent === correct) o.classList.add('correct');
         else if (o === btn && selected !== correct) o.classList.add('wrong');
@@ -673,13 +847,12 @@ function checkPractice(btn, selected, correct) {
     }, 1000);
 }
 
-// 测验
 function initTest() {
-    const words = getWordsForDays(state.testDays);
+    const words = getWordsForLessons(state.testLessons);
     const area = document.getElementById('testArea');
     
     if (!words.length) {
-        area.innerHTML = '<div class="card"><div class="loading">还没有学习记录，先去学习吧！</div></div>';
+        area.innerHTML = '<div class="card"><div style="text-align:center;color:var(--text-secondary);padding:20px">还没有学习记录，先去学习吧！</div></div>';
         return;
     }
     
@@ -693,7 +866,7 @@ function initTest() {
 }
 
 function startTest() {
-    const words = getWordsForDays(state.testDays);
+    const words = getWordsForLessons(state.testLessons);
     state.testWords = shuffle(words);
     state.testIdx = 0;
     state.testResults = [];
@@ -740,8 +913,7 @@ function checkTest(btn, selected, correct) {
         }
     }
     
-    const options = document.querySelectorAll('#testArea .quiz-option');
-    options.forEach(o => {
+    document.querySelectorAll('#testArea .quiz-option').forEach(o => {
         o.classList.add('disabled');
         if (o.textContent === correct) o.classList.add('correct');
         else if (o === btn && !isCorrect) o.classList.add('wrong');
@@ -771,7 +943,6 @@ function showTestResults() {
     `;
 }
 
-// ===== 设置 =====
 function toggleSettings() {
     document.getElementById('settingsOverlay').classList.toggle('open');
     document.getElementById('settingsPanel').classList.toggle('open');
@@ -794,10 +965,11 @@ function saveSettings() {
     u.settings.accent = document.getElementById('accentSelect').value;
     saveUsers();
     toggleSettings();
+    renderLessonSelector();
+    updateStats();
     showModal('✅', '设置已保存', '');
 }
 
-// ===== 弹窗 =====
 function showModal(icon, title, msg) {
     document.getElementById('modalIcon').textContent = icon;
     document.getElementById('modalTitle').textContent = title;
@@ -809,7 +981,6 @@ function closeModal() {
     document.getElementById('modal').classList.remove('show');
 }
 
-// 启动应用
 init();
 </script>
 </body>
