@@ -1,0 +1,12 @@
+{
+  "name": "vocab-planet",
+  "version": "1.0.0",
+  "description": "词汇星球 - 每日英语学习应用",
+  "scripts": {
+    "start": "serve public",
+    "build": "echo 'Static site, no build needed'"
+  },
+  "keywords": ["english", "vocabulary", "learning"],
+  "author": "",
+  "license": "MIT"
+}

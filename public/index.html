@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>词汇星球 - 每日英语学习</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #a5b4fc;
+            --secondary: #f59e0b;
+            --success: #10b981;
+            --danger: #ef4444;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+            --radius: 16px;
+            --radius-sm: 10px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', 'Nunito', sans-serif;
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        /* 背景装饰 */
+        .bg-decoration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .bg-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .bg-circle:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: -100px;
+            right: -50px;
+            animation-delay: 0s;
+        }
+
+        .bg-circle:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            bottom: 10%;
+            left: -50px;
+            animation-delay: -5s;
+        }
+
+        .bg-circle:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            top: 40%;
+            right: 10%;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        /* 主容器 */
+        .app-container {
+            position: relative;
+            z-index: 1;
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        /* 头部 */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .logo-text {
+            color: white;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        .settings-btn {
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .settings-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(45deg);
+        }
+
+        /* 统计卡片 */
+        .stats-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .stats-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .stats-title {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .streak-badge {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+
+        /* 进度条 */
+        .progress-section {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        /* 导航标签 */
+        .nav-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .nav-tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-tab {
+            flex-shrink: 0;
+            padding: 10px 18px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 25px;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-tab.active {
+            background: white;
+            color: var(--primary);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .nav-tab:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.35);
+        }
+
+        /* 内容区域 */
+        .content-section {
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 学习卡片 */
+        .word-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 30px 25px;
+            text-align: center;
+            box-shadow: var(--shadow-medium);
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .word-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .word-progress {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .word-english {
+            font-family: 'Nunito', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .word-phonetic {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .word-chinese {
+            font-size: 1.4rem;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .word-category {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #f1f5f9;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .example-sentence {
+            background: #f8fafc;
+            border-radius: var(--radius-sm);
+            padding: 15px;
+            margin-top: 15px;
+            text-align: left;
+        }
+
+        .example-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .example-english {
+            font-family: 'Nunito', sans-serif;
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin-bottom: 5px;
+            line-height: 1.5;
+        }
+
+        .example-english .highlight {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .example-chinese {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* 按钮组 */
+        .button-group {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 14px 20px;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+        }
+
+        .btn-secondary {
+            background: #f1f5f9;
+            color: var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            background: #e2e8f0;
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, var(--success), #059669);
+            color: white;
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, var(--danger), #dc2626);
+            color: white;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* 情景模块 */
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .scenario-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 20px 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: var(--shadow-soft);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scenario-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .scenario-card.locked {
+            opacity: 0.6;
+        }
+
+        .scenario-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .scenario-name {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .scenario-count {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .scenario-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .lock-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 0.9rem;
+        }
+
+        /* 练习区域 */
+        .quiz-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 25px;
+            box-shadow: var(--shadow-medium);
+            margin-bottom: 20px;
+        }
+
+        .quiz-type {
+            font-size: 0.8rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .quiz-question {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .quiz-question .blank {
+            display: inline-block;
+            min-width: 80px;
+            border-bottom: 2px dashed var(--primary);
+            margin: 0 5px;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .quiz-option {
+            padding: 14px 18px;
+            background: #f8fafc;
+            border: 2px solid transparent;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+            text-align: left;
+        }
+
+        .quiz-option:hover {
+            background: #f1f5f9;
+            border-color: var(--primary-light);
+        }
+
+        .quiz-option.selected {
+            border-color: var(--primary);
+            background: #eef2ff;
+        }
+
+        .quiz-option.correct {
+            border-color: var(--success);
+            background: #ecfdf5;
+        }
+
+        .quiz-option.wrong {
+            border-color: var(--danger);
+            background: #fef2f2;
+        }
+
+        /* 阅读区域 */
+        .reading-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 25px;
+            box-shadow: var(--shadow-medium);
+            margin-bottom: 20px;
+        }
+
+        .reading-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .reading-level {
+            display: inline-block;
+            padding: 3px 10px;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .reading-content {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+        }
+
+        .reading-content .vocab-word {
+            color: var(--primary);
+            font-weight: 600;
+            cursor: pointer;
+            border-bottom: 1px dotted var(--primary);
+        }
+
+        /* 设置面板 */
+        .settings-panel {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 400px;
+            height: 100%;
+            background: white;
+            z-index: 1000;
+            transition: right 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .settings-panel.open {
+            right: 0;
+        }
+
+        .settings-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .settings-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .settings-header {
+            padding: 20px;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .settings-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .close-btn {
+            width: 36px;
+            height: 36px;
+            background: #f1f5f9;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .close-btn:hover {
+            background: #e2e8f0;
+        }
+
+        .settings-content {
+            padding: 20px;
+        }
+
+        .setting-group {
+            margin-bottom: 25px;
+        }
+
+        .setting-label {
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .setting-description {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+
+        .setting-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .setting-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .setting-slider {
+            width: 100%;
+            height: 6px;
+            -webkit-appearance: none;
+            background: #e2e8f0;
+            border-radius: 3px;
+            outline: none;
+        }
+
+        .setting-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .slider-value {
+            text-align: center;
+            margin-top: 8px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* 词汇提示弹窗 */
+        .vocab-tooltip {
+            position: fixed;
+            background: white;
+            padding: 15px;
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-medium);
+            z-index: 100;
+            max-width: 280px;
+            display: none;
+        }
+
+        .vocab-tooltip.show {
+            display: block;
+            animation: tooltipIn 0.2s ease;
+        }
+
+        @keyframes tooltipIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .tooltip-word {
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .tooltip-phonetic {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+        }
+
+        .tooltip-meaning {
+            font-size: 0.95rem;
+        }
+
+        /* 完成动画 */
+        .completion-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .completion-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .completion-content {
+            background: white;
+            border-radius: var(--radius);
+            padding: 40px 30px;
+            text-align: center;
+            max-width: 340px;
+            transform: scale(0.8);
+            transition: transform 0.3s;
+        }
+
+        .completion-modal.show .completion-content {
+            transform: scale(1);
+        }
+
+        .completion-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .completion-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .completion-message {
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+        }
+
+        .completion-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 25px;
+        }
+
+        .completion-stat {
+            text-align: center;
+        }
+
+        .completion-stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .completion-stat-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* 发音按钮 */
+        .speak-btn {
+            width: 44px;
+            height: 44px;
+            background: var(--primary-light);
+            border: none;
+            border-radius: 50%;
+            color: var(--primary-dark);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 15px;
+        }
+
+        .speak-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        /* 响应式 */
+        @media (max-width: 380px) {
+            .app-container {
+                padding: 15px;
+            }
+            
+            .word-english {
+                font-size: 2rem;
+            }
+            
+            .scenario-grid {
+                gap: 10px;
+            }
+        }
+
+        /* 隐藏类 */
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- 背景装饰 -->
+    <div class="bg-decoration">
+        <div class="bg-circle"></div>
+        <div class="bg-circle"></div>
+        <div class="bg-circle"></div>
+    </div>
+
+    <!-- 主应用 -->
+    <div class="app-container">
+        <!-- 头部 -->
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">📚</div>
+                <span class="logo-text">词汇星球</span>
+            </div>
+            <button class="settings-btn" onclick="toggleSettings()">⚙️</button>
+        </header>
+
+        <!-- 统计卡片 -->
+        <div class="stats-card">
+            <div class="stats-header">
+                <span class="stats-title">学习进度</span>
+                <div class="streak-badge">
+                    <span>🔥</span>
+                    <span id="streakDays">3</span>天连续
+                </div>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-value" id="learnedCount">45</div>
+                    <div class="stat-label">已学单词</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="masteredCount">32</div>
+                    <div class="stat-label">已掌握</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="todayCount">0</div>
+                    <div class="stat-label">今日学习</div>
+                </div>
+            </div>
+            <div class="progress-section">
+                <div class="progress-header">
+                    <span>总体进度</span>
+                    <span><span id="progressPercent">1.5</span>%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill" style="width: 1.5%"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 导航标签 -->
+        <div class="nav-tabs">
+            <button class="nav-tab active" data-tab="learn" onclick="switchTab('learn')">📖 今日学习</button>
+            <button class="nav-tab" data-tab="scenario" onclick="switchTab('scenario')">🎭 情景练习</button>
+            <button class="nav-tab" data-tab="quiz" onclick="switchTab('quiz')">✍️ 巩固练习</button>
+            <button class="nav-tab" data-tab="reading" onclick="switchTab('reading')">📰 趣味阅读</button>
+        </div>
+
+        <!-- 今日学习 -->
+        <div class="content-section active" id="section-learn">
+            <div class="word-card" id="wordCard">
+                <div class="word-progress">第 <span id="currentWordIndex">1</span> / <span id="totalWords">15</span> 个单词</div>
+                <button class="speak-btn" onclick="speakWord()">🔊</button>
+                <div class="word-english" id="wordEnglish">hello</div>
+                <div class="word-phonetic" id="wordPhonetic">/həˈloʊ/</div>
+                <div class="word-chinese" id="wordChinese">你好；喂</div>
+                <div class="word-category" id="wordCategory">日常问候</div>
+                <div class="example-sentence">
+                    <div class="example-label">例句</div>
+                    <div class="example-english" id="exampleEnglish"><span class="highlight">Hello</span>, how are you today?</div>
+                    <div class="example-chinese" id="exampleChinese">你好，你今天怎么样？</div>
+                </div>
+            </div>
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="markWord('hard')">😰 不认识</button>
+                <button class="btn btn-primary" onclick="markWord('know')">😊 认识了</button>
+            </div>
+        </div>
+
+        <!-- 情景练习 -->
+        <div class="content-section" id="section-scenario">
+            <div class="scenario-grid">
+                <div class="scenario-card" onclick="startScenario('greetings')">
+                    <div class="scenario-icon">👋</div>
+                    <div class="scenario-name">问候与介绍</div>
+                    <div class="scenario-count">30个词汇</div>
+                    <div class="scenario-progress" style="width: 60%"></div>
+                </div>
+                <div class="scenario-card" onclick="startScenario('weather')">
+                    <div class="scenario-icon">🌤️</div>
+                    <div class="scenario-name">天气话题</div>
+                    <div class="scenario-count">25个词汇</div>
+                    <div class="scenario-progress" style="width: 30%"></div>
+                </div>
+                <div class="scenario-card" onclick="startScenario('restaurant')">
+                    <div class="scenario-icon">🍽️</div>
+                    <div class="scenario-name">餐厅点餐</div>
+                    <div class="scenario-count">40个词汇</div>
+                    <div class="scenario-progress" style="width: 10%"></div>
+                </div>
+                <div class="scenario-card" onclick="startScenario('directions')">
+                    <div class="scenario-icon">🗺️</div>
+                    <div class="scenario-name">问路指路</div>
+                    <div class="scenario-count">35个词汇</div>
+                    <div class="scenario-progress" style="width: 0%"></div>
+                </div>
+                <div class="scenario-card" onclick="startScenario('shopping')">
+                    <div class="scenario-icon">🛒</div>
+                    <div class="scenario-name">购物消费</div>
+                    <div class="scenario-count">45个词汇</div>
+                    <div class="scenario-progress" style="width: 0%"></div>
+                </div>
+                <div class="scenario-card" onclick="startScenario('transport')">
+                    <div class="scenario-icon">🚌</div>
+                    <div class="scenario-name">交通出行</div>
+                    <div class="scenario-count">30个词汇</div>
+                    <div class="scenario-progress" style="width: 0%"></div>
+                </div>
+                <div class="scenario-card" onclick="startScenario('hotel')">
+                    <div class="scenario-icon">🏨</div>
+                    <div class="scenario-name">酒店住宿</div>
+                    <div class="scenario-count">35个词汇</div>
+                    <div class="scenario-progress" style="width: 0%"></div>
+                </div>
+                <div class="scenario-card" onclick="startScenario('hospital')">
+                    <div class="scenario-icon">🏥</div>
+                    <div class="scenario-name">医院就医</div>
+                    <div class="scenario-count">40个词汇</div>
+                    <div class="scenario-progress" style="width: 0%"></div>
+                </div>
+                <div class="scenario-card" onclick="startScenario('work')">
+                    <div class="scenario-icon">💼</div>
+                    <div class="scenario-name">工作职场</div>
+                    <div class="scenario-count">50个词汇</div>
+                    <div class="scenario-progress" style="width: 0%"></div>
+                </div>
+                <div class="scenario-card" onclick="startScenario('family')">
+                    <div class="scenario-icon">👨‍👩‍👧‍👦</div>
+                    <div class="scenario-name">家庭生活</div>
+                    <div class="scenario-count">40个词汇</div>
+                    <div class="scenario-progress" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 巩固练习 -->
+        <div class="content-section" id="section-quiz">
+            <div class="quiz-card">
+                <div class="quiz-type">填空练习</div>
+                <div class="quiz-question">
+                    <span id="quizSentence">I want to <span class="blank"></span> a cup of coffee.</span>
+                </div>
+                <div class="quiz-options" id="quizOptions">
+                    <button class="quiz-option" onclick="selectOption(this, 'drink')">drink</button>
+                    <button class="quiz-option" onclick="selectOption(this, 'eat')">eat</button>
+                    <button class="quiz-option" onclick="selectOption(this, 'buy')">buy</button>
+                    <button class="quiz-option" onclick="selectOption(this, 'make')">make</button>
+                </div>
+            </div>
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="skipQuiz()">跳过</button>
+                <button class="btn btn-primary" onclick="checkAnswer()">确认答案</button>
+            </div>
+        </div>
+
+        <!-- 趣味阅读 -->
+        <div class="content-section" id="section-reading">
+            <div class="reading-card">
+                <div class="reading-title">The Lost Key 丢失的钥匙</div>
+                <span class="reading-level">初级 · 50词</span>
+                <div class="reading-content">
+                    <p>Tom <span class="vocab-word" data-word="lost" data-phonetic="/lɔːst/" data-meaning="丢失">lost</span> his key. He looked in his <span class="vocab-word" data-word="pocket" data-phonetic="/ˈpɒkɪt/" data-meaning="口袋">pocket</span>. No key. He looked on the <span class="vocab-word" data-word="table" data-phonetic="/ˈteɪbl/" data-meaning="桌子">table</span>. No key. Then his dog came. The key was in the dog's <span class="vocab-word" data-word="mouth" data-phonetic="/maʊθ/" data-meaning="嘴">mouth</span>!</p>
+                    <p style="margin-top: 15px; color: var(--text-secondary); font-size: 0.9rem;">汤姆丢了他的钥匙。他找了找口袋，没有。他看了看桌子，也没有。然后他的狗来了。钥匙在狗嘴里！</p>
+                </div>
+            </div>
+            <div class="reading-card">
+                <div class="reading-title">A Good Morning 美好的早晨</div>
+                <span class="reading-level">初级 · 60词</span>
+                <div class="reading-content">
+                    <p>Every <span class="vocab-word" data-word="morning" data-phonetic="/ˈmɔːnɪŋ/" data-meaning="早晨">morning</span>, I wake up at seven. I <span class="vocab-word" data-word="brush" data-phonetic="/brʌʃ/" data-meaning="刷">brush</span> my teeth and wash my <span class="vocab-word" data-word="face" data-phonetic="/feɪs/" data-meaning="脸">face</span>. Then I eat <span class="vocab-word" data-word="breakfast" data-phonetic="/ˈbrekfəst/" data-meaning="早餐">breakfast</span> with my family. I love eggs and milk. After breakfast, I go to <span class="vocab-word" data-word="school" data-phonetic="/skuːl/" data-meaning="学校">school</span>.</p>
+                    <p style="margin-top: 15px; color: var(--text-secondary); font-size: 0.9rem;">每天早晨，我七点起床。我刷牙洗脸。然后和家人一起吃早餐。我喜欢鸡蛋和牛奶。吃完早餐后，我去上学。</p>
+                </div>
+            </div>
+            <div class="reading-card">
+                <div class="reading-title">At the Market 在市场</div>
+                <span class="reading-level">中级 · 80词</span>
+                <div class="reading-content">
+                    <p>Last <span class="vocab-word" data-word="Saturday" data-phonetic="/ˈsætərdeɪ/" data-meaning="星期六">Saturday</span>, I went to the <span class="vocab-word" data-word="market" data-phonetic="/ˈmɑːkɪt/" data-meaning="市场">market</span> with my mother. We <span class="vocab-word" data-word="bought" data-phonetic="/bɔːt/" data-meaning="买了(buy的过去式)">bought</span> many things: fresh <span class="vocab-word" data-word="vegetables" data-phonetic="/ˈvedʒtəblz/" data-meaning="蔬菜">vegetables</span>, red apples, and some fish. The fish was very <span class="vocab-word" data-word="cheap" data-phonetic="/tʃiːp/" data-meaning="便宜的">cheap</span>. My mother was <span class="vocab-word" data-word="happy" data-phonetic="/ˈhæpi/" data-meaning="高兴的">happy</span>. We carried the bags home together.</p>
+                    <p style="margin-top: 15px; color: var(--text-secondary); font-size: 0.9rem;">上周六，我和妈妈去了市场。我们买了很多东西：新鲜的蔬菜、红苹果和一些鱼。鱼很便宜。妈妈很高兴。我们一起提着袋子回家。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 设置面板 -->
+    <div class="settings-overlay" id="settingsOverlay" onclick="toggleSettings()"></div>
+    <div class="settings-panel" id="settingsPanel">
+        <div class="settings-header">
+            <span class="settings-title">⚙️ 学习设置</span>
+            <button class="close-btn" onclick="toggleSettings()">✕</button>
+        </div>
+        <div class="settings-content">
+            <div class="setting-group">
+                <label class="setting-label">📝 每日学习单词数</label>
+                <p class="setting-description">根据你的时间安排，调整每天需要学习的新单词数量</p>
+                <input type="range" class="setting-slider" id="dailyWordsSlider" min="5" max="30" value="15" oninput="updateSliderValue('dailyWords', this.value)">
+                <div class="slider-value"><span id="dailyWordsValue">15</span> 个单词/天</div>
+            </div>
+            <div class="setting-group">
+                <label class="setting-label">🔄 复习周期</label>
+                <p class="setting-description">设置已学单词的复习间隔，帮助加深记忆</p>
+                <select class="setting-input" id="reviewCycle">
+                    <option value="1">每天复习</option>
+                    <option value="2" selected>每2天复习</option>
+                    <option value="3">每3天复习</option>
+                    <option value="7">每周复习</option>
+                </select>
+            </div>
+            <div class="setting-group">
+                <label class="setting-label">📚 词库难度</label>
+                <p class="setting-description">选择适合你当前水平的词库</p>
+                <select class="setting-input" id="difficulty">
+                    <option value="beginner" selected>入门级 (500词)</option>
+                    <option value="elementary">基础级 (1000词)</option>
+                    <option value="intermediate">进阶级 (2000词)</option>
+                    <option value="advanced">高级 (3000词)</option>
+                </select>
+            </div>
+            <div class="setting-group">
+                <label class="setting-label">🔊 发音设置</label>
+                <p class="setting-description">选择英语发音口音</p>
+                <select class="setting-input" id="accent">
+                    <option value="us" selected>美式发音</option>
+                    <option value="uk">英式发音</option>
+                </select>
+            </div>
+            <div class="setting-group">
+                <label class="setting-label">⏰ 学习提醒</label>
+                <p class="setting-description">设置每日学习提醒时间（需要开启通知权限）</p>
+                <input type="time" class="setting-input" id="reminderTime" value="09:00">
+            </div>
+            <button class="btn btn-primary" style="width: 100%; margin-top: 20px;" onclick="saveSettings()">💾 保存设置</button>
+        </div>
+    </div>
+
+    <!-- 词汇提示 -->
+    <div class="vocab-tooltip" id="vocabTooltip">
+        <div class="tooltip-word" id="tooltipWord"></div>
+        <div class="tooltip-phonetic" id="tooltipPhonetic"></div>
+        <div class="tooltip-meaning" id="tooltipMeaning"></div>
+    </div>
+
+    <!-- 完成弹窗 -->
+    <div class="completion-modal" id="completionModal">
+        <div class="completion-content">
+            <div class="completion-icon">🎉</div>
+            <div class="completion-title">太棒了！</div>
+            <div class="completion-message">你完成了今天的学习任务</div>
+            <div class="completion-stats">
+                <div class="completion-stat">
+                    <div class="completion-stat-value" id="completionNew">15</div>
+                    <div class="completion-stat-label">新学单词</div>
+                </div>
+                <div class="completion-stat">
+                    <div class="completion-stat-value" id="completionReview">8</div>
+                    <div class="completion-stat-label">复习单词</div>
+                </div>
+            </div>
+            <button class="btn btn-primary" style="width: 100%;" onclick="closeCompletion()">继续学习</button>
+        </div>
+    </div>
+
+    <script>
+        // ==================== 词库数据 ====================
+        const vocabulary = {
+            // 基础问候类
+            greetings: [
+                { word: "hello", phonetic: "/həˈloʊ/", chinese: "你好；喂", category: "日常问候", example: "Hello, how are you today?", exampleCn: "你好，你今天怎么样？" },
+                { word: "goodbye", phonetic: "/ɡʊdˈbaɪ/", chinese: "再见", category: "日常问候", example: "Goodbye! See you tomorrow.", exampleCn: "再见！明天见。" },
+                { word: "thank", phonetic: "/θæŋk/", chinese: "谢谢；感谢", category: "日常问候", example: "Thank you for your help.", exampleCn: "谢谢你的帮助。" },
+                { word: "please", phonetic: "/pliːz/", chinese: "请", category: "日常问候", example: "Please sit down.", exampleCn: "请坐。" },
+                { word: "sorry", phonetic: "/ˈsɒri/", chinese: "对不起；抱歉", category: "日常问候", example: "I'm sorry for being late.", exampleCn: "对不起我迟到了。" },
+                { word: "welcome", phonetic: "/ˈwelkəm/", chinese: "欢迎", category: "日常问候", example: "Welcome to my home!", exampleCn: "欢迎来到我家！" },
+                { word: "morning", phonetic: "/ˈmɔːnɪŋ/", chinese: "早上；上午", category: "时间", example: "Good morning, everyone!", exampleCn: "大家早上好！" },
+                { word: "afternoon", phonetic: "/ˌɑːftərˈnuːn/", chinese: "下午", category: "时间", example: "See you this afternoon.", exampleCn: "下午见。" },
+                { word: "evening", phonetic: "/ˈiːvnɪŋ/", chinese: "傍晚；晚上", category: "时间", example: "Good evening, sir.", exampleCn: "晚上好，先生。" },
+                { word: "night", phonetic: "/naɪt/", chinese: "夜晚", category: "时间", example: "Good night, sleep well.", exampleCn: "晚安，睡个好觉。" },
+                { word: "today", phonetic: "/təˈdeɪ/", chinese: "今天", category: "时间", example: "What day is today?", exampleCn: "今天是星期几？" },
+                { word: "tomorrow", phonetic: "/təˈmɒroʊ/", chinese: "明天", category: "时间", example: "I will call you tomorrow.", exampleCn: "我明天给你打电话。" },
+                { word: "yesterday", phonetic: "/ˈjestərdeɪ/", chinese: "昨天", category: "时间", example: "I saw him yesterday.", exampleCn: "我昨天见到他了。" },
+                { word: "name", phonetic: "/neɪm/", chinese: "名字", category: "介绍", example: "My name is Tom.", exampleCn: "我的名字是汤姆。" },
+                { word: "friend", phonetic: "/frend/", chinese: "朋友", category: "人物", example: "She is my best friend.", exampleCn: "她是我最好的朋友。" }
+            ],
+            // 天气类
+            weather: [
+                { word: "weather", phonetic: "/ˈweðər/", chinese: "天气", category: "天气", example: "How's the weather today?", exampleCn: "今天天气怎么样？" },
+                { word: "sunny", phonetic: "/ˈsʌni/", chinese: "晴朗的", category: "天气", example: "It's a sunny day.", exampleCn: "今天是晴天。" },
+                { word: "cloudy", phonetic: "/ˈklaʊdi/", chinese: "多云的", category: "天气", example: "It's cloudy today.", exampleCn: "今天多云。" },
+                { word: "rainy", phonetic: "/ˈreɪni/", chinese: "下雨的", category: "天气", example: "Bring an umbrella, it's rainy.", exampleCn: "带把伞，在下雨。" },
+                { word: "cold", phonetic: "/koʊld/", chinese: "冷的", category: "天气", example: "It's very cold outside.", exampleCn: "外面很冷。" },
+                { word: "hot", phonetic: "/hɒt/", chinese: "热的", category: "天气", example: "Summer is very hot here.", exampleCn: "这里夏天很热。" },
+                { word: "warm", phonetic: "/wɔːrm/", chinese: "温暖的", category: "天气", example: "Spring is warm and nice.", exampleCn: "春天温暖宜人。" },
+                { word: "cool", phonetic: "/kuːl/", chinese: "凉爽的", category: "天气", example: "The evening air is cool.", exampleCn: "晚上的空气很凉爽。" },
+                { word: "wind", phonetic: "/wɪnd/", chinese: "风", category: "天气", example: "The wind is strong today.", exampleCn: "今天风很大。" },
+                { word: "snow", phonetic: "/snoʊ/", chinese: "雪", category: "天气", example: "Children love to play in the snow.", exampleCn: "孩子们喜欢在雪中玩耍。" },
+                { word: "rain", phonetic: "/reɪn/", chinese: "雨", category: "天气", example: "I like the sound of rain.", exampleCn: "我喜欢雨声。" },
+                { word: "umbrella", phonetic: "/ʌmˈbrelə/", chinese: "雨伞", category: "物品", example: "Don't forget your umbrella.", exampleCn: "别忘了带伞。" },
+                { word: "temperature", phonetic: "/ˈtemprətʃər/", chinese: "温度", category: "天气", example: "The temperature is 25 degrees.", exampleCn: "温度是25度。" },
+                { word: "season", phonetic: "/ˈsiːzn/", chinese: "季节", category: "时间", example: "What's your favorite season?", exampleCn: "你最喜欢哪个季节？" },
+                { word: "spring", phonetic: "/sprɪŋ/", chinese: "春天", category: "时间", example: "Flowers bloom in spring.", exampleCn: "花在春天开放。" }
+            ],
+            // 餐厅类
+            restaurant: [
+                { word: "restaurant", phonetic: "/ˈrestrɒnt/", chinese: "餐厅", category: "场所", example: "Let's go to a restaurant.", exampleCn: "我们去餐厅吧。" },
+                { word: "menu", phonetic: "/ˈmenjuː/", chinese: "菜单", category: "餐厅", example: "Can I see the menu, please?", exampleCn: "请给我看一下菜单好吗？" },
+                { word: "order", phonetic: "/ˈɔːrdər/", chinese: "点菜；订购", category: "动作", example: "I'd like to order now.", exampleCn: "我想现在点餐。" },
+                { word: "waiter", phonetic: "/ˈweɪtər/", chinese: "服务员（男）", category: "人物", example: "Excuse me, waiter!", exampleCn: "打扰一下，服务员！" },
+                { word: "bill", phonetic: "/bɪl/", chinese: "账单", category: "餐厅", example: "Can I have the bill, please?", exampleCn: "请给我账单好吗？" },
+                { word: "delicious", phonetic: "/dɪˈlɪʃəs/", chinese: "美味的", category: "形容词", example: "This food is delicious!", exampleCn: "这食物真美味！" },
+                { word: "hungry", phonetic: "/ˈhʌŋɡri/", chinese: "饥饿的", category: "感觉", example: "I'm very hungry.", exampleCn: "我很饿。" },
+                { word: "thirsty", phonetic: "/ˈθɜːrsti/", chinese: "口渴的", category: "感觉", example: "I'm thirsty. Can I have some water?", exampleCn: "我渴了，能给我点水吗？" },
+                { word: "breakfast", phonetic: "/ˈbrekfəst/", chinese: "早餐", category: "餐食", example: "What do you want for breakfast?", exampleCn: "你早餐想吃什么？" },
+                { word: "lunch", phonetic: "/lʌntʃ/", chinese: "午餐", category: "餐食", example: "Let's have lunch together.", exampleCn: "我们一起吃午餐吧。" },
+                { word: "dinner", phonetic: "/ˈdɪnər/", chinese: "晚餐", category: "餐食", example: "What's for dinner tonight?", exampleCn: "今晚晚餐吃什么？" },
+                { word: "drink", phonetic: "/drɪŋk/", chinese: "饮料；喝", category: "餐饮", example: "What would you like to drink?", exampleCn: "你想喝点什么？" },
+                { word: "coffee", phonetic: "/ˈkɒfi/", chinese: "咖啡", category: "饮料", example: "I need a cup of coffee.", exampleCn: "我需要一杯咖啡。" },
+                { word: "tea", phonetic: "/tiː/", chinese: "茶", category: "饮料", example: "Would you like some tea?", exampleCn: "你想来点茶吗？" },
+                { word: "water", phonetic: "/ˈwɔːtər/", chinese: "水", category: "饮料", example: "A glass of water, please.", exampleCn: "请给我一杯水。" }
+            ],
+            // 问路类
+            directions: [
+                { word: "where", phonetic: "/wer/", chinese: "哪里", category: "疑问词", example: "Where is the bank?", exampleCn: "银行在哪里？" },
+                { word: "left", phonetic: "/left/", chinese: "左边", category: "方向", example: "Turn left at the corner.", exampleCn: "在拐角处左转。" },
+                { word: "right", phonetic: "/raɪt/", chinese: "右边", category: "方向", example: "Go right, then straight.", exampleCn: "向右走，然后直走。" },
+                { word: "straight", phonetic: "/streɪt/", chinese: "直的；直走", category: "方向", example: "Go straight for two blocks.", exampleCn: "直走两个街区。" },
+                { word: "near", phonetic: "/nɪr/", chinese: "近的；附近", category: "位置", example: "Is there a park near here?", exampleCn: "这附近有公园吗？" },
+                { word: "far", phonetic: "/fɑːr/", chinese: "远的", category: "位置", example: "Is it far from here?", exampleCn: "离这里远吗？" },
+                { word: "street", phonetic: "/striːt/", chinese: "街道", category: "场所", example: "Walk down this street.", exampleCn: "沿着这条街走。" },
+                { word: "corner", phonetic: "/ˈkɔːrnər/", chinese: "拐角；角落", category: "位置", example: "The shop is on the corner.", exampleCn: "商店在拐角处。" },
+                { word: "across", phonetic: "/əˈkrɒs/", chinese: "穿过；对面", category: "位置", example: "It's across the street.", exampleCn: "它在街对面。" },
+                { word: "next", phonetic: "/nekst/", chinese: "下一个；旁边的", category: "位置", example: "It's next to the hospital.", exampleCn: "它在医院旁边。" },
+                { word: "between", phonetic: "/bɪˈtwiːn/", chinese: "在...之间", category: "位置", example: "The cafe is between the bank and the hotel.", exampleCn: "咖啡馆在银行和酒店之间。" },
+                { word: "map", phonetic: "/mæp/", chinese: "地图", category: "物品", example: "Do you have a map?", exampleCn: "你有地图吗？" },
+                { word: "station", phonetic: "/ˈsteɪʃn/", chinese: "车站", category: "场所", example: "How do I get to the station?", exampleCn: "我怎么去车站？" },
+                { word: "stop", phonetic: "/stɒp/", chinese: "停止；站", category: "交通", example: "Get off at the next stop.", exampleCn: "在下一站下车。" },
+                { word: "walk", phonetic: "/wɔːk/", chinese: "走路", category: "动作", example: "It's a five-minute walk.", exampleCn: "步行五分钟。" }
+            ],
+            // 购物类
+            shopping: [
+                { word: "shop", phonetic: "/ʃɒp/", chinese: "商店；购物", category: "场所", example: "I love to shop on weekends.", exampleCn: "我喜欢周末购物。" },
+                { word: "buy", phonetic: "/baɪ/", chinese: "买", category: "动作", example: "I want to buy a new phone.", exampleCn: "我想买一部新手机。" },
+                { word: "sell", phonetic: "/sel/", chinese: "卖", category: "动作", example: "They sell fresh fruit here.", exampleCn: "他们这里卖新鲜水果。" },
+                { word: "price", phonetic: "/praɪs/", chinese: "价格", category: "购物", example: "What's the price of this?", exampleCn: "这个多少钱？" },
+                { word: "cheap", phonetic: "/tʃiːp/", chinese: "便宜的", category: "形容词", example: "This is very cheap.", exampleCn: "这个很便宜。" },
+                { word: "expensive", phonetic: "/ɪkˈspensɪv/", chinese: "昂贵的", category: "形容词", example: "That bag is too expensive.", exampleCn: "那个包太贵了。" },
+                { word: "money", phonetic: "/ˈmʌni/", chinese: "钱", category: "购物", example: "I don't have enough money.", exampleCn: "我没有足够的钱。" },
+                { word: "pay", phonetic: "/peɪ/", chinese: "付款", category: "动作", example: "Can I pay by card?", exampleCn: "我可以刷卡吗？" },
+                { word: "cash", phonetic: "/kæʃ/", chinese: "现金", category: "购物", example: "I only have cash.", exampleCn: "我只有现金。" },
+                { word: "card", phonetic: "/kɑːrd/", chinese: "卡片；银行卡", category: "购物", example: "Do you accept credit cards?", exampleCn: "你们接受信用卡吗？" },
+                { word: "size", phonetic: "/saɪz/", chinese: "尺寸；大小", category: "购物", example: "What size do you need?", exampleCn: "你需要什么尺寸？" },
+                { word: "color", phonetic: "/ˈkʌlər/", chinese: "颜色", category: "购物", example: "Do you have other colors?", exampleCn: "你们有其他颜色吗？" },
+                { word: "try", phonetic: "/traɪ/", chinese: "尝试；试穿", category: "动作", example: "Can I try this on?", exampleCn: "我能试穿一下吗？" },
+                { word: "bag", phonetic: "/bæɡ/", chinese: "袋子；包", category: "物品", example: "Do you need a bag?", exampleCn: "你需要袋子吗？" },
+                { word: "change", phonetic: "/tʃeɪndʒ/", chinese: "零钱；改变", category: "购物", example: "Here's your change.", exampleCn: "这是你的零钱。" }
+            ]
+        };
+
+        // ==================== 练习题数据 ====================
+        const quizData = [
+            { type: "fill", sentence: "I want to ___ a cup of coffee.", answer: "drink", options: ["drink", "eat", "buy", "make"] },
+            { type: "fill", sentence: "The weather is very ___ today. I need a jacket.", answer: "cold", options: ["cold", "hot", "sunny", "happy"] },
+            { type: "fill", sentence: "Can I have the ___, please? I want to pay.", answer: "bill", options: ["menu", "bill", "table", "water"] },
+            { type: "fill", sentence: "Turn ___ at the corner, then go straight.", answer: "left", options: ["left", "right", "up", "down"] },
+            { type: "fill", sentence: "This bag is too ___. I can't afford it.", answer: "expensive", options: ["cheap", "expensive", "big", "small"] },
+            { type: "fill", sentence: "Good ___, how did you sleep?", answer: "morning", options: ["morning", "evening", "night", "afternoon"] },
+            { type: "fill", sentence: "I'm very ___. I didn't eat breakfast.", answer: "hungry", options: ["hungry", "thirsty", "happy", "tired"] },
+            { type: "fill", sentence: "Is the station ___ from here?", answer: "far", options: ["far", "near", "next", "across"] },
+            { type: "fill", sentence: "What ___ do you need? Small, medium, or large?", answer: "size", options: ["size", "color", "price", "number"] },
+            { type: "fill", sentence: "It's ___ outside. Take an umbrella.", answer: "rainy", options: ["rainy", "sunny", "warm", "cool"] }
+        ];
+
+        // ==================== 应用状态 ====================
+        let appState = {
+            currentTab: 'learn',
+            currentWordIndex: 0,
+            todayWords: [],
+            learnedWords: [],
+            masteredWords: [],
+            streakDays: 3,
+            settings: {
+                dailyWords: 15,
+                reviewCycle: 2,
+                difficulty: 'beginner',
+                accent: 'us',
+                reminderTime: '09:00'
+            },
+            currentQuizIndex: 0,
+            selectedAnswer: null
+        };
+
+        // ==================== 初始化 ====================
+        function init() {
+            loadState();
+            prepareTodayWords();
+            updateUI();
+            setupVocabTooltips();
+        }
+
+        function loadState() {
+            const saved = localStorage.getItem('vocabPlanetState');
+            if (saved) {
+                const parsed = JSON.parse(saved);
+                appState = { ...appState, ...parsed };
+            }
+        }
+
+        function saveState() {
+            localStorage.setItem('vocabPlanetState', JSON.stringify(appState));
+        }
+
+        function prepareTodayWords() {
+            if (appState.todayWords.length === 0) {
+                // 合并所有词库
+                const allWords = Object.values(vocabulary).flat();
+                // 过滤已学过的词
+                const unlearnedWords = allWords.filter(w => 
+                    !appState.learnedWords.includes(w.word)
+                );
+                // 取今日学习数量
+                appState.todayWords = unlearnedWords.slice(0, appState.settings.dailyWords);
+            }
+            document.getElementById('totalWords').textContent = appState.todayWords.length;
+        }
+
+        // ==================== UI更新 ====================
+        function updateUI() {
+            // 更新统计
+            document.getElementById('streakDays').textContent = appState.streakDays;
+            document.getElementById('learnedCount').textContent = appState.learnedWords.length;
+            document.getElementById('masteredCount').textContent = appState.masteredWords.length;
+            document.getElementById('todayCount').textContent = appState.currentWordIndex;
+            
+            // 更新进度
+            const totalVocab = 3000;
+            const progress = ((appState.learnedWords.length / totalVocab) * 100).toFixed(1);
+            document.getElementById('progressPercent').textContent = progress;
+            document.getElementById('progressFill').style.width = progress + '%';
+            
+            // 更新当前单词
+            updateWordCard();
+        }
+
+        function updateWordCard() {
+            if (appState.currentWordIndex >= appState.todayWords.length) {
+                showCompletion();
+                return;
+            }
+
+            const word = appState.todayWords[appState.currentWordIndex];
+            document.getElementById('currentWordIndex').textContent = appState.currentWordIndex + 1;
+            document.getElementById('wordEnglish').textContent = word.word;
+            document.getElementById('wordPhonetic').textContent = word.phonetic;
+            document.getElementById('wordChinese').textContent = word.chinese;
+            document.getElementById('wordCategory').textContent = word.category;
+            
+            // 高亮例句中的单词
+            const highlightedExample = word.example.replace(
+                new RegExp(`(${word.word})`, 'gi'),
+                '<span class="highlight">$1</span>'
+            );
+            document.getElementById('exampleEnglish').innerHTML = highlightedExample;
+            document.getElementById('exampleChinese').textContent = word.exampleCn;
+        }
+
+        // ==================== 标签切换 ====================
+        function switchTab(tab) {
+            appState.currentTab = tab;
+            
+            // 更新标签样式
+            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+            document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
+            
+            // 切换内容
+            document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+            document.getElementById(`section-${tab}`).classList.add('active');
+        }
+
+        // ==================== 学习功能 ====================
+        function markWord(status) {
+            const word = appState.todayWords[appState.currentWordIndex];
+            
+            if (status === 'know') {
+                if (!appState.learnedWords.includes(word.word)) {
+                    appState.learnedWords.push(word.word);
+                }
+            }
+            
+            appState.currentWordIndex++;
+            updateUI();
+            saveState();
+
+            // 添加动画效果
+            const card = document.getElementById('wordCard');
+            card.style.transform = 'translateX(50px)';
+            card.style.opacity = '0';
+            setTimeout(() => {
+                card.style.transition = 'none';
+                card.style.transform = 'translateX(-50px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.3s';
+                    card.style.transform = 'translateX(0)';
+                    card.style.opacity = '1';
+                }, 50);
+            }, 200);
+        }
+
+        function speakWord() {
+            const word = appState.todayWords[appState.currentWordIndex];
+            if (word && 'speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(word.word);
+                utterance.lang = appState.settings.accent === 'us' ? 'en-US' : 'en-GB';
+                utterance.rate = 0.8;
+                speechSynthesis.speak(utterance);
+            }
+        }
+
+        // ==================== 情景练习 ====================
+        function startScenario(scenario) {
+            // 切换到学习标签并加载对应情景词汇
+            if (vocabulary[scenario]) {
+                appState.todayWords = vocabulary[scenario];
+                appState.currentWordIndex = 0;
+                document.getElementById('totalWords').textContent = appState.todayWords.length;
+                switchTab('learn');
+                updateWordCard();
+            }
+        }
+
+        // ==================== 练习功能 ====================
+        function loadQuiz() {
+            if (appState.currentQuizIndex >= quizData.length) {
+                appState.currentQuizIndex = 0;
+            }
+            const quiz = quizData[appState.currentQuizIndex];
+            
+            document.getElementById('quizSentence').innerHTML = quiz.sentence.replace('___', '<span class="blank"></span>');
+            
+            const optionsHtml = quiz.options.map(opt => 
+                `<button class="quiz-option" onclick="selectOption(this, '${opt}')">${opt}</button>`
+            ).join('');
+            document.getElementById('quizOptions').innerHTML = optionsHtml;
+            
+            appState.selectedAnswer = null;
+        }
+
+        function selectOption(element, answer) {
+            document.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+            appState.selectedAnswer = answer;
+        }
+
+        function checkAnswer() {
+            if (!appState.selectedAnswer) {
+                alert('请先选择一个答案！');
+                return;
+            }
+            
+            const quiz = quizData[appState.currentQuizIndex];
+            const options = document.querySelectorAll('.quiz-option');
+            
+            options.forEach(opt => {
+                if (opt.textContent === quiz.answer) {
+                    opt.classList.add('correct');
+                } else if (opt.classList.contains('selected') && opt.textContent !== quiz.answer) {
+                    opt.classList.add('wrong');
+                }
+            });
+            
+            setTimeout(() => {
+                appState.currentQuizIndex++;
+                loadQuiz();
+            }, 1500);
+        }
+
+        function skipQuiz() {
+            appState.currentQuizIndex++;
+            loadQuiz();
+        }
+
+        // ==================== 阅读功能 ====================
+        function setupVocabTooltips() {
+            document.querySelectorAll('.vocab-word').forEach(word => {
+                word.addEventListener('click', function(e) {
+                    const tooltip = document.getElementById('vocabTooltip');
+                    tooltip.querySelector('#tooltipWord').textContent = this.dataset.word;
+                    tooltip.querySelector('#tooltipPhonetic').textContent = this.dataset.phonetic;
+                    tooltip.querySelector('#tooltipMeaning').textContent = this.dataset.meaning;
+                    
+                    const rect = this.getBoundingClientRect();
+                    tooltip.style.left = rect.left + 'px';
+                    tooltip.style.top = (rect.bottom + 10) + 'px';
+                    tooltip.classList.add('show');
+                    
+                    // 发音
+                    if ('speechSynthesis' in window) {
+                        const utterance = new SpeechSynthesisUtterance(this.dataset.word);
+                        utterance.lang = 'en-US';
+                        utterance.rate = 0.8;
+                        speechSynthesis.speak(utterance);
+                    }
+                });
+            });
+            
+            document.addEventListener('click', function(e) {
+                if (!e.target.classList.contains('vocab-word')) {
+                    document.getElementById('vocabTooltip').classList.remove('show');
+                }
+            });
+        }
+
+        // ==================== 设置功能 ====================
+        function toggleSettings() {
+            document.getElementById('settingsPanel').classList.toggle('open');
+            document.getElementById('settingsOverlay').classList.toggle('open');
+        }
+
+        function updateSliderValue(type, value) {
+            document.getElementById(`${type}Value`).textContent = value;
+            appState.settings.dailyWords = parseInt(value);
+        }
+
+        function saveSettings() {
+            appState.settings.dailyWords = parseInt(document.getElementById('dailyWordsSlider').value);
+            appState.settings.reviewCycle = parseInt(document.getElementById('reviewCycle').value);
+            appState.settings.difficulty = document.getElementById('difficulty').value;
+            appState.settings.accent = document.getElementById('accent').value;
+            appState.settings.reminderTime = document.getElementById('reminderTime').value;
+            
+            saveState();
+            toggleSettings();
+            
+            // 重新准备今日单词
+            appState.todayWords = [];
+            appState.currentWordIndex = 0;
+            prepareTodayWords();
+            updateUI();
+            
+            alert('设置已保存！');
+        }
+
+        // ==================== 完成弹窗 ====================
+        function showCompletion() {
+            document.getElementById('completionNew').textContent = appState.todayWords.length;
+            document.getElementById('completionReview').textContent = Math.floor(appState.todayWords.length * 0.5);
+            document.getElementById('completionModal').classList.add('show');
+        }
+
+        function closeCompletion() {
+            document.getElementById('completionModal').classList.remove('show');
+            // 重置今日学习
+            appState.todayWords = [];
+            appState.currentWordIndex = 0;
+            appState.streakDays++;
+            prepareTodayWords();
+            updateUI();
+            saveState();
+        }
+
+        // 初始化应用
+        init();
+        loadQuiz();
+    </script>
+</body>
+</html>
