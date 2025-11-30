@@ -198,8 +198,7 @@
 {"rank":197,"word":"each","phonetic":"/iːtʃ/","chinese":"每个","category":"形容词","examples":[{"en":"Each other.","cn":"彼此。"},{"en":"Each day.","cn":"每天。"},{"en":"Each one.","cn":"每一个。"}]},
 {"rank":198,"word":"together","phonetic":"/təˈɡeðər/","chinese":"一起","category":"副词","examples":[{"en":"Work together.","cn":"一起工作。"},{"en":"All together.","cn":"全部一起。"},{"en":"Stay together.","cn":"待在一起。"}]},
 {"rank":199,"word":"country","phonetic":"/ˈkʌntri/","chinese":"国家，乡村","category":"名词","examples":[{"en":"My country.","cn":"我的国家。"},{"en":"Country music.","cn":"乡村音乐。"},{"en":"Across the country.","cn":"全国各地。"}]},
-{"rank":200,"word":"name","phonetic":"/neɪm/","chinese":"名字，命名","category":"名词","examples":[{"en":"My name is.","cn":"我的名字是。"},{"en":"What's your name?","cn":"你叫什么？"},{"en":"By name.","cn":"按名字。"}]}
-,
+{"rank":200,"word":"name","phonetic":"/neɪm/","chinese":"名字，命名","category":"名词","examples":[{"en":"My name is.","cn":"我的名字是。"},{"en":"What's your name?","cn":"你叫什么？"},{"en":"By name.","cn":"按名字。"}]},
 {"rank":201,"word":"number","phonetic":"/ˈnʌmbər/","chinese":"数字，号码","category":"名词","examples":[{"en":"Phone number.","cn":"电话号码。"},{"en":"A number of.","cn":"一些。"},{"en":"Number one.","cn":"第一名。"}]},
 {"rank":202,"word":"side","phonetic":"/saɪd/","chinese":"边，侧面","category":"名词","examples":[{"en":"This side.","cn":"这边。"},{"en":"Side by side.","cn":"并肩。"},{"en":"On my side.","cn":"在我这边。"}]},
 {"rank":203,"word":"water","phonetic":"/ˈwɔːtər/","chinese":"水","category":"名词","examples":[{"en":"Drink water.","cn":"喝水。"},{"en":"Cold water.","cn":"冷水。"},{"en":"Water bottle.","cn":"水瓶。"}]},
@@ -299,8 +298,7 @@
 {"rank":297,"word":"result","phonetic":"/rɪˈzʌlt/","chinese":"结果","category":"名词","examples":[{"en":"As a result.","cn":"结果。"},{"en":"Good result.","cn":"好结果。"},{"en":"Test result.","cn":"测试结果。"}]},
 {"rank":298,"word":"minute","phonetic":"/ˈmɪnɪt/","chinese":"分钟","category":"名词","examples":[{"en":"Just a minute.","cn":"稍等一下。"},{"en":"In a minute.","cn":"马上。"},{"en":"Five minutes.","cn":"五分钟。"}]},
 {"rank":299,"word":"far","phonetic":"/fɑːr/","chinese":"远的","category":"形容词","examples":[{"en":"How far?","cn":"有多远？"},{"en":"So far.","cn":"到目前为止。"},{"en":"Far away.","cn":"很远。"}]},
-{"rank":300,"word":"everything","phonetic":"/ˈevriθɪŋ/","chinese":"一切，每件事","category":"代词","examples":[{"en":"Everything is fine.","cn":"一切都好。"},{"en":"Thank you for everything.","cn":"感谢你所做的一切。"},{"en":"Everything else.","cn":"其他一切。"}]}
-,
+{"rank":300,"word":"everything","phonetic":"/ˈevriθɪŋ/","chinese":"一切，每件事","category":"代词","examples":[{"en":"Everything is fine.","cn":"一切都好。"},{"en":"Thank you for everything.","cn":"感谢你所做的一切。"},{"en":"Everything else.","cn":"其他一切。"}]},
 {"rank":301,"word":"pay","phonetic":"/peɪ/","chinese":"支付","category":"动词","examples":[{"en":"Pay attention.","cn":"注意。"},{"en":"Pay the bill.","cn":"付账。"},{"en":"Pay back.","cn":"偿还。"}]},
 {"rank":302,"word":"understand","phonetic":"/ˌʌndərˈstænd/","chinese":"理解","category":"动词","examples":[{"en":"I understand.","cn":"我理解。"},{"en":"Do you understand?","cn":"你明白吗？"},{"en":"Hard to understand.","cn":"难以理解。"}]},
 {"rank":303,"word":"less","phonetic":"/les/","chinese":"更少","category":"形容词","examples":[{"en":"More or less.","cn":"或多或少。"},{"en":"Less than.","cn":"少于。"},{"en":"No less.","cn":"不亚于。"}]},
@@ -400,8 +398,7 @@
 {"rank":397,"word":"support","phonetic":"/səˈpɔːt/","chinese":"支持","category":"动词","examples":[{"en":"Support you.","cn":"支持你。"},{"en":"Need support.","cn":"需要支持。"},{"en":"Technical support.","cn":"技术支持。"}]},
 {"rank":398,"word":"simple","phonetic":"/ˈsɪmpl/","chinese":"简单的","category":"形容词","examples":[{"en":"Simple and easy.","cn":"简单易行。"},{"en":"Keep it simple.","cn":"保持简单。"},{"en":"Simple question.","cn":"简单问题。"}]},
 {"rank":399,"word":"morning","phonetic":"/ˈmɔːnɪŋ/","chinese":"早晨","category":"名词","examples":[{"en":"Good morning!","cn":"早上好！"},{"en":"This morning.","cn":"今天早上。"},{"en":"In the morning.","cn":"在早上。"}]},
-{"rank":400,"word":"table","phonetic":"/ˈteɪbl/","chinese":"桌子，表格","category":"名词","examples":[{"en":"On the table.","cn":"在桌子上。"},{"en":"Table for two.","cn":"两人桌。"},{"en":"Time table.","cn":"时间表。"}]}
-,
+{"rank":400,"word":"table","phonetic":"/ˈteɪbl/","chinese":"桌子，表格","category":"名词","examples":[{"en":"On the table.","cn":"在桌子上。"},{"en":"Table for two.","cn":"两人桌。"},{"en":"Time table.","cn":"时间表。"}]},
 {"rank":401,"word":"air","phonetic":"/eər/","chinese":"空气","category":"名词","examples":[{"en":"Fresh air.","cn":"新鲜空气。"},{"en":"In the air.","cn":"在空中。"},{"en":"By air.","cn":"乘飞机。"}]},
 {"rank":402,"word":"sense","phonetic":"/sens/","chinese":"感觉，意义","category":"名词","examples":[{"en":"Make sense.","cn":"有道理。"},{"en":"Common sense.","cn":"常识。"},{"en":"In a sense.","cn":"在某种意义上。"}]},
 {"rank":403,"word":"fact","phonetic":"/fækt/","chinese":"事实","category":"名词","examples":[{"en":"In fact.","cn":"事实上。"},{"en":"The fact is.","cn":"事实是。"},{"en":"As a matter of fact.","cn":"事实上。"}]},
@@ -501,8 +498,7 @@
 {"rank":497,"word":"game","phonetic":"/ɡeɪm/","chinese":"游戏，比赛","category":"名词","examples":[{"en":"Video game.","cn":"电子游戏。"},{"en":"Play a game.","cn":"玩游戏。"},{"en":"Game over.","cn":"游戏结束。"}]},
 {"rank":498,"word":"hour","phonetic":"/aʊər/","chinese":"小时","category":"名词","examples":[{"en":"An hour ago.","cn":"一小时前。"},{"en":"For hours.","cn":"好几个小时。"},{"en":"Office hours.","cn":"办公时间。"}]},
 {"rank":499,"word":"plan","phonetic":"/plæn/","chinese":"计划","category":"名词","examples":[{"en":"Good plan.","cn":"好计划。"},{"en":"Make a plan.","cn":"制定计划。"},{"en":"Plan ahead.","cn":"提前计划。"}]},
-{"rank":500,"word":"sure","phonetic":"/ʃʊər/","chinese":"确定的","category":"形容词","examples":[{"en":"I'm sure.","cn":"我确定。"},{"en":"Make sure.","cn":"确保。"},{"en":"For sure.","cn":"肯定。"}]}
-,
+{"rank":500,"word":"sure","phonetic":"/ʃʊər/","chinese":"确定的","category":"形容词","examples":[{"en":"I'm sure.","cn":"我确定。"},{"en":"Make sure.","cn":"确保。"},{"en":"For sure.","cn":"肯定。"}]},
 {"rank":501,"word":"sit","phonetic":"/sɪt/","chinese":"坐","category":"动词","examples":[{"en":"Please sit down.","cn":"请坐。"},{"en":"Sit here.","cn":"坐这里。"},{"en":"Sit still.","cn":"坐着别动。"}]},
 {"rank":502,"word":"believe","phonetic":"/bɪˈliːv/","chinese":"相信","category":"动词","examples":[{"en":"I believe you.","cn":"我相信你。"},{"en":"Believe it or not.","cn":"信不信由你。"},{"en":"Hard to believe.","cn":"难以置信。"}]},
 {"rank":503,"word":"age","phonetic":"/eɪdʒ/","chinese":"年龄","category":"名词","examples":[{"en":"What age?","cn":"多大年龄？"},{"en":"At my age.","cn":"在我这个年纪。"},{"en":"Age group.","cn":"年龄组。"}]},
@@ -602,8 +598,7 @@
 {"rank":597,"word":"opportunity","phonetic":"/ˌɒpərˈtjuːnəti/","chinese":"机会","category":"名词","examples":[{"en":"Good opportunity.","cn":"好机会。"},{"en":"Job opportunity.","cn":"工作机会。"},{"en":"Take the opportunity.","cn":"抓住机会。"}]},
 {"rank":598,"word":"industry","phonetic":"/ˈɪndəstri/","chinese":"工业，行业","category":"名词","examples":[{"en":"Film industry.","cn":"电影业。"},{"en":"Service industry.","cn":"服务业。"},{"en":"Industry standard.","cn":"行业标准。"}]},
 {"rank":599,"word":"student","phonetic":"/ˈstjuːdnt/","chinese":"学生","category":"名词","examples":[{"en":"Good student.","cn":"好学生。"},{"en":"College student.","cn":"大学生。"},{"en":"Student loan.","cn":"学生贷款。"}]},
-{"rank":600,"word":"subject","phonetic":"/ˈsʌbdʒɪkt/","chinese":"主题，科目","category":"名词","examples":[{"en":"Change the subject.","cn":"换个话题。"},{"en":"Favorite subject.","cn":"最喜欢的科目。"},{"en":"On the subject of.","cn":"关于...的话题。"}]}
-,
+{"rank":600,"word":"subject","phonetic":"/ˈsʌbdʒɪkt/","chinese":"主题，科目","category":"名词","examples":[{"en":"Change the subject.","cn":"换个话题。"},{"en":"Favorite subject.","cn":"最喜欢的科目。"},{"en":"On the subject of.","cn":"关于...的话题。"}]},
 {"rank":601,"word":"military","phonetic":"/ˈmɪlɪtri/","chinese":"军事的","category":"形容词","examples":[{"en":"Military service.","cn":"兵役。"},{"en":"Military base.","cn":"军事基地。"},{"en":"Military power.","cn":"军事力量。"}]},
 {"rank":602,"word":"size","phonetic":"/saɪz/","chinese":"大小","category":"名词","examples":[{"en":"What size?","cn":"什么尺寸？"},{"en":"Large size.","cn":"大号。"},{"en":"File size.","cn":"文件大小。"}]},
 {"rank":603,"word":"drug","phonetic":"/drʌɡ/","chinese":"药物，毒品","category":"名词","examples":[{"en":"Drug store.","cn":"药店。"},{"en":"Take drugs.","cn":"吃药/吸毒。"},{"en":"Illegal drugs.","cn":"非法毒品。"}]},
@@ -703,8 +698,7 @@
 {"rank":697,"word":"material","phonetic":"/məˈtɪəriəl/","chinese":"材料","category":"名词","examples":[{"en":"Raw material.","cn":"原材料。"},{"en":"Building material.","cn":"建筑材料。"},{"en":"Reading material.","cn":"阅读材料。"}]},
 {"rank":698,"word":"card","phonetic":"/kɑːd/","chinese":"卡片","category":"名词","examples":[{"en":"Credit card.","cn":"信用卡。"},{"en":"Business card.","cn":"名片。"},{"en":"Play cards.","cn":"打牌。"}]},
 {"rank":699,"word":"rule","phonetic":"/ruːl/","chinese":"规则","category":"名词","examples":[{"en":"Follow the rules.","cn":"遵守规则。"},{"en":"Break the rules.","cn":"打破规则。"},{"en":"As a rule.","cn":"通常。"}]},
-{"rank":700,"word":"test","phonetic":"/test/","chinese":"测试","category":"名词","examples":[{"en":"Take a test.","cn":"参加测试。"},{"en":"Pass the test.","cn":"通过测试。"},{"en":"Blood test.","cn":"验血。"}]}
-,
+{"rank":700,"word":"test","phonetic":"/test/","chinese":"测试","category":"名词","examples":[{"en":"Take a test.","cn":"参加测试。"},{"en":"Pass the test.","cn":"通过测试。"},{"en":"Blood test.","cn":"验血。"}]},
 {"rank":701,"word":"east","phonetic":"/iːst/","chinese":"东方","category":"名词","examples":[{"en":"In the east.","cn":"在东方。"},{"en":"Go east.","cn":"向东走。"},{"en":"Far east.","cn":"远东。"}]},
 {"rank":702,"word":"quickly","phonetic":"/ˈkwɪkli/","chinese":"快速地","category":"副词","examples":[{"en":"Come quickly.","cn":"快来。"},{"en":"As quickly as possible.","cn":"尽快。"},{"en":"Move quickly.","cn":"快速移动。"}]},
 {"rank":703,"word":"design","phonetic":"/dɪˈzaɪn/","chinese":"设计","category":"名词","examples":[{"en":"Good design.","cn":"好设计。"},{"en":"By design.","cn":"故意地。"},{"en":"Design thinking.","cn":"设计思维。"}]},
@@ -804,8 +798,7 @@
 {"rank":797,"word":"mountain","phonetic":"/ˈmaʊntən/","chinese":"山","category":"名词","examples":[{"en":"High mountain.","cn":"高山。"},{"en":"Mountain climbing.","cn":"爬山。"},{"en":"Mountain view.","cn":"山景。"}]},
 {"rank":798,"word":"sky","phonetic":"/skaɪ/","chinese":"天空","category":"名词","examples":[{"en":"Blue sky.","cn":"蓝天。"},{"en":"Night sky.","cn":"夜空。"},{"en":"Sky high.","cn":"非常高。"}]},
 {"rank":799,"word":"sun","phonetic":"/sʌn/","chinese":"太阳","category":"名词","examples":[{"en":"Under the sun.","cn":"在阳光下。"},{"en":"Sun rise.","cn":"日出。"},{"en":"Sun set.","cn":"日落。"}]},
-{"rank":800,"word":"moon","phonetic":"/muːn/","chinese":"月亮","category":"名词","examples":[{"en":"Full moon.","cn":"满月。"},{"en":"Moon light.","cn":"月光。"},{"en":"To the moon.","cn":"去月球/非常。"}]}
-,
+{"rank":800,"word":"moon","phonetic":"/muːn/","chinese":"月亮","category":"名词","examples":[{"en":"Full moon.","cn":"满月。"},{"en":"Moon light.","cn":"月光。"},{"en":"To the moon.","cn":"去月球/非常。"}]},
 {"rank":801,"word":"rain","phonetic":"/reɪn/","chinese":"雨","category":"名词","examples":[{"en":"Heavy rain.","cn":"大雨。"},{"en":"In the rain.","cn":"在雨中。"},{"en":"Rain or shine.","cn":"风雨无阻。"}]},
 {"rank":802,"word":"snow","phonetic":"/snəʊ/","chinese":"雪","category":"名词","examples":[{"en":"Heavy snow.","cn":"大雪。"},{"en":"Snow white.","cn":"雪白。"},{"en":"Play in snow.","cn":"玩雪。"}]},
 {"rank":803,"word":"wind","phonetic":"/wɪnd/","chinese":"风","category":"名词","examples":[{"en":"Strong wind.","cn":"大风。"},{"en":"Wind blow.","cn":"风吹。"},{"en":"In the wind.","cn":"在风中。"}]},
@@ -1406,8 +1399,7 @@
 {"rank":1397,"word":"commercial","phonetic":"/kəˈmɜːʃl/","chinese":"商业的","category":"形容词","examples":[{"en":"Commercial success.","cn":"商业成功。"},{"en":"Commercial break.","cn":"广告时间。"},{"en":"Commercial area.","cn":"商业区。"}]},
 {"rank":1398,"word":"industrial","phonetic":"/ɪnˈdʌstriəl/","chinese":"工业的","category":"形容词","examples":[{"en":"Industrial revolution.","cn":"工业革命。"},{"en":"Industrial area.","cn":"工业区。"},{"en":"Industrial production.","cn":"工业生产。"}]},
 {"rank":1399,"word":"urban","phonetic":"/ˈɜːbən/","chinese":"城市的","category":"形容词","examples":[{"en":"Urban area.","cn":"城市地区。"},{"en":"Urban life.","cn":"城市生活。"},{"en":"Urban development.","cn":"城市发展。"}]},
-{"rank":1400,"word":"rural","phonetic":"/ˈrʊərəl/","chinese":"农村的","category":"形容词","examples":[{"en":"Rural area.","cn":"农村地区。"},{"en":"Rural life.","cn":"农村生活。"},{"en":"Rural community.","cn":"农村社区。"}]}
-,
+{"rank":1400,"word":"rural","phonetic":"/ˈrʊərəl/","chinese":"农村的","category":"形容词","examples":[{"en":"Rural area.","cn":"农村地区。"},{"en":"Rural life.","cn":"农村生活。"},{"en":"Rural community.","cn":"农村社区。"}]},
 {"rank":1401,"word":"wooden","phonetic":"/ˈwʊdn/","chinese":"木制的","category":"形容词","examples":[{"en":"Wooden table.","cn":"木桌。"},{"en":"Wooden house.","cn":"木屋。"},{"en":"Wooden floor.","cn":"木地板。"}]},
 {"rank":1402,"word":"plastic","phonetic":"/ˈplæstɪk/","chinese":"塑料的","category":"形容词","examples":[{"en":"Plastic bag.","cn":"塑料袋。"},{"en":"Plastic bottle.","cn":"塑料瓶。"},{"en":"Plastic surgery.","cn":"整形手术。"}]},
 {"rank":1403,"word":"metal","phonetic":"/ˈmetl/","chinese":"金属的","category":"形容词","examples":[{"en":"Metal door.","cn":"金属门。"},{"en":"Heavy metal.","cn":"重金属。"},{"en":"Metal detector.","cn":"金属探测器。"}]},
@@ -1607,8 +1599,7 @@
 {"rank":1597,"word":"define","phonetic":"/dɪˈfaɪn/","chinese":"定义","category":"动词","examples":[{"en":"Define clearly.","cn":"清楚定义。"},{"en":"Hard to define.","cn":"难以定义。"},{"en":"Well defined.","cn":"定义明确。"}]},
 {"rank":1598,"word":"delay","phonetic":"/dɪˈleɪ/","chinese":"延迟","category":"动词","examples":[{"en":"Without delay.","cn":"毫不延迟。"},{"en":"Delay flight.","cn":"延误航班。"},{"en":"Long delay.","cn":"长时间延迟。"}]},
 {"rank":1599,"word":"delete","phonetic":"/dɪˈliːt/","chinese":"删除","category":"动词","examples":[{"en":"Delete file.","cn":"删除文件。"},{"en":"Delete message.","cn":"删除消息。"},{"en":"Accidentally delete.","cn":"意外删除。"}]},
-{"rank":1600,"word":"deliver","phonetic":"/dɪˈlɪvər/","chinese":"递送","category":"动词","examples":[{"en":"Deliver package.","cn":"递送包裹。"},{"en":"Deliver speech.","cn":"发表演讲。"},{"en":"Free delivery.","cn":"免费送货。"}]}
-,
+{"rank":1600,"word":"deliver","phonetic":"/dɪˈlɪvər/","chinese":"递送","category":"动词","examples":[{"en":"Deliver package.","cn":"递送包裹。"},{"en":"Deliver speech.","cn":"发表演讲。"},{"en":"Free delivery.","cn":"免费送货。"}]},
 {"rank":1601,"word":"demand","phonetic":"/dɪˈmɑːnd/","chinese":"要求","category":"动词","examples":[{"en":"Demand answer.","cn":"要求回答。"},{"en":"High demand.","cn":"高需求。"},{"en":"On demand.","cn":"按需。"}]},
 {"rank":1602,"word":"demonstrate","phonetic":"/ˈdemənstreɪt/","chinese":"演示","category":"动词","examples":[{"en":"Demonstrate how.","cn":"演示如何。"},{"en":"Clearly demonstrate.","cn":"清楚地展示。"},{"en":"Demonstrate skill.","cn":"展示技能。"}]},
 {"rank":1603,"word":"deny","phonetic":"/dɪˈnaɪ/","chinese":"否认","category":"动词","examples":[{"en":"Deny everything.","cn":"否认一切。"},{"en":"Can't deny.","cn":"无法否认。"},{"en":"Deny access.","cn":"拒绝访问。"}]},
@@ -1808,8 +1799,7 @@
 {"rank":1797,"word":"iron","phonetic":"/ˈaɪən/","chinese":"熨烫","category":"动词","examples":[{"en":"Iron clothes.","cn":"熨衣服。"},{"en":"Iron out.","cn":"解决。"},{"en":"Strike while iron is hot.","cn":"趁热打铁。"}]},
 {"rank":1798,"word":"irritate","phonetic":"/ˈɪrɪteɪt/","chinese":"激怒","category":"动词","examples":[{"en":"Don't irritate me.","cn":"别惹我。"},{"en":"Easily irritated.","cn":"容易发怒。"},{"en":"Irritate skin.","cn":"刺激皮肤。"}]},
 {"rank":1799,"word":"isolate","phonetic":"/ˈaɪsəleɪt/","chinese":"隔离","category":"动词","examples":[{"en":"Isolate from.","cn":"与...隔离。"},{"en":"Feel isolated.","cn":"感到孤立。"},{"en":"Self isolate.","cn":"自我隔离。"}]},
-{"rank":1800,"word":"issue","phonetic":"/ˈɪʃuː/","chinese":"发行","category":"动词","examples":[{"en":"Issue statement.","cn":"发表声明。"},{"en":"Issue warning.","cn":"发出警告。"},{"en":"Main issue.","cn":"主要问题。"}]}
-,
+{"rank":1800,"word":"issue","phonetic":"/ˈɪʃuː/","chinese":"发行","category":"动词","examples":[{"en":"Issue statement.","cn":"发表声明。"},{"en":"Issue warning.","cn":"发出警告。"},{"en":"Main issue.","cn":"主要问题。"}]},
 {"rank":1801,"word":"join","phonetic":"/dʒɔɪn/","chinese":"加入","category":"动词","examples":[{"en":"Join us.","cn":"加入我们。"},{"en":"Join together.","cn":"联合起来。"},{"en":"Join in.","cn":"参加。"}]},
 {"rank":1802,"word":"joke","phonetic":"/dʒəʊk/","chinese":"开玩笑","category":"动词","examples":[{"en":"Just joking.","cn":"只是开玩笑。"},{"en":"No joke.","cn":"不是开玩笑。"},{"en":"Joke about.","cn":"拿...开玩笑。"}]},
 {"rank":1803,"word":"judge","phonetic":"/dʒʌdʒ/","chinese":"判断","category":"动词","examples":[{"en":"Don't judge.","cn":"不要评判。"},{"en":"Judge by.","cn":"根据...判断。"},{"en":"Hard to judge.","cn":"难以判断。"}]},
@@ -2209,8 +2199,7 @@
 {"rank":2197,"word":"tolerate","phonetic":"/ˈtɒləreɪt/","chinese":"容忍","category":"动词","examples":[{"en":"Can't tolerate.","cn":"无法容忍。"},{"en":"Tolerate behavior.","cn":"容忍行为。"},{"en":"Zero tolerance.","cn":"零容忍。"}]},
 {"rank":2198,"word":"top","phonetic":"/tɒp/","chinese":"居于首位","category":"动词","examples":[{"en":"Top list.","cn":"位居榜首。"},{"en":"Top off.","cn":"加满。"},{"en":"On top.","cn":"在顶部。"}]},
 {"rank":2199,"word":"total","phonetic":"/ˈtəʊtl/","chinese":"总计","category":"动词","examples":[{"en":"Total up.","cn":"加起来。"},{"en":"Grand total.","cn":"总计。"},{"en":"Total amount.","cn":"总金额。"}]},
-{"rank":2200,"word":"touch","phonetic":"/tʌtʃ/","chinese":"触摸","category":"动词","examples":[{"en":"Touch screen.","cn":"触摸屏。"},{"en":"Keep in touch.","cn":"保持联系。"},{"en":"Don't touch.","cn":"别碰。"}]}
-,
+{"rank":2200,"word":"touch","phonetic":"/tʌtʃ/","chinese":"触摸","category":"动词","examples":[{"en":"Touch screen.","cn":"触摸屏。"},{"en":"Keep in touch.","cn":"保持联系。"},{"en":"Don't touch.","cn":"别碰。"}]},
 {"rank":2201,"word":"tour","phonetic":"/tʊər/","chinese":"旅游","category":"动词","examples":[{"en":"Tour around.","cn":"四处游览。"},{"en":"Tour guide.","cn":"导游。"},{"en":"On tour.","cn":"在巡演。"}]},
 {"rank":2202,"word":"trace","phonetic":"/treɪs/","chinese":"追踪","category":"动词","examples":[{"en":"Trace back.","cn":"追溯。"},{"en":"Trace origin.","cn":"追溯起源。"},{"en":"Without a trace.","cn":"无影无踪。"}]},
 {"rank":2203,"word":"track","phonetic":"/træk/","chinese":"跟踪","category":"动词","examples":[{"en":"Track down.","cn":"追踪到。"},{"en":"Track progress.","cn":"跟踪进度。"},{"en":"Keep track.","cn":"记录。"}]},
@@ -2410,8 +2399,7 @@
 {"rank":2397,"word":"battle","phonetic":"/ˈbætl/","chinese":"战斗","category":"名词","examples":[{"en":"Battle field.","cn":"战场。"},{"en":"Battle against.","cn":"与...作战。"},{"en":"Uphill battle.","cn":"艰苦的战斗。"}]},
 {"rank":2398,"word":"beach","phonetic":"/biːtʃ/","chinese":"海滩","category":"名词","examples":[{"en":"Beach vacation.","cn":"海滩度假。"},{"en":"On the beach.","cn":"在海滩上。"},{"en":"Beach party.","cn":"海滩派对。"}]},
 {"rank":2399,"word":"bear","phonetic":"/beər/","chinese":"熊","category":"名词","examples":[{"en":"Polar bear.","cn":"北极熊。"},{"en":"Teddy bear.","cn":"泰迪熊。"},{"en":"Bear market.","cn":"熊市。"}]},
-{"rank":2400,"word":"beard","phonetic":"/bɪəd/","chinese":"胡须","category":"名词","examples":[{"en":"Grow a beard.","cn":"留胡子。"},{"en":"Full beard.","cn":"络腮胡。"},{"en":"Shave beard.","cn":"刮胡子。"}]}
-,
+{"rank":2400,"word":"beard","phonetic":"/bɪəd/","chinese":"胡须","category":"名词","examples":[{"en":"Grow a beard.","cn":"留胡子。"},{"en":"Full beard.","cn":"络腮胡。"},{"en":"Shave beard.","cn":"刮胡子。"}]},
 {"rank":2401,"word":"beat","phonetic":"/biːt/","chinese":"节拍","category":"名词","examples":[{"en":"Heart beat.","cn":"心跳。"},{"en":"Music beat.","cn":"音乐节拍。"},{"en":"Skip a beat.","cn":"漏跳一拍。"}]},
 {"rank":2402,"word":"beauty","phonetic":"/ˈbjuːti/","chinese":"美丽","category":"名词","examples":[{"en":"Natural beauty.","cn":"自然美。"},{"en":"Beauty sleep.","cn":"美容觉。"},{"en":"Beauty is in the eye.","cn":"情人眼里出西施。"}]},
 {"rank":2403,"word":"bed","phonetic":"/bed/","chinese":"床","category":"名词","examples":[{"en":"Go to bed.","cn":"去睡觉。"},{"en":"Make the bed.","cn":"整理床铺。"},{"en":"Bed time.","cn":"睡觉时间。"}]},
@@ -2611,8 +2599,7 @@
 {"rank":2597,"word":"code","phonetic":"/kəʊd/","chinese":"代码","category":"名词","examples":[{"en":"Zip code.","cn":"邮政编码。"},{"en":"Dress code.","cn":"着装规定。"},{"en":"Secret code.","cn":"密码。"}]},
 {"rank":2598,"word":"coffee","phonetic":"/ˈkɒfi/","chinese":"咖啡","category":"名词","examples":[{"en":"Cup of coffee.","cn":"一杯咖啡。"},{"en":"Coffee break.","cn":"咖啡休息时间。"},{"en":"Coffee shop.","cn":"咖啡店。"}]},
 {"rank":2599,"word":"coin","phonetic":"/kɔɪn/","chinese":"硬币","category":"名词","examples":[{"en":"Flip a coin.","cn":"抛硬币。"},{"en":"Other side of coin.","cn":"事物的另一面。"},{"en":"Coin toss.","cn":"掷硬币。"}]},
-{"rank":2600,"word":"cold","phonetic":"/kəʊld/","chinese":"感冒","category":"名词","examples":[{"en":"Catch a cold.","cn":"感冒。"},{"en":"Common cold.","cn":"普通感冒。"},{"en":"Leave out in cold.","cn":"被冷落。"}]}
-,
+{"rank":2600,"word":"cold","phonetic":"/kəʊld/","chinese":"感冒","category":"名词","examples":[{"en":"Catch a cold.","cn":"感冒。"},{"en":"Common cold.","cn":"普通感冒。"},{"en":"Leave out in cold.","cn":"被冷落。"}]},
 {"rank":2601,"word":"collapse","phonetic":"/kəˈlæps/","chinese":"崩溃","category":"名词","examples":[{"en":"Economic collapse.","cn":"经济崩溃。"},{"en":"Total collapse.","cn":"完全崩溃。"},{"en":"Building collapse.","cn":"建筑倒塌。"}]},
 {"rank":2602,"word":"collar","phonetic":"/ˈkɒlər/","chinese":"衣领","category":"名词","examples":[{"en":"White collar.","cn":"白领。"},{"en":"Blue collar.","cn":"蓝领。"},{"en":"Dog collar.","cn":"狗项圈。"}]},
 {"rank":2603,"word":"colleague","phonetic":"/ˈkɒliːɡ/","chinese":"同事","category":"名词","examples":[{"en":"Work colleague.","cn":"工作同事。"},{"en":"Former colleague.","cn":"前同事。"},{"en":"Close colleague.","cn":"亲密同事。"}]},
@@ -2812,8 +2799,7 @@
 {"rank":2797,"word":"dirt","phonetic":"/dɜːt/","chinese":"污垢","category":"名词","examples":[{"en":"Dirt cheap.","cn":"非常便宜。"},{"en":"Treat like dirt.","cn":"恶劣对待。"},{"en":"Dish the dirt.","cn":"说闲话。"}]},
 {"rank":2798,"word":"disability","phonetic":"/ˌdɪsəˈbɪləti/","chinese":"残疾","category":"名词","examples":[{"en":"Physical disability.","cn":"身体残疾。"},{"en":"Learning disability.","cn":"学习障碍。"},{"en":"Disability benefit.","cn":"残疾津贴。"}]},
 {"rank":2799,"word":"disadvantage","phonetic":"/ˌdɪsədˈvɑːntɪdʒ/","chinese":"劣势","category":"名词","examples":[{"en":"At a disadvantage.","cn":"处于不利地位。"},{"en":"Major disadvantage.","cn":"主要劣势。"},{"en":"Put at disadvantage.","cn":"使处于不利地位。"}]},
-{"rank":2800,"word":"disagreement","phonetic":"/ˌdɪsəˈɡriːmənt/","chinese":"分歧","category":"名词","examples":[{"en":"Have disagreement.","cn":"有分歧。"},{"en":"Minor disagreement.","cn":"小分歧。"},{"en":"In disagreement.","cn":"有不同意见。"}]}
-,
+{"rank":2800,"word":"disagreement","phonetic":"/ˌdɪsəˈɡriːmənt/","chinese":"分歧","category":"名词","examples":[{"en":"Have disagreement.","cn":"有分歧。"},{"en":"Minor disagreement.","cn":"小分歧。"},{"en":"In disagreement.","cn":"有不同意见。"}]},
 {"rank":2801,"word":"disappointment","phonetic":"/ˌdɪsəˈpɔɪntmənt/","chinese":"失望","category":"名词","examples":[{"en":"Great disappointment.","cn":"极大失望。"},{"en":"Hide disappointment.","cn":"隐藏失望。"},{"en":"To my disappointment.","cn":"令我失望的是。"}]},
 {"rank":2802,"word":"disaster","phonetic":"/dɪˈzɑːstər/","chinese":"灾难","category":"名词","examples":[{"en":"Natural disaster.","cn":"自然灾害。"},{"en":"Disaster relief.","cn":"救灾。"},{"en":"Recipe for disaster.","cn":"灾难的根源。"}]},
 {"rank":2803,"word":"discipline","phonetic":"/ˈdɪsɪplɪn/","chinese":"纪律","category":"名词","examples":[{"en":"Self discipline.","cn":"自律。"},{"en":"Strict discipline.","cn":"严格纪律。"},{"en":"Academic discipline.","cn":"学科。"}]},
@@ -3014,6 +3000,4 @@
 {"rank":2998,"word":"fellow","phonetic":"/ˈfeləʊ/","chinese":"家伙","category":"名词","examples":[{"en":"Good fellow.","cn":"好人。"},{"en":"Fellow worker.","cn":"同事。"},{"en":"Research fellow.","cn":"研究员。"}]},
 {"rank":2999,"word":"female","phonetic":"/ˈfiːmeɪl/","chinese":"女性","category":"名词","examples":[{"en":"Female employee.","cn":"女员工。"},{"en":"Female lead.","cn":"女主角。"},{"en":"Female voice.","cn":"女声。"}]},
 {"rank":3000,"word":"fence","phonetic":"/fens/","chinese":"围栏","category":"名词","examples":[{"en":"Wooden fence.","cn":"木栅栏。"},{"en":"On the fence.","cn":"持观望态度。"},{"en":"Mend fences.","cn":"修复关系。"}]}
-]
-
 ]
