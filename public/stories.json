@@ -1,0 +1,902 @@
+[
+  {
+    "id": 1,
+    "title": "Newton's Apple",
+    "titleCn": "牛顿的苹果",
+    "category": "名人趣事",
+    "content": "One day, Isaac Newton sat under an apple tree. An apple fell on his head. He did not get angry. Instead, he started to think. Why do things fall down? This simple question led to a great discovery about how the world works.",
+    "contentCn": "一天，艾萨克·牛顿坐在一棵苹果树下。一个苹果落在他头上。他没有生气，而是开始思考：为什么东西会往下掉？这个简单的问题引发了关于世界运作方式的伟大发现。",
+    "wordCount": 43
+  },
+  {
+    "id": 2,
+    "title": "The Boy Who Cried Wolf",
+    "titleCn": "狼来了",
+    "category": "经典寓言",
+    "content": "A boy watched sheep on a hill. He felt bored and cried, Wolf! Wolf! People ran to help, but there was no wolf. He did this again. When a real wolf came, no one believed him. The wolf took his sheep away.",
+    "contentCn": "一个男孩在山上看羊。他感到无聊，就喊道：狼来了！人们跑来帮忙，但根本没有狼。他又这样做了一次。当真正的狼来时，没人相信他了。狼把他的羊都叼走了。",
+    "wordCount": 42
+  },
+  {
+    "id": 3,
+    "title": "Einstein's Socks",
+    "titleCn": "爱因斯坦的袜子",
+    "category": "名人趣事",
+    "content": "Albert Einstein never wore socks. He thought they were a waste of time. He said, When I was young, I found that my big toe always made a hole in my sock. So I stopped wearing them. Great minds think differently!",
+    "contentCn": "阿尔伯特·爱因斯坦从不穿袜子。他认为穿袜子是浪费时间。他说：年轻时我发现大脚趾总是把袜子戳破，所以我就不穿了。伟大的头脑想法就是不一样！",
+    "wordCount": 41
+  },
+  {
+    "id": 4,
+    "title": "The Honest Woodcutter",
+    "titleCn": "诚实的伐木工",
+    "category": "经典寓言",
+    "content": "A poor woodcutter dropped his old axe into a river. A spirit appeared with a gold axe and asked, Is this yours? The man said no. The spirit then showed a silver axe. Again, he said no. The spirit gave him all three axes for his honesty.",
+    "contentCn": "一个贫穷的伐木工把旧斧头掉进了河里。一个精灵拿着金斧头出现问道：这是你的吗？那人说不是。精灵又拿出银斧头，他还是说不是。精灵因为他的诚实把三把斧头都给了他。",
+    "wordCount": 47
+  },
+  {
+    "id": 5,
+    "title": "Charlie Chaplin's Smile",
+    "titleCn": "卓别林的微笑",
+    "category": "名人趣事",
+    "content": "Charlie Chaplin was a famous movie star. He made people laugh without saying a word. Once someone asked him, Why do you always smile? He answered, I smile because life is beautiful, and I want to share that feeling with everyone.",
+    "contentCn": "查理·卓别林是一位著名的电影明星。他不说一句话就能让人发笑。有人问他：你为什么总是微笑？他回答说：我微笑是因为生活很美好，我想和每个人分享这种感觉。",
+    "wordCount": 41
+  },
+  {
+    "id": 6,
+    "title": "The Ant and the Grasshopper",
+    "titleCn": "蚂蚁和蚱蜢",
+    "category": "经典寓言",
+    "content": "In summer, an ant worked hard to store food. A grasshopper laughed and played all day. When winter came, the ant had plenty to eat. The grasshopper had nothing and felt very cold. Hard work today brings a better tomorrow.",
+    "contentCn": "夏天，蚂蚁努力储存食物。蚱蜢整天嘲笑它并玩耍。冬天来临时，蚂蚁有足够的食物吃，而蚱蜢什么都没有，感到非常寒冷。今天的努力工作会带来更美好的明天。",
+    "wordCount": 40
+  },
+  {
+    "id": 7,
+    "title": "Mozart's First Concert",
+    "titleCn": "莫扎特的第一场音乐会",
+    "category": "名人趣事",
+    "content": "Mozart gave his first public concert at age six. The king and queen came to watch. Young Mozart played so well that everyone stood up and clapped. His father was very proud. From that day on, the world knew a star was born.",
+    "contentCn": "莫扎特在六岁时举办了第一场公开音乐会。国王和王后都来观看。小莫扎特弹得太好了，所有人都站起来鼓掌。他的父亲非常自豪。从那天起，全世界都知道一颗明星诞生了。",
+    "wordCount": 43
+  },
+  {
+    "id": 8,
+    "title": "The Tortoise and the Hare",
+    "titleCn": "龟兔赛跑",
+    "category": "经典寓言",
+    "content": "A fast hare laughed at a slow tortoise. They decided to have a race. The hare ran quickly, then stopped to sleep. The tortoise walked slowly but never stopped. In the end, the tortoise won. Slow and steady wins the race.",
+    "contentCn": "一只跑得快的兔子嘲笑一只慢吞吞的乌龟。他们决定比赛。兔子跑得很快，然后停下来睡觉。乌龟走得很慢但从不停下。最后，乌龟赢了。稳扎稳打才能赢得比赛。",
+    "wordCount": 41
+  },
+  {
+    "id": 9,
+    "title": "Helen Keller's Teacher",
+    "titleCn": "海伦·凯勒的老师",
+    "category": "名人趣事",
+    "content": "Helen Keller could not see or hear. Her teacher, Anne Sullivan, changed her life. Anne put Helen's hand under water and wrote water on her palm. Helen finally understood that everything has a name. This moment opened a new world for her.",
+    "contentCn": "海伦·凯勒看不见也听不见。她的老师安妮·沙利文改变了她的人生。安妮把海伦的手放在水下，在她手心写下水。海伦终于明白每样东西都有名字。这一刻为她打开了新世界。",
+    "wordCount": 42
+  },
+  {
+    "id": 10,
+    "title": "The Fox and the Grapes",
+    "titleCn": "狐狸和葡萄",
+    "category": "经典寓言",
+    "content": "A hungry fox saw some grapes high on a vine. He jumped again and again but could not reach them. Finally, he walked away and said, Those grapes are probably sour anyway. Sometimes we pretend we don't want what we can't have.",
+    "contentCn": "一只饥饿的狐狸看到藤上高高挂着一些葡萄。他跳了又跳，但够不到。最后，他走开了，说道：那些葡萄反正可能是酸的。有时候我们假装不想要得不到的东西。",
+    "wordCount": 42
+  },
+  {
+    "id": 11,
+    "title": "Shakespeare's Lost Years",
+    "titleCn": "莎士比亚失落的岁月",
+    "category": "名人趣事",
+    "content": "No one knows what Shakespeare did between ages eighteen and twenty-eight. Some say he was a teacher. Others say he worked with horses. Whatever he did during those years, he came back to write the greatest plays in English history.",
+    "contentCn": "没人知道莎士比亚在十八岁到二十八岁之间做了什么。有人说他当过老师，有人说他与马打交道。无论那些年他做了什么，他回来后写出了英语历史上最伟大的戏剧。",
+    "wordCount": 40
+  },
+  {
+    "id": 12,
+    "title": "A Kind Doctor",
+    "titleCn": "善良的医生",
+    "category": "幽默故事",
+    "content": "A man went to see a doctor. Doctor, everyone ignores me, he said. The doctor looked at his papers and called, Next patient, please! The man stood there, very surprised. Sometimes the best medicine is learning to speak up for yourself.",
+    "contentCn": "一个人去看医生。医生，每个人都无视我，他说。医生看着他的文件喊道：下一位病人请进！那人站在那里，非常惊讶。有时最好的药是学会为自己说话。",
+    "wordCount": 41
+  },
+  {
+    "id": 13,
+    "title": "Lincoln's Letter",
+    "titleCn": "林肯的信",
+    "category": "名人趣事",
+    "content": "Abraham Lincoln once wrote an angry letter to a general. But he never sent it. He put it in a drawer and wrote never sent on top. Lincoln knew that words written in anger often cause more problems than they solve.",
+    "contentCn": "亚伯拉罕·林肯曾给一位将军写了一封愤怒的信。但他从未寄出。他把信放进抽屉，在上面写着从未寄出。林肯知道愤怒时写的话往往制造的问题比解决的更多。",
+    "wordCount": 41
+  },
+  {
+    "id": 14,
+    "title": "The Golden Fish",
+    "titleCn": "金鱼",
+    "category": "经典童话",
+    "content": "A poor fisherman caught a golden fish. The fish said, Let me go and I will give you anything. The man asked for a new house. His wife wanted more and more. In the end, they lost everything because of greed.",
+    "contentCn": "一个贫穷的渔夫抓到一条金鱼。金鱼说：放了我，我会给你任何东西。那人要了一栋新房子。他的妻子想要越来越多。最后，他们因为贪婪失去了一切。",
+    "wordCount": 41
+  },
+  {
+    "id": 15,
+    "title": "Mark Twain's Wit",
+    "titleCn": "马克·吐温的机智",
+    "category": "名人趣事",
+    "content": "Mark Twain once received a letter that just said, Send me your picture. He wrote back, I don't have one, but I'm sending you something better - my description: I have two eyes, one nose, and one mouth, like most people.",
+    "contentCn": "马克·吐温曾收到一封只写着把你的照片寄给我的信。他回信说：我没有照片，但我寄给你更好的东西——我的描述：我有两只眼睛、一个鼻子和一张嘴，和大多数人一样。",
+    "wordCount": 41
+  },
+  {
+    "id": 16,
+    "title": "The Lost Key",
+    "titleCn": "丢失的钥匙",
+    "category": "幽默故事",
+    "content": "A man looked for his key under a street light. His friend asked, Where did you lose it? In my house, the man said. Then why look here? Because the light is better here! Sometimes we look for answers in the wrong places.",
+    "contentCn": "一个人在路灯下找钥匙。他的朋友问：你在哪儿丢的？在我家里，那人说。那为什么在这儿找？因为这里光线好！有时我们在错误的地方寻找答案。",
+    "wordCount": 43
+  },
+  {
+    "id": 17,
+    "title": "Van Gogh's Sunflowers",
+    "titleCn": "梵高的向日葵",
+    "category": "名人趣事",
+    "content": "Vincent van Gogh loved sunflowers. He painted them many times. During his life, no one bought his paintings. Today, one of his sunflower paintings sold for millions of dollars. Sometimes the world takes time to see true beauty.",
+    "contentCn": "文森特·梵高热爱向日葵，他画了很多次。在他有生之年，没人买他的画。如今，他的一幅向日葵画作卖了数百万美元。有时候世界需要时间才能看到真正的美。",
+    "wordCount": 38
+  },
+  {
+    "id": 18,
+    "title": "Two Frogs",
+    "titleCn": "两只青蛙",
+    "category": "经典寓言",
+    "content": "Two frogs fell into a deep hole. Other frogs said, Give up! You can't get out! One frog listened and died. The other kept jumping. He was deaf and thought they were cheering for him. He jumped out and lived. Sometimes not listening helps.",
+    "contentCn": "两只青蛙掉进一个深坑。其他青蛙说：放弃吧！你们出不来的！一只青蛙听了就死了。另一只继续跳。它是聋的，以为它们在为它加油。它跳出来活了下来。有时候不听反而有帮助。",
+    "wordCount": 44
+  },
+  {
+    "id": 19,
+    "title": "Edison's Failures",
+    "titleCn": "爱迪生的失败",
+    "category": "名人趣事",
+    "content": "Thomas Edison failed thousands of times before making the light bulb. A reporter asked, How did it feel to fail so many times? Edison smiled and said, I didn't fail. I just found thousands of ways that don't work.",
+    "contentCn": "托马斯·爱迪生在发明灯泡前失败了数千次。一位记者问：失败这么多次感觉如何？爱迪生微笑着说：我没有失败。我只是发现了数千种行不通的方法。",
+    "wordCount": 39
+  },
+  {
+    "id": 20,
+    "title": "The Wise Old Man",
+    "titleCn": "聪明的老人",
+    "category": "幽默故事",
+    "content": "A young man asked an old man, What is the secret to a happy life? The old man thought for a moment and said, Don't argue with fools. The young man said, I don't agree! The old man smiled, You're right.",
+    "contentCn": "一个年轻人问一位老人：幸福生活的秘诀是什么？老人想了想说：不要和傻瓜争论。年轻人说：我不同意！老人微笑着说：你说得对。",
+    "wordCount": 41
+  },
+  {
+    "id": 21,
+    "title": "Churchill's Quick Reply",
+    "titleCn": "丘吉尔的快速回复",
+    "category": "名人趣事",
+    "content": "A woman once told Churchill, If you were my husband, I would put poison in your tea. Churchill replied without thinking, Madam, if you were my wife, I would drink it. Quick thinking can turn any situation around.",
+    "contentCn": "一位女士曾对丘吉尔说：如果你是我丈夫，我会在你茶里下毒。丘吉尔不假思索地回答：女士，如果你是我妻子，我会喝下去。机智的思维可以扭转任何局面。",
+    "wordCount": 38
+  },
+  {
+    "id": 22,
+    "title": "The Lion and the Mouse",
+    "titleCn": "狮子和老鼠",
+    "category": "经典寓言",
+    "content": "A lion caught a mouse but let it go. Later, hunters caught the lion in a net. The little mouse came and bit through the ropes. The lion was free. Even the smallest friend can be the biggest help when you need it most.",
+    "contentCn": "狮子抓住一只老鼠但放了它。后来，猎人用网抓住了狮子。小老鼠来了，咬断了绳索。狮子自由了。即使最小的朋友也能在你最需要时提供最大的帮助。",
+    "wordCount": 44
+  },
+  {
+    "id": 23,
+    "title": "Picasso's Napkin",
+    "titleCn": "毕加索的餐巾纸",
+    "category": "名人趣事",
+    "content": "A woman asked Picasso to draw something on a napkin. He drew a simple picture and asked for a lot of money. But it only took you one minute! she said. Picasso replied, No, it took me forty years and one minute.",
+    "contentCn": "一位女士请毕加索在餐巾纸上画点什么。他画了一幅简单的画，要了很多钱。但你只花了一分钟！她说。毕加索回答：不，这花了我四十年零一分钟。",
+    "wordCount": 42
+  },
+  {
+    "id": 24,
+    "title": "The Empty Boat",
+    "titleCn": "空船",
+    "category": "哲理故事",
+    "content": "A man was angry when another boat hit his. He shouted loudly. Then he saw the other boat was empty. His anger disappeared at once. We often get angry at people, but sometimes there is no one to blame. Life is like an empty boat.",
+    "contentCn": "一个人被另一艘船撞到时很生气，他大声喊叫。然后他看到那艘船是空的，他的怒气立刻消失了。我们常常对人生气，但有时候没有人可以责怪。生活就像一艘空船。",
+    "wordCount": 45
+  },
+  {
+    "id": 25,
+    "title": "The Perfect Student",
+    "titleCn": "完美的学生",
+    "category": "幽默故事",
+    "content": "A teacher asked, Who is the smartest person in history? A student raised his hand and said, The person who invented homework must be pretty smart. The class laughed. But, he added, not smart enough to know we would hate it!",
+    "contentCn": "老师问：历史上谁最聪明？一个学生举手说：发明作业的人一定很聪明。全班都笑了。但是，他补充道，还没聪明到知道我们会讨厌它！",
+    "wordCount": 41
+  },
+  {
+    "id": 26,
+    "title": "Beethoven's Deafness",
+    "titleCn": "贝多芬的耳聋",
+    "category": "名人趣事",
+    "content": "Beethoven began to lose his hearing at age twenty-six. By forty-four, he was completely deaf. Yet he continued to write beautiful music. He once said, Music should strike fire from the heart of man. His spirit was stronger than his body.",
+    "contentCn": "贝多芬在二十六岁时开始失聪。到四十四岁时，他完全听不见了。然而他继续创作美妙的音乐。他曾说：音乐应该从人的心中点燃火焰。他的精神比身体更强大。",
+    "wordCount": 41
+  },
+  {
+    "id": 27,
+    "title": "Three Questions",
+    "titleCn": "三个问题",
+    "category": "哲理故事",
+    "content": "A king wanted to know three things: the best time to act, the most important person, and the right thing to do. A wise man told him: now is the best time, the person with you is most important, and doing good is always right.",
+    "contentCn": "一位国王想知道三件事：行动的最佳时机、最重要的人、以及该做的正确事情。一位智者告诉他：现在是最佳时机，和你在一起的人最重要，行善永远是对的。",
+    "wordCount": 45
+  },
+  {
+    "id": 28,
+    "title": "The Weather Report",
+    "titleCn": "天气预报",
+    "category": "幽默故事",
+    "content": "A tourist asked a local, Does it ever stop raining here? The local thought for a moment and said, I don't know. I'm only sixty years old. Sometimes the weather is just part of who we are and where we live.",
+    "contentCn": "一位游客问当地人：这里的雨会停吗？当地人想了想说：我不知道。我才六十岁。有时候天气就是我们是谁、住在哪里的一部分。",
+    "wordCount": 41
+  },
+  {
+    "id": 29,
+    "title": "Gandhi's Shoe",
+    "titleCn": "甘地的鞋子",
+    "category": "名人趣事",
+    "content": "Gandhi was getting on a train when one shoe fell off onto the track. Without thinking, he threw his other shoe to the same spot. A friend asked why. Gandhi said, Now the poor person who finds them will have a pair.",
+    "contentCn": "甘地上火车时一只鞋掉到了轨道上。他不假思索地把另一只鞋也扔到同一个地方。朋友问为什么。甘地说：现在捡到它们的穷人就有一双鞋了。",
+    "wordCount": 42
+  },
+  {
+    "id": 30,
+    "title": "The Farmer and the Stone",
+    "titleCn": "农夫和石头",
+    "category": "哲理故事",
+    "content": "A farmer always complained about a big stone in his field. One day, he finally decided to move it. He put a stick under it and pushed. To his surprise, it was only a few inches deep. Problems often look bigger than they really are.",
+    "contentCn": "一个农夫总是抱怨他田里的一块大石头。一天，他终于决定移走它。他把棍子插到下面推。令他惊讶的是，石头只有几英寸深。问题往往看起来比实际上更大。",
+    "wordCount": 45
+  },
+  {
+    "id": 31,
+    "title": "Darwin's Time",
+    "titleCn": "达尔文的时间",
+    "category": "名人趣事",
+    "content": "Charles Darwin worked on his book about evolution for over twenty years. Friends told him to publish it faster. He wanted it to be perfect. Good work takes time. His book changed how we understand life on Earth forever.",
+    "contentCn": "查尔斯·达尔文花了二十多年时间写关于进化论的书。朋友们让他快点出版。他想让它完美。好的作品需要时间。他的书永远改变了我们对地球生命的理解。",
+    "wordCount": 39
+  },
+  {
+    "id": 32,
+    "title": "The Two Wolves",
+    "titleCn": "两只狼",
+    "category": "哲理故事",
+    "content": "An old man told his grandson, Two wolves fight inside me. One is evil - angry and greedy. One is good - kind and peaceful. The boy asked, Which one wins? The grandfather replied, The one I feed. We choose who we become.",
+    "contentCn": "一位老人告诉他的孙子：两只狼在我心里争斗。一只是邪恶的——愤怒而贪婪。一只是善良的——友善而平和。男孩问：哪只会赢？爷爷回答：我喂养的那只。我们选择成为谁。",
+    "wordCount": 43
+  },
+  {
+    "id": 33,
+    "title": "The Clever Waiter",
+    "titleCn": "聪明的服务员",
+    "category": "幽默故事",
+    "content": "A customer complained, There's a fly in my soup! The waiter looked carefully and said, Don't worry, sir. The spider on the bread will get it. The customer was too surprised to say anything. He paid his bill and left quickly.",
+    "contentCn": "一位顾客抱怨道：我的汤里有只苍蝇！服务员仔细看了看说：别担心，先生。面包上的蜘蛛会抓住它的。顾客惊讶得说不出话来。他付了账单就快步离开了。",
+    "wordCount": 41
+  },
+  {
+    "id": 34,
+    "title": "Marie Curie's Light",
+    "titleCn": "居里夫人的光芒",
+    "category": "名人趣事",
+    "content": "Marie Curie discovered radium, which glows in the dark. She worked so hard that she often forgot to eat. She won two Nobel Prizes, more than anyone at that time. She showed the world that women can do great things in science.",
+    "contentCn": "玛丽·居里发现了镭，它在黑暗中发光。她工作太努力了，经常忘记吃饭。她赢得了两项诺贝尔奖，比当时任何人都多。她向世界证明女性可以在科学领域做出伟大的事情。",
+    "wordCount": 42
+  },
+  {
+    "id": 35,
+    "title": "The Gift",
+    "titleCn": "礼物",
+    "category": "温情故事",
+    "content": "A poor boy wanted to give his mother a birthday gift. He had no money, so he wrote her a letter: I promise to help you every day and never make you sad. His mother cried and said it was the best gift she ever received.",
+    "contentCn": "一个穷男孩想给妈妈一份生日礼物。他没有钱，所以给她写了一封信：我保证每天帮助你，永远不让你难过。他的妈妈哭了，说这是她收到过的最好的礼物。",
+    "wordCount": 46
+  },
+  {
+    "id": 36,
+    "title": "The Mirror",
+    "titleCn": "镜子",
+    "category": "哲理故事",
+    "content": "A man complained that his neighbor was unfriendly. A wise friend said, Your face is a mirror. If you smile at people, they smile back. If you frown, they frown too. The man tried smiling first. Soon, his neighbor became friendly.",
+    "contentCn": "一个人抱怨他的邻居不友好。一位明智的朋友说：你的脸是一面镜子。如果你对人微笑，他们也会回以微笑。如果你皱眉，他们也会皱眉。那人试着先微笑。很快，他的邻居变得友好了。",
+    "wordCount": 41
+  },
+  {
+    "id": 37,
+    "title": "King and the Spider",
+    "titleCn": "国王和蜘蛛",
+    "category": "经典传说",
+    "content": "A defeated king hid in a cave. He watched a spider try to make a web. It failed six times but kept trying. On the seventh try, it succeeded. The king learned from the spider, tried again, and won back his kingdom.",
+    "contentCn": "一位战败的国王躲在山洞里。他看着一只蜘蛛试图织网。它失败了六次但继续尝试。第七次，它成功了。国王从蜘蛛身上学到了东西，再次尝试，夺回了他的王国。",
+    "wordCount": 42
+  },
+  {
+    "id": 38,
+    "title": "Leonardo's Notebooks",
+    "titleCn": "达芬奇的笔记本",
+    "category": "名人趣事",
+    "content": "Leonardo da Vinci wrote his notes backwards. You needed a mirror to read them. Some say he did this to keep his ideas secret. Others say he was left-handed and found it easier. His notebooks are full of amazing inventions and art ideas.",
+    "contentCn": "列奥纳多·达芬奇把笔记倒着写。你需要一面镜子才能读。有人说他这样做是为了保密。有人说他是左撇子，觉得这样更容易。他的笔记本里充满了惊人的发明和艺术想法。",
+    "wordCount": 43
+  },
+  {
+    "id": 39,
+    "title": "The Blind Men and the Elephant",
+    "titleCn": "盲人摸象",
+    "category": "经典寓言",
+    "content": "Six blind men touched an elephant. One touched its leg and said, It's like a tree. One touched its ear and said, It's like a fan. Each had a different idea, but none saw the whole picture. We all see only part of the truth.",
+    "contentCn": "六个盲人摸一头大象。一个摸到腿说：像棵树。一个摸到耳朵说：像把扇子。每个人都有不同的想法，但没人看到全貌。我们都只看到真相的一部分。",
+    "wordCount": 45
+  },
+  {
+    "id": 40,
+    "title": "The Talking Dog",
+    "titleCn": "会说话的狗",
+    "category": "幽默故事",
+    "content": "A man tried to sell a talking dog for ten dollars. A buyer asked, Why so cheap? The dog said, Because he's not a good owner. He never takes me for walks. The man replied, See? He lies too much!",
+    "contentCn": "一个人想以十美元卖掉一只会说话的狗。买家问：为什么这么便宜？狗说：因为他不是个好主人。他从不带我散步。那人回答：看到没？它太爱撒谎了！",
+    "wordCount": 40
+  },
+  {
+    "id": 41,
+    "title": "Hemingway's Six Words",
+    "titleCn": "海明威的六个词",
+    "category": "名人趣事",
+    "content": "Someone bet Hemingway he couldn't write a complete story in just six words. He wrote: For sale: baby shoes, never worn. He won the bet. These six words tell a sad story. Sometimes less is more when it comes to words.",
+    "contentCn": "有人和海明威打赌，说他无法用六个词写一个完整的故事。他写道：出售：婴儿鞋，从未穿过。他赢了赌注。这六个词讲述了一个悲伤的故事。有时候在用词上，少即是多。",
+    "wordCount": 41
+  },
+  {
+    "id": 42,
+    "title": "The North Wind and the Sun",
+    "titleCn": "北风和太阳",
+    "category": "经典寓言",
+    "content": "The North Wind and the Sun argued about who was stronger. They saw a man with a coat. The Wind blew hard, but the man held his coat tighter. The Sun shone gently, and the man took off his coat. Kindness wins more than force.",
+    "contentCn": "北风和太阳争论谁更强大。他们看到一个穿外套的人。北风猛吹，但那人把外套裹得更紧。太阳温和地照耀，那人脱掉了外套。善意比武力更能获胜。",
+    "wordCount": 45
+  },
+  {
+    "id": 43,
+    "title": "The Math Teacher",
+    "titleCn": "数学老师",
+    "category": "幽默故事",
+    "content": "A teacher asked, If I had five apples in one hand and six in the other, what would I have? A student answered, Really big hands! The class laughed. The teacher smiled too. Sometimes the funny answer is the best one.",
+    "contentCn": "老师问：如果我一只手有五个苹果，另一只手有六个，我有什么？一个学生回答：非常大的手！全班都笑了。老师也笑了。有时候有趣的答案是最好的。",
+    "wordCount": 41
+  },
+  {
+    "id": 44,
+    "title": "Columbus and the Egg",
+    "titleCn": "哥伦布和鸡蛋",
+    "category": "名人趣事",
+    "content": "After Columbus discovered America, some people said, Anyone could have done that. Columbus asked them to make an egg stand on its end. No one could. He tapped the egg on the table, breaking the bottom slightly. It stood. Now anyone can do it, he said.",
+    "contentCn": "哥伦布发现美洲后，有人说：任何人都能做到。哥伦布让他们把鸡蛋立起来。没人做到。他把鸡蛋在桌上轻轻一敲，底部略微破损，鸡蛋立住了。现在任何人都能做到了，他说。",
+    "wordCount": 46
+  },
+  {
+    "id": 45,
+    "title": "The Wise Donkey",
+    "titleCn": "聪明的驴子",
+    "category": "经典寓言",
+    "content": "A donkey fell into a well. The farmer decided to bury it. He threw dirt on the donkey. But the donkey shook off the dirt and stepped up. Soon the donkey walked out of the well. Turn your problems into steps to rise higher.",
+    "contentCn": "一头驴掉进了井里。农夫决定把它埋了。他往驴身上扔土。但驴抖掉身上的土，踩上去。很快驴就走出了井。把你的问题变成向上攀登的台阶。",
+    "wordCount": 44
+  },
+  {
+    "id": 46,
+    "title": "The Last Cookie",
+    "titleCn": "最后一块饼干",
+    "category": "幽默故事",
+    "content": "Two friends were eating cookies from a bag. One said, Let's leave the last cookie. The other agreed. Later, one friend came back and found the bag empty. I thought we agreed to leave it! We did, said the other, and I left it... in my stomach.",
+    "contentCn": "两个朋友从袋子里吃饼干。一个说：我们留下最后一块吧。另一个同意了。后来，一个朋友回来发现袋子空了。我以为我们说好要留着的！是的，另一个说，我留了...在我肚子里。",
+    "wordCount": 47
+  },
+  {
+    "id": 47,
+    "title": "Florence Nightingale's Lamp",
+    "titleCn": "南丁格尔的灯",
+    "category": "名人趣事",
+    "content": "Florence Nightingale cared for sick soldiers at night. She carried a lamp to check on them. The soldiers called her The Lady with the Lamp. She taught the world that caring for the sick is important work. She is the mother of modern nursing.",
+    "contentCn": "弗洛伦斯·南丁格尔在夜间照顾生病的士兵。她提着灯查看他们的情况。士兵们称她为提灯女士。她告诉世界照顾病人是重要的工作。她是现代护理之母。",
+    "wordCount": 44
+  },
+  {
+    "id": 48,
+    "title": "The Empty Cup",
+    "titleCn": "空杯子",
+    "category": "哲理故事",
+    "content": "A professor visited a wise teacher. The teacher poured tea into the professor's cup and kept pouring even when it was full. Stop! It's overflowing! The teacher said, Like this cup, your mind is full. Empty it first if you want to learn something new.",
+    "contentCn": "一位教授拜访一位智者。智者往教授的杯子里倒茶，满了还在倒。停！溢出来了！智者说：像这杯子一样，你的心是满的。如果想学新东西，先把它倒空。",
+    "wordCount": 45
+  },
+  {
+    "id": 49,
+    "title": "The Test",
+    "titleCn": "考试",
+    "category": "幽默故事",
+    "content": "A student did not study for the test. One question asked, Why do birds fly south in winter? He wrote, Because it's too far to walk. The teacher gave him half a point for making her laugh. Sometimes humor saves the day.",
+    "contentCn": "一个学生没有为考试复习。有道题问：鸟为什么冬天往南飞？他写道：因为走路太远了。老师给了他半分，因为他让她笑了。有时候幽默能化解尴尬。",
+    "wordCount": 42
+  },
+  {
+    "id": 50,
+    "title": "Wright Brothers' Dream",
+    "titleCn": "莱特兄弟的梦想",
+    "category": "名人趣事",
+    "content": "The Wright brothers built bicycles before they made airplanes. People laughed at their dream to fly. On December 17, 1903, they flew for twelve seconds. It was short, but it changed the world. Every great achievement starts with a dream that others doubt.",
+    "contentCn": "莱特兄弟在制造飞机之前是造自行车的。人们嘲笑他们飞翔的梦想。1903年12月17日，他们飞行了十二秒。虽然短暂，但改变了世界。每项伟大成就都始于他人质疑的梦想。",
+    "wordCount": 43
+  },
+  {
+    "id": 51,
+    "title": "The Kind Bus Driver",
+    "titleCn": "善良的公交车司机",
+    "category": "温情故事",
+    "content": "An old woman got on a bus but couldn't find her money. She felt embarrassed. The bus driver smiled and said, Don't worry. Ride for free today. A young man saw this and paid for her. Kindness spreads when we show it first.",
+    "contentCn": "一位老太太上了公交车但找不到钱。她感到很尴尬。司机微笑着说：别担心。今天免费坐。一个年轻人看到了这一幕，替她付了钱。当我们先展示善意时，善意会传播开来。",
+    "wordCount": 43
+  },
+  {
+    "id": 52,
+    "title": "The Crow and the Pitcher",
+    "titleCn": "乌鸦和水罐",
+    "category": "经典寓言",
+    "content": "A thirsty crow found a pitcher with a little water at the bottom. His beak couldn't reach it. He dropped small stones into the pitcher one by one. The water rose higher and higher. Finally, he could drink. Smart thinking solves difficult problems.",
+    "contentCn": "一只口渴的乌鸦发现一个罐子，底部有一点水。他的喙够不到。他一个一个地往罐子里扔小石子。水位越来越高。终于，他能喝到水了。聪明的思考能解决困难的问题。",
+    "wordCount": 43
+  },
+  {
+    "id": 53,
+    "title": "The Parking Ticket",
+    "titleCn": "停车罚单",
+    "category": "幽默故事",
+    "content": "A man found a parking ticket on his car. He wrote to the city: I was only parked there for five minutes! The city wrote back: That's why it's only a small ticket. Thank you for your quick visit. Sometimes you just have to laugh.",
+    "contentCn": "一个人在他车上发现一张停车罚单。他给市政府写信：我只停了五分钟！市政府回复：所以罚单金额很小。感谢您的短暂停留。有时候你只能笑一笑。",
+    "wordCount": 45
+  },
+  {
+    "id": 54,
+    "title": "Mother Teresa's Words",
+    "titleCn": "特蕾莎修女的话",
+    "category": "名人趣事",
+    "content": "Mother Teresa helped the poorest people in India. Someone asked her how she did so much work. She said, I'm just a pencil in God's hand. She believed that even small acts of love can change the world. And she was right.",
+    "contentCn": "特蕾莎修女帮助印度最贫穷的人。有人问她如何做这么多工作。她说：我只是上帝手中的一支铅笔。她相信即使是小小的爱的行动也能改变世界。她是对的。",
+    "wordCount": 42
+  },
+  {
+    "id": 55,
+    "title": "The Seed",
+    "titleCn": "种子",
+    "category": "哲理故事",
+    "content": "A farmer gave seeds to his two sons. One planted his immediately. The other kept it in a box to protect it. Years later, the first son had a big garden. The second had nothing - his seed had died. Things only grow when we use them.",
+    "contentCn": "一位农夫给了两个儿子种子。一个立刻种下了。另一个把它放在盒子里保护起来。多年后，第一个儿子有了一个大花园。第二个什么也没有——他的种子死了。只有使用东西，它们才会成长。",
+    "wordCount": 47
+  },
+  {
+    "id": 56,
+    "title": "The Lazy Student",
+    "titleCn": "懒惰的学生",
+    "category": "幽默故事",
+    "content": "A teacher asked a lazy student, Did you write this poem yourself? The student said, Yes, every word. The teacher replied, Well, I'm glad to meet you, Mr. Shakespeare! I've always wanted to ask you some questions about your other work.",
+    "contentCn": "老师问一个懒学生：这首诗是你自己写的吗？学生说：是的，每个字都是。老师回答：好的，很高兴认识你，莎士比亚先生！我一直想问你一些关于你其他作品的问题。",
+    "wordCount": 41
+  },
+  {
+    "id": 57,
+    "title": "Nobel's Change",
+    "titleCn": "诺贝尔的改变",
+    "category": "名人趣事",
+    "content": "Alfred Nobel invented dynamite. One day, a newspaper wrongly printed that he had died. The title said, The merchant of death is dead. Nobel was shocked to see how people would remember him. He decided to use his money for prizes that help humanity.",
+    "contentCn": "阿尔弗雷德·诺贝尔发明了炸药。一天，一份报纸错误地印刷说他死了。标题写道：死亡商人去世了。诺贝尔震惊地看到人们会如何记住他。他决定用他的钱设立帮助人类的奖项。",
+    "wordCount": 44
+  },
+  {
+    "id": 58,
+    "title": "The Stone Soup",
+    "titleCn": "石头汤",
+    "category": "经典童话",
+    "content": "A hungry traveler came to a village. No one would share food. He started to make stone soup with just water and a stone. Curious villagers each added something - carrots, meat, salt. Soon they had a delicious soup. Together, we can make something from nothing.",
+    "contentCn": "一个饥饿的旅行者来到一个村庄。没人愿意分享食物。他开始用水和石头做石头汤。好奇的村民们各自加了些东西——胡萝卜、肉、盐。很快他们做出了美味的汤。团结起来，我们可以无中生有。",
+    "wordCount": 46
+  },
+  {
+    "id": 59,
+    "title": "The Coffee Test",
+    "titleCn": "咖啡测试",
+    "category": "幽默故事",
+    "content": "A boss told job applicants to get him coffee. One came back with just coffee. Another brought coffee, sugar, and milk. The third asked, How do you like your coffee? She got the job. Asking questions shows you care about doing things right.",
+    "contentCn": "老板让求职者给他拿咖啡。一个只带回了咖啡。另一个带来了咖啡、糖和牛奶。第三个问：您喜欢怎样的咖啡？她得到了工作。提问表明你在乎把事情做好。",
+    "wordCount": 43
+  },
+  {
+    "id": 60,
+    "title": "Confucius and the Student",
+    "titleCn": "孔子和学生",
+    "category": "名人趣事",
+    "content": "A student asked Confucius, Is there one word that can guide a person's whole life? Confucius thought and said, Perhaps the word is reciprocity. Do not do to others what you do not want done to yourself. This teaching is now called the Golden Rule.",
+    "contentCn": "一个学生问孔子：有没有一个词可以指导人的一生？孔子想了想说：也许这个词是恕。己所不欲，勿施于人。这个教导现在被称为黄金法则。",
+    "wordCount": 45
+  },
+  {
+    "id": 61,
+    "title": "The Honest Taxi Driver",
+    "titleCn": "诚实的出租车司机",
+    "category": "温情故事",
+    "content": "A tourist left a bag with a lot of money in a taxi. The driver found it and returned it. The tourist wanted to give him a reward. The driver said, No, thank you. Being honest is its own reward. Good actions don't need payment.",
+    "contentCn": "一位游客把装着很多钱的包落在了出租车里。司机发现后归还了它。游客想给他奖励。司机说：不，谢谢。诚实本身就是奖励。善行不需要报酬。",
+    "wordCount": 45
+  },
+  {
+    "id": 62,
+    "title": "The Two Jars",
+    "titleCn": "两个罐子",
+    "category": "经典寓言",
+    "content": "A clay jar and a brass jar floated down a river. The brass jar said, Stay close to me. I'll protect you. The clay jar replied, No, thank you. If we touch, I'll break. Sometimes the best protection is keeping a safe distance.",
+    "contentCn": "一个陶罐和一个铜罐顺河漂流。铜罐说：靠近我。我会保护你。陶罐回答：不，谢谢。如果我们碰到，我会碎的。有时候最好的保护就是保持安全距离。",
+    "wordCount": 43
+  },
+  {
+    "id": 63,
+    "title": "The Smart Dog",
+    "titleCn": "聪明的狗",
+    "category": "幽默故事",
+    "content": "A man claimed his dog could talk. His friend didn't believe him. Dog, what's on top of a house? The dog said, Roof! What does sandpaper feel like? Rough! Who was the greatest baseball player? Ruth! The friend walked away, not impressed.",
+    "contentCn": "一个人说他的狗会说话。他的朋友不信。狗，房顶上有什么？狗说：Roof！砂纸摸起来怎样？Rough！谁是最伟大的棒球运动员？Ruth！朋友走了，并不佩服。",
+    "wordCount": 42
+  },
+  {
+    "id": 64,
+    "title": "The Tailor's Wisdom",
+    "titleCn": "裁缝的智慧",
+    "category": "哲理故事",
+    "content": "A young man tore his expensive coat. He was very upset. An old tailor said, Don't cry over the tear. It shows you lived and moved. A coat hanging in a closet never tears, but it never does anything either. Life is meant to be lived fully.",
+    "contentCn": "一个年轻人撕破了他昂贵的外套。他非常沮丧。一位老裁缝说：别为破洞哭泣。它说明你活过、动过。挂在衣柜里的外套永远不会破，但它也什么都不做。生命就是要充实地活着。",
+    "wordCount": 47
+  },
+  {
+    "id": 65,
+    "title": "Disney's Rejection",
+    "titleCn": "迪士尼的拒绝",
+    "category": "名人趣事",
+    "content": "Walt Disney was fired from a newspaper because he lacked imagination. He went bankrupt several times. Later, he built Disneyland and created Mickey Mouse. Today, his company is worth billions. Never let anyone tell you that you can't dream big.",
+    "contentCn": "沃尔特·迪士尼被一家报社解雇，因为他缺乏想象力。他破产了好几次。后来，他建造了迪士尼乐园，创造了米老鼠。今天，他的公司价值数十亿。永远不要让任何人告诉你不能有大梦想。",
+    "wordCount": 40
+  },
+  {
+    "id": 66,
+    "title": "The Jar of Life",
+    "titleCn": "人生之罐",
+    "category": "哲理故事",
+    "content": "A teacher filled a jar with big rocks. Is it full? Students said yes. He added small stones. Now? Yes. He added sand. Then water. He said, The big rocks are your important things - family, health, dreams. Put them in first, or there won't be room.",
+    "contentCn": "老师用大石头装满一个罐子。满了吗？学生们说满了。他加了小石子。现在呢？满了。他加了沙子，然后是水。他说：大石头是你重要的事情——家庭、健康、梦想。先把它们放进去，否则就没有空间了。",
+    "wordCount": 47
+  },
+  {
+    "id": 67,
+    "title": "The Restaurant Bill",
+    "titleCn": "餐厅账单",
+    "category": "幽默故事",
+    "content": "A man looked at his restaurant bill and complained, This is too expensive! The waiter said, Sir, you ate a lot. The man replied, But I'm still hungry! Well, said the waiter, if you were full, imagine how much more it would cost!",
+    "contentCn": "一个人看着他的餐厅账单抱怨道：这太贵了！服务员说：先生，您吃了很多。那人回答：但我还是饿！那么，服务员说，如果您吃饱了，想象一下要花多少钱！",
+    "wordCount": 43
+  },
+  {
+    "id": 68,
+    "title": "The Farmer's Luck",
+    "titleCn": "农夫的运气",
+    "category": "哲理故事",
+    "content": "A farmer's horse ran away. Neighbors said, Bad luck! He replied, Maybe. The horse returned with wild horses. Good luck! Maybe. His son broke his leg riding them. Bad luck! Maybe. The army came but didn't take his injured son. We never know what's truly good or bad.",
+    "contentCn": "农夫的马跑了。邻居说：真倒霉！他回答：也许吧。马带着野马回来了。真幸运！也许吧。他儿子骑马摔断了腿。真倒霉！也许吧。军队来了但没带走他受伤的儿子。我们永远不知道什么是真正的好或坏。",
+    "wordCount": 48
+  },
+  {
+    "id": 69,
+    "title": "JK Rowling's Beginning",
+    "titleCn": "JK罗琳的开始",
+    "category": "名人趣事",
+    "content": "JK Rowling was a poor single mother. She wrote Harry Potter in cafes while her baby slept. Twelve publishers rejected her book. One finally said yes. Now she is one of the richest authors in the world. Never give up on your story.",
+    "contentCn": "JK罗琳曾是一位贫穷的单身母亲。她趁孩子睡觉时在咖啡馆写哈利波特。十二家出版社拒绝了她的书。终于有一家同意了。现在她是世界上最富有的作家之一。永远不要放弃你的故事。",
+    "wordCount": 43
+  },
+  {
+    "id": 70,
+    "title": "The Salt Merchant",
+    "titleCn": "盐商",
+    "category": "经典寓言",
+    "content": "A merchant loaded his donkey with salt and crossed a river. The donkey fell, and the salt melted. The load became light! The next day with cotton, the donkey fell on purpose. But wet cotton became very heavy. Tricks don't always work twice.",
+    "contentCn": "一个商人让驴子驮着盐过河。驴子摔倒了，盐融化了。负担变轻了！第二天驮棉花时，驴子故意摔倒。但湿棉花变得非常重。同样的把戏不一定总能奏效。",
+    "wordCount": 43
+  },
+  {
+    "id": 71,
+    "title": "The Thank You Letter",
+    "titleCn": "感谢信",
+    "category": "温情故事",
+    "content": "An old teacher received a letter from a former student. It said, You probably don't remember me, but you changed my life with one kind word twenty years ago. The teacher cried happily. She had no idea her words had such power.",
+    "contentCn": "一位老教师收到一封来自以前学生的信。信上写道：您可能不记得我，但二十年前您一句善意的话改变了我的人生。老师高兴地哭了。她不知道自己的话有如此大的力量。",
+    "wordCount": 42
+  },
+  {
+    "id": 72,
+    "title": "The Lost Wallet",
+    "titleCn": "丢失的钱包",
+    "category": "幽默故事",
+    "content": "A man lost his wallet on a busy street. He announced, I'll give fifty dollars to whoever returns it! A voice from the crowd said, I'll give seventy-five! Sometimes competition appears in the strangest places and at the strangest times.",
+    "contentCn": "一个人在繁忙的街上丢了钱包。他宣布：谁还给我，我给五十美元！人群中有人喊道：我给七十五！有时候竞争会出现在最奇怪的地方和最奇怪的时间。",
+    "wordCount": 40
+  },
+  {
+    "id": 73,
+    "title": "Galileo's Discovery",
+    "titleCn": "伽利略的发现",
+    "category": "名人趣事",
+    "content": "Galileo looked through his telescope and saw that Earth moved around the Sun. The church said this was wrong. He had to say he was mistaken. But as he left, he whispered, And yet it moves. Truth cannot be hidden forever.",
+    "contentCn": "伽利略通过望远镜看到地球围绕太阳转。教会说这是错的。他不得不说自己错了。但当他离开时，他低声说：但它确实在动。真相永远无法被隐藏。",
+    "wordCount": 41
+  },
+  {
+    "id": 74,
+    "title": "The Bundle of Sticks",
+    "titleCn": "一捆树枝",
+    "category": "经典寓言",
+    "content": "An old father asked his sons to break a bundle of sticks. No one could. Then he untied the bundle and gave each son one stick. They broke them easily. He said, Stay together and you will be strong. Alone, you can be broken easily.",
+    "contentCn": "一位老父亲让儿子们折断一捆树枝。没人能做到。然后他解开捆，给每个儿子一根树枝。他们轻松折断了。他说：团结在一起你们会很强大。独自一人，你们很容易被折断。",
+    "wordCount": 45
+  },
+  {
+    "id": 75,
+    "title": "The Birthday Present",
+    "titleCn": "生日礼物",
+    "category": "温情故事",
+    "content": "A girl wanted a dog for her birthday. Her parents said no. On her birthday, they gave her a book about dogs. She looked sad. Then a small dog jumped out from behind the couch! Sometimes the best surprises are worth the wait.",
+    "contentCn": "一个女孩想要一只狗作为生日礼物。她父母说不行。在她生日那天，他们给了她一本关于狗的书。她看起来很伤心。然后一只小狗从沙发后面跳了出来！有时候最好的惊喜值得等待。",
+    "wordCount": 43
+  },
+  {
+    "id": 76,
+    "title": "The New Shoes",
+    "titleCn": "新鞋子",
+    "category": "幽默故事",
+    "content": "A boy got new shoes and kept looking at them. He walked into a tree. His father said, That's why you should look where you're going. The boy replied, But then how will people see my new shoes? Pride sometimes blinds us.",
+    "contentCn": "一个男孩得到了新鞋子，一直盯着它们看。他撞到了一棵树。他父亲说：这就是为什么你应该看路。男孩回答：但那样人们怎么能看到我的新鞋子呢？骄傲有时会让我们盲目。",
+    "wordCount": 42
+  },
+  {
+    "id": 77,
+    "title": "The Boy and the Nails",
+    "titleCn": "男孩和钉子",
+    "category": "哲理故事",
+    "content": "A boy with a bad temper was told to put a nail in the fence every time he got angry. He put in many nails. Then his father said to remove one nail each day he didn't get angry. When all nails were gone, the holes remained. Angry words leave scars.",
+    "contentCn": "一个脾气暴躁的男孩被告知每次生气就往篱笆上钉一颗钉子。他钉了很多。然后他父亲说每天不生气就拔掉一颗。当所有钉子都拔掉后，洞还在。愤怒的话会留下伤疤。",
+    "wordCount": 51
+  },
+  {
+    "id": 78,
+    "title": "The Wrong Number",
+    "titleCn": "打错电话",
+    "category": "幽默故事",
+    "content": "A woman called, Is John there? Sorry, wrong number, I said. She called again the next day and the next. On the fourth day, she asked for John again. I said, He's still not here, but if he shows up, I'll tell him you called.",
+    "contentCn": "一个女人打电话问：约翰在吗？抱歉，打错了，我说。她第二天又打来，第三天也是。第四天，她又找约翰。我说：他还是不在这儿，但如果他出现，我会告诉他你打过电话。",
+    "wordCount": 45
+  },
+  {
+    "id": 79,
+    "title": "Hawking's Stars",
+    "titleCn": "霍金的星星",
+    "category": "名人趣事",
+    "content": "Stephen Hawking was told he would die young because of his illness. He lived for fifty more years! He couldn't move or speak without help, but he became the most famous scientist since Einstein. He showed us that the mind has no limits.",
+    "contentCn": "斯蒂芬·霍金因为疾病被告知活不长。他又活了五十多年！他不能动，说话也需要帮助，但他成为了爱因斯坦以来最著名的科学家。他向我们证明心智没有极限。",
+    "wordCount": 43
+  },
+  {
+    "id": 80,
+    "title": "The Paper Boat",
+    "titleCn": "纸船",
+    "category": "温情故事",
+    "content": "A grandfather made paper boats with his grandson every Sunday. Years later, after the grandfather died, the grandson found a box full of paper boats. Each one had a date and a note: Today we laughed a lot. Small moments become the biggest memories.",
+    "contentCn": "爷爷每个星期天都和孙子做纸船。多年后，爷爷去世后，孙子发现了一盒纸船。每只上面都有日期和一句话：今天我们笑了很多。小小的时刻变成最大的回忆。",
+    "wordCount": 44
+  },
+  {
+    "id": 81,
+    "title": "The Job Interview",
+    "titleCn": "工作面试",
+    "category": "幽默故事",
+    "content": "In a job interview, the boss asked, What's your biggest weakness? The man said, I'm too honest. The boss replied, I don't think that's a weakness. The man said, I don't care what you think. Honesty is good, but timing is everything.",
+    "contentCn": "在一次工作面试中，老板问：你最大的弱点是什么？那人说：我太诚实了。老板回答：我不认为那是弱点。那人说：我不在乎你怎么想。诚实是好的，但时机很重要。",
+    "wordCount": 42
+  },
+  {
+    "id": 82,
+    "title": "Mandela's Freedom",
+    "titleCn": "曼德拉的自由",
+    "category": "名人趣事",
+    "content": "Nelson Mandela spent 27 years in prison. When he walked out free, he didn't feel angry at his enemies. He said, As I walked through the door, I knew if I hated them, I would still be in prison. Forgiveness sets us free.",
+    "contentCn": "纳尔逊·曼德拉在监狱里待了27年。当他自由走出来时，他对敌人没有愤怒。他说：当我走出那扇门时，我知道如果我恨他们，我仍然是囚犯。宽恕让我们自由。",
+    "wordCount": 43
+  },
+  {
+    "id": 83,
+    "title": "The Farmer's Well",
+    "titleCn": "农夫的井",
+    "category": "经典寓言",
+    "content": "A man sold his well to a farmer but kept coming to get water. The farmer complained. The man said, I sold you the well, not the water. The judge said, Then take your water away, but leave the well. Clever tricks often fail.",
+    "contentCn": "一个人把井卖给农夫，但一直来打水。农夫投诉了。那人说：我卖给你的是井，不是水。法官说：那就把你的水拿走，但把井留下。聪明的把戏常常失败。",
+    "wordCount": 44
+  },
+  {
+    "id": 84,
+    "title": "The Important Meeting",
+    "titleCn": "重要的会议",
+    "category": "幽默故事",
+    "content": "A man was late for an important meeting. He ran in and said, Sorry I'm late! His boss looked at him and said, You're not late. Everyone else is early. Sometimes how you see a problem changes everything about it.",
+    "contentCn": "一个人开重要会议迟到了。他跑进来说：抱歉我迟到了！他的老板看着他说：你没迟到。是其他人都早到了。有时候你看问题的方式会改变一切。",
+    "wordCount": 40
+  },
+  {
+    "id": 85,
+    "title": "Oprah's Start",
+    "titleCn": "奥普拉的起步",
+    "category": "名人趣事",
+    "content": "Oprah Winfrey grew up very poor. She was told she wasn't right for TV because of how she looked. She didn't give up. She became the queen of talk shows and one of the most powerful women in the world. Believe in yourself.",
+    "contentCn": "奥普拉·温弗瑞从小很穷。有人说她的外表不适合上电视。她没有放弃。她成为了脱口秀女王和世界上最有影响力的女性之一。相信你自己。",
+    "wordCount": 43
+  },
+  {
+    "id": 86,
+    "title": "The Appointment",
+    "titleCn": "约会",
+    "category": "温情故事",
+    "content": "An old man visited his wife at the hospital every day at 8 AM. A nurse asked, Does she know you're here? She doesn't remember anything. He smiled and said, She doesn't know me, but I still know who she is. True love never forgets.",
+    "contentCn": "一位老人每天早上八点去医院看望他的妻子。护士问：她知道你在这里吗？她什么都不记得了。他微笑着说：她不认识我，但我仍然知道她是谁。真爱永不忘记。",
+    "wordCount": 45
+  },
+  {
+    "id": 87,
+    "title": "The Magic Shop",
+    "titleCn": "魔法商店",
+    "category": "幽默故事",
+    "content": "A man walked into a magic shop. I want to buy something amazing, he said. The owner gave him a mirror. What's magic about this? The owner said, Look into it and smile. Watch the amazing thing that happens. The man smiled at himself and understood.",
+    "contentCn": "一个人走进一家魔法商店。我想买点神奇的东西，他说。店主给了他一面镜子。这有什么神奇的？店主说：看着它微笑。看看神奇的事情会发生什么。那人对着自己微笑，明白了。",
+    "wordCount": 46
+  },
+  {
+    "id": 88,
+    "title": "The Best Teacher",
+    "titleCn": "最好的老师",
+    "category": "哲理故事",
+    "content": "A student asked his teacher, Who taught you? The teacher said, My mistakes. What did they teach you? They taught me that failure is just another step forward. Every time I fell, I learned how to stand up better. Mistakes are our best teachers.",
+    "contentCn": "一个学生问他的老师：谁教了你？老师说：我的错误。它们教了你什么？它们教我失败只是向前迈出的另一步。每次我跌倒，我都学会了如何更好地站起来。错误是我们最好的老师。",
+    "wordCount": 44
+  },
+  {
+    "id": 89,
+    "title": "The Racing Snail",
+    "titleCn": "赛车蜗牛",
+    "category": "幽默故事",
+    "content": "A man took the shell off his snail thinking it would move faster. It didn't. In fact, it just became more sluggish. Sometimes what we think slows us down is actually what keeps us safe and moving forward. Not all change is good change.",
+    "contentCn": "一个人把蜗牛的壳取下来，以为它会移动得更快。但并没有。实际上，它变得更迟缓了。有时候我们认为拖慢我们的东西，实际上是让我们安全前进的东西。并非所有改变都是好的改变。",
+    "wordCount": 44
+  },
+  {
+    "id": 90,
+    "title": "Steve Jobs' Question",
+    "titleCn": "乔布斯的问题",
+    "category": "名人趣事",
+    "content": "Steve Jobs asked himself every morning, If today were my last day, would I want to do what I'm about to do? If the answer was no too many days in a row, he knew something needed to change. Live each day with purpose.",
+    "contentCn": "史蒂夫·乔布斯每天早上问自己：如果今天是我的最后一天，我想做我即将要做的事吗？如果答案连续太多天都是否定的，他就知道需要改变了。每天都要有目标地生活。",
+    "wordCount": 44
+  },
+  {
+    "id": 91,
+    "title": "The Echo",
+    "titleCn": "回声",
+    "category": "哲理故事",
+    "content": "A boy shouted I hate you! in a valley. The echo came back, I hate you! He ran to his mother crying. She took him back and had him shout, I love you! The echo returned, I love you! What you give out comes back to you.",
+    "contentCn": "一个男孩在山谷里喊我恨你！回声传来我恨你！他跑向妈妈哭泣。妈妈带他回去让他喊我爱你！回声传来我爱你！你付出什么，就会收到什么。",
+    "wordCount": 47
+  },
+  {
+    "id": 92,
+    "title": "The Late Night Snack",
+    "titleCn": "深夜小吃",
+    "category": "幽默故事",
+    "content": "I'm on a diet so I eat at night when no one is watching. I quietly opened the refrigerator. My cat looked at me. I looked at my cat. We both know this never happened, I said. She meowed in agreement. Night snacks don't count.",
+    "contentCn": "我在节食，所以没人看的时候我晚上吃东西。我悄悄打开冰箱。我的猫看着我。我看着我的猫。我们都知道这从未发生过，我说。她喵了一声表示同意。夜宵不算数。",
+    "wordCount": 45
+  },
+  {
+    "id": 93,
+    "title": "The Giving Tree",
+    "titleCn": "给予的树",
+    "category": "经典童话",
+    "content": "A tree loved a boy. She gave him her apples, branches, and trunk. When he was old, only a stump remained. He sat on it. The tree was happy. Sometimes love means giving everything without expecting anything in return. That is true kindness.",
+    "contentCn": "一棵树爱着一个男孩。她给了他苹果、树枝和树干。当他老了，只剩下一个树桩。他坐在上面。树很高兴。有时候爱意味着付出一切而不期望任何回报。这才是真正的善良。",
+    "wordCount": 43
+  },
+  {
+    "id": 94,
+    "title": "The Old Clock",
+    "titleCn": "老钟",
+    "category": "幽默故事",
+    "content": "A clock stopped working. The owner took it to a repair shop. The repairman looked at it for a long time. Finally, he tapped it once and it worked. That's fifty dollars, he said. Fifty dollars for one tap? No, one dollar for the tap, forty-nine for knowing where.",
+    "contentCn": "一个钟坏了。主人把它带到修理店。修理工看了很长时间。最后，他敲了一下，它就工作了。五十美元，他说。敲一下五十美元？不，敲一下一美元，知道敲哪里四十九美元。",
+    "wordCount": 49
+  },
+  {
+    "id": 95,
+    "title": "Bruce Lee's Water",
+    "titleCn": "李小龙的水",
+    "category": "名人趣事",
+    "content": "Bruce Lee said, Be water, my friend. Water can flow, or it can crash. He meant we should adapt to any situation. Be soft when needed, and strong when necessary. This is the secret to success in martial arts and in life.",
+    "contentCn": "李小龙说：像水一样，我的朋友。水可以流动，也可以冲击。他的意思是我们应该适应任何情况。需要时柔软，必要时坚强。这是武术和人生成功的秘诀。",
+    "wordCount": 42
+  },
+  {
+    "id": 96,
+    "title": "The Candle",
+    "titleCn": "蜡烛",
+    "category": "哲理故事",
+    "content": "A candle complained about burning. I'm melting away! An old candle said, Yes, but look at the light you give. As we use our time and energy for others, we may feel tired. But the light we give makes the world brighter.",
+    "contentCn": "一支蜡烛抱怨燃烧。我在融化！一支老蜡烛说：是的，但看看你发出的光。当我们为他人付出时间和精力时，我们可能会感到疲惫。但我们发出的光让世界更明亮。",
+    "wordCount": 42
+  },
+  {
+    "id": 97,
+    "title": "The Smart Reply",
+    "titleCn": "聪明的回复",
+    "category": "幽默故事",
+    "content": "A child asked his father, Dad, are bugs good to eat? Don't talk about such things at dinner! the father said. After dinner, he asked, Now, what did you want to ask? Nothing, the boy said. There was a bug in your soup, but it's gone now.",
+    "contentCn": "一个孩子问他爸爸：爸爸，虫子能吃吗？吃饭时别说这种事！爸爸说。饭后，他问：现在，你想问什么？没什么，男孩说。你的汤里有只虫子，但现在没了。",
+    "wordCount": 47
+  },
+  {
+    "id": 98,
+    "title": "Anne Frank's Diary",
+    "titleCn": "安妮·弗兰克的日记",
+    "category": "名人趣事",
+    "content": "Anne Frank hid from war in a small room for two years. She wrote a diary about her hopes and dreams. Sadly, she died young. But her diary has touched millions of hearts. Her words remind us that even in darkness, hope and love survive.",
+    "contentCn": "安妮·弗兰克为躲避战争在一个小房间里藏了两年。她写了一本关于她的希望和梦想的日记。遗憾的是，她年纪轻轻就去世了。但她的日记感动了数百万人的心。她的话提醒我们，即使在黑暗中，希望和爱也能存活。",
+    "wordCount": 45
+  },
+  {
+    "id": 99,
+    "title": "The Broken Vase",
+    "titleCn": "破碎的花瓶",
+    "category": "温情故事",
+    "content": "A child broke a beautiful vase. She cried and tried to hide the pieces. Her mother found her and said, Thank you for telling me. Vases can be fixed or replaced, but your honesty is worth more than any vase. Love forgives mistakes.",
+    "contentCn": "一个孩子打碎了一个漂亮的花瓶。她哭了，试图把碎片藏起来。她妈妈找到了她，说：谢谢你告诉我。花瓶可以修复或更换，但你的诚实比任何花瓶都珍贵。爱会原谅错误。",
+    "wordCount": 43
+  },
+  {
+    "id": 100,
+    "title": "The Finished Book",
+    "titleCn": "完成的书",
+    "category": "哲理故事",
+    "content": "When you finish a good book, you feel both happy and sad. Happy because of the beautiful story, sad because it's over. Life is like a book. Each day is a page. Make it a story worth reading. And don't rush to the end - enjoy every chapter.",
+    "contentCn": "当你读完一本好书时，你既高兴又难过。高兴是因为美丽的故事，难过是因为它结束了。人生就像一本书。每一天都是一页。让它成为一个值得阅读的故事。不要急着翻到最后——享受每一章。",
+    "wordCount": 48
+  }
+]
