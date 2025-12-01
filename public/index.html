@@ -220,6 +220,14 @@
         .preview-words{display:flex;flex-wrap:wrap;gap:6px}
         .preview-words span{padding:4px 10px;background:white;border-radius:15px;font-size:0.8rem;border:1px solid #e2e8f0}
         
+        /* 课程输入框样式 */
+        .lesson-input-group{display:flex;gap:10px}
+        .lesson-input{flex:1;padding:12px;border:2px solid #e2e8f0;border-radius:10px;font-size:1rem;text-align:center;min-width:0}
+        .lesson-input:focus{outline:none;border-color:var(--primary)}
+        .lesson-input::placeholder{color:#a0aec0;font-size:0.9rem}
+        .lesson-input-hint{font-size:0.8rem;color:var(--text-secondary);margin-top:8px}
+        .lesson-input-wrapper{margin-top:10px}
+        
         .dictation-progress{margin-bottom:25px}
         .dictation-progress span{font-size:0.9rem;color:var(--text-secondary);display:block;text-align:center;margin-bottom:8px}
         .dictation-word-card{text-align:center;padding:30px;background:linear-gradient(135deg,#f8fafc,#eef2ff);border-radius:16px;margin-bottom:25px}
@@ -529,15 +537,20 @@
                     <div class="setting-group">
                         <div class="setting-label">📚 选择词源</div>
                         <select class="dictation-select" id="dictationSource" onchange="updateDictationPreview()">
-                            <option value="lesson">当前课程单词</option>
+                            <option value="lesson">指定课程单词</option>
                             <option value="recent">最近学过的单词</option>
                             <option value="story">阅读短文生词</option>
                         </select>
                     </div>
                     
                     <div class="setting-group" id="lessonSelectGroup">
-                        <div class="setting-label">📖 选择课程</div>
-                        <select class="dictation-select" id="dictationLesson" onchange="updateDictationPreview()"></select>
+                        <div class="setting-label">📖 选择课程（最多3个，每课15词）</div>
+                        <div class="lesson-input-group">
+                            <input type="number" class="lesson-input" id="lessonInput1" placeholder="课程1" min="1" max="200" onchange="updateDictationPreview()">
+                            <input type="number" class="lesson-input" id="lessonInput2" placeholder="课程2" min="1" max="200" onchange="updateDictationPreview()">
+                            <input type="number" class="lesson-input" id="lessonInput3" placeholder="课程3" min="1" max="200" onchange="updateDictationPreview()">
+                        </div>
+                        <div class="lesson-input-hint">例如：输入 1, 2, 3 获取第1-3课共45个单词</div>
                     </div>
                     
                     <div class="setting-group" id="storySelectGroup" style="display:none;">
@@ -560,7 +573,7 @@
                             <button class="count-btn" onclick="setDictationCount(5)">5个</button>
                             <button class="count-btn active" onclick="setDictationCount(10)">10个</button>
                             <button class="count-btn" onclick="setDictationCount(15)">15个</button>
-                            <button class="count-btn" onclick="setDictationCount(20)">全部</button>
+                            <button class="count-btn" onclick="setDictationCount(999)">全部</button>
                         </div>
                     </div>
                     
@@ -675,11 +688,20 @@
                 </div>
                 
                 <div class="game-settings">
-                    <div class="setting-label">📖 词源范围</div>
-                    <select class="dictation-select" id="gameWordSource">
+                    <div class="setting-label">📚 词源范围</div>
+                    <select class="dictation-select" id="gameWordSource" onchange="toggleGameLessonInputs()">
                         <option value="learned">已学过的单词</option>
                         <option value="lesson">指定课程单词</option>
                     </select>
+                    
+                    <div class="lesson-input-wrapper" id="gameLessonInputs" style="display:none;">
+                        <div class="setting-label" style="margin-top:15px;">📖 选择课程（最多3个）</div>
+                        <div class="lesson-input-group">
+                            <input type="number" class="lesson-input" id="gameLessonInput1" placeholder="课程1" min="1" max="200">
+                            <input type="number" class="lesson-input" id="gameLessonInput2" placeholder="课程2" min="1" max="200">
+                            <input type="number" class="lesson-input" id="gameLessonInput3" placeholder="课程3" min="1" max="200">
+                        </div>
+                    </div>
                 </div>
             </div>
             
@@ -689,16 +711,52 @@
 
         <div class="section" id="section-practice">
             <div class="card day-selector">
-                <div class="day-selector-title">选择练习范围（最近N课）</div>
-                <div class="day-btns" id="practiceDayBtns"></div>
+                <div class="day-selector-title">选择练习范围</div>
+                <div class="setting-group" style="margin-top:15px;">
+                    <div class="setting-label">📚 词源选择</div>
+                    <select class="dictation-select" id="practiceSource" onchange="togglePracticeLessonInputs()">
+                        <option value="recent">最近学过的N课</option>
+                        <option value="lesson">指定课程单词</option>
+                    </select>
+                </div>
+                <div id="practiceRecentGroup">
+                    <div class="day-btns" id="practiceDayBtns"></div>
+                </div>
+                <div id="practiceLessonGroup" style="display:none;">
+                    <div class="setting-label" style="margin-top:15px;">📖 选择课程（最多3个）</div>
+                    <div class="lesson-input-group">
+                        <input type="number" class="lesson-input" id="practiceLessonInput1" placeholder="课程1" min="1" max="200">
+                        <input type="number" class="lesson-input" id="practiceLessonInput2" placeholder="课程2" min="1" max="200">
+                        <input type="number" class="lesson-input" id="practiceLessonInput3" placeholder="课程3" min="1" max="200">
+                    </div>
+                    <button class="btn btn-primary" style="margin-top:15px;" onclick="startPracticeWithLessons()">开始练习</button>
+                </div>
             </div>
             <div id="practiceArea"></div>
         </div>
 
         <div class="section" id="section-test">
             <div class="card day-selector">
-                <div class="day-selector-title">选择测验范围（最近N课）</div>
-                <div class="day-btns" id="testDayBtns"></div>
+                <div class="day-selector-title">选择测验范围</div>
+                <div class="setting-group" style="margin-top:15px;">
+                    <div class="setting-label">📚 词源选择</div>
+                    <select class="dictation-select" id="testSource" onchange="toggleTestLessonInputs()">
+                        <option value="recent">最近学过的N课</option>
+                        <option value="lesson">指定课程单词</option>
+                    </select>
+                </div>
+                <div id="testRecentGroup">
+                    <div class="day-btns" id="testDayBtns"></div>
+                </div>
+                <div id="testLessonGroup" style="display:none;">
+                    <div class="setting-label" style="margin-top:15px;">📖 选择课程（最多3个）</div>
+                    <div class="lesson-input-group">
+                        <input type="number" class="lesson-input" id="testLessonInput1" placeholder="课程1" min="1" max="200">
+                        <input type="number" class="lesson-input" id="testLessonInput2" placeholder="课程2" min="1" max="200">
+                        <input type="number" class="lesson-input" id="testLessonInput3" placeholder="课程3" min="1" max="200">
+                    </div>
+                    <button class="btn btn-primary" style="margin-top:15px;" onclick="startTestWithLessons()">开始测验</button>
+                </div>
             </div>
             <div id="testArea"></div>
         </div>
@@ -1787,19 +1845,10 @@ function speakStory() {
 // ==================== 听写功能 ====================
 
 function initDictation() {
-    // 初始化课程选择器
-    const lessonSelect = document.getElementById('dictationLesson');
-    const u = allUsers[currentUser];
-    const currentLesson = u ? Math.ceil((u.learned?.length || 0) / 15) || 1 : 1;
-    
-    lessonSelect.innerHTML = '';
-    for (let i = 1; i <= Math.min(currentLesson + 5, 67); i++) {
-        const opt = document.createElement('option');
-        opt.value = i;
-        opt.textContent = `第 ${i} 课`;
-        if (i === state.selectedLesson) opt.selected = true;
-        lessonSelect.appendChild(opt);
-    }
+    // 设置默认课程为1
+    document.getElementById('lessonInput1').value = '1';
+    document.getElementById('lessonInput2').value = '';
+    document.getElementById('lessonInput3').value = '';
     
     // 初始化短文选择器
     const storySelect = document.getElementById('dictationStory');
@@ -1817,7 +1866,7 @@ function updateDictationPreview() {
     
     // 显示/隐藏对应的选择器
     document.getElementById('lessonSelectGroup').style.display = 
-        (source === 'lesson' || source === 'recent') ? 'block' : 'none';
+        source === 'lesson' ? 'block' : 'none';
     document.getElementById('storySelectGroup').style.display = 
         source === 'story' ? 'block' : 'none';
     
@@ -1837,13 +1886,34 @@ function updateDictationPreview() {
         (words.length > 15 ? '<span>...</span>' : '');
 }
 
+// 通用函数：从输入框获取课程单词
+function getWordsFromLessonInputs(input1Id, input2Id, input3Id) {
+    const lesson1 = parseInt(document.getElementById(input1Id).value) || 0;
+    const lesson2 = parseInt(document.getElementById(input2Id).value) || 0;
+    const lesson3 = parseInt(document.getElementById(input3Id).value) || 0;
+    
+    let words = [];
+    [lesson1, lesson2, lesson3].forEach(lesson => {
+        if (lesson > 0 && lesson <= 200) {
+            words = words.concat(getLessonWords(lesson));
+        }
+    });
+    
+    // 去重
+    const seen = new Set();
+    return words.filter(w => {
+        if (seen.has(w.word)) return false;
+        seen.add(w.word);
+        return true;
+    });
+}
+
 function getDictationSourceWords() {
     const source = state.dictationSource;
     const u = allUsers[currentUser];
     
     if (source === 'lesson') {
-        const lesson = parseInt(document.getElementById('dictationLesson').value) || 1;
-        return getLessonWords(lesson);
+        return getWordsFromLessonInputs('lessonInput1', 'lessonInput2', 'lessonInput3');
     } else if (source === 'recent') {
         // 最近学过的单词
         const learned = u?.learned || [];
@@ -2160,11 +2230,22 @@ function initGames() {
     const u = allUsers[currentUser];
     document.getElementById('totalCoins').textContent = u?.coins || 0;
     
+    // 设置默认课程
+    document.getElementById('gameLessonInput1').value = '1';
+    document.getElementById('gameLessonInput2').value = '';
+    document.getElementById('gameLessonInput3').value = '';
+    
     // 停止任何正在运行的游戏
     if (state.gameTimer) {
         clearInterval(state.gameTimer);
         state.gameTimer = null;
     }
+}
+
+function toggleGameLessonInputs() {
+    const source = document.getElementById('gameWordSource').value;
+    document.getElementById('gameLessonInputs').style.display = 
+        source === 'lesson' ? 'block' : 'none';
 }
 
 function getGameWords() {
@@ -2179,7 +2260,7 @@ function getGameWords() {
         }
         return vocab.filter(w => learned.includes(w.word.toLowerCase()));
     } else {
-        return getLessonWords(state.selectedLesson);
+        return getWordsFromLessonInputs('gameLessonInput1', 'gameLessonInput2', 'gameLessonInput3');
     }
 }
 
@@ -2743,6 +2824,51 @@ function endGame(gameType) {
             </div>
         </div>
     `;
+}
+
+// ========== 练习和测验的课程选择函数 ==========
+
+function togglePracticeLessonInputs() {
+    const source = document.getElementById('practiceSource').value;
+    document.getElementById('practiceRecentGroup').style.display = 
+        source === 'recent' ? 'block' : 'none';
+    document.getElementById('practiceLessonGroup').style.display = 
+        source === 'lesson' ? 'block' : 'none';
+}
+
+function toggleTestLessonInputs() {
+    const source = document.getElementById('testSource').value;
+    document.getElementById('testRecentGroup').style.display = 
+        source === 'recent' ? 'block' : 'none';
+    document.getElementById('testLessonGroup').style.display = 
+        source === 'lesson' ? 'block' : 'none';
+}
+
+function startPracticeWithLessons() {
+    const words = getWordsFromLessonInputs('practiceLessonInput1', 'practiceLessonInput2', 'practiceLessonInput3');
+    
+    if (words.length === 0) {
+        showModal('😅', '没有单词', '请输入有效的课程编号');
+        return;
+    }
+    
+    state.practiceWords = shuffleArray([...words]);
+    state.practiceIdx = 0;
+    renderPracticeQuestion();
+}
+
+function startTestWithLessons() {
+    const words = getWordsFromLessonInputs('testLessonInput1', 'testLessonInput2', 'testLessonInput3');
+    
+    if (words.length === 0) {
+        showModal('😅', '没有单词', '请输入有效的课程编号');
+        return;
+    }
+    
+    state.testWords = shuffleArray([...words]).slice(0, 20);
+    state.testIdx = 0;
+    state.testResults = [];
+    renderTestQuestion();
 }
 
 init();
